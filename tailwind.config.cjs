@@ -1,4 +1,5 @@
 module.exports = {
+  prefix: 'glass-',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -17,7 +18,53 @@ module.exports = {
     },
     extend: {
       colors: {
-
+        gray: {
+          'glass-back': '#F5F5F5', //background
+          'gray': '#797E8C', //text 1
+          'grayl': '#EAECEF', //text and divide //background 0
+          'grayt': '#929BAA', // text 2
+          'silver': '#ecebff', //background, text
+          'gproduct': '#969696d4', //background
+          'gprofile': '#c7c7c7',
+        },
+        black: {
+          blackt: '#252A2E', // text
+        },
+        blue: {
+          'bluelabel': '#2740A9', //text
+          'tahiti': '#3ab7bf', //background
+          'midnight': '#121063', // background
+          blueb: '#2042AE', //background
+          'tw-glass-logo': '#020059', //text
+          'bproduct': '#3B82F6', //background
+          'bpro-hover': '#2A67CC',//hover background
+          'light': '#A3C7FB',
+          'bprofile': '#263FA9',
+          'bprofile-hover': '#2c4bd4',
+          'bcard': '#4E46B5',
+          'bcard-t': '#8B86DF',
+        },
+        red: {
+          'template-back': '#FFF5F8',
+          'template-t': '#F1416C',
+        },
+        green: {
+          'template-back': '#E8FFF3',
+          'template-t': '#50CD89',
+        },
+        yellow: {
+          'template-back': '#FFF8DD',
+          'template-t': '#FFC700',
+        },
+        other: {
+          'white': '#ffffff', //text, background
+          'purple': '#2740A9', // background
+          'metal': '#565584', //background      
+          yellow: '#FFE814', //background
+          'green': '#00C16E', //text
+          'orangelight': '#FFB88B',
+        },
+        orangetw: '#FD9654', //background
       },
       spacing: {
         screen: "100vw",
@@ -191,13 +238,3 @@ module.exports = {
   ],
 }
 
-// Estructura original de Tailwind
-// module.exports = {
-//   content: [
-//     "./src/**/*.{js,jsx,ts,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
