@@ -16,15 +16,15 @@ export const NotificationItem = ({
 
   return (
     <>
-      <div className='hover:glass-bg-grayl glass-rounded-md flex gap-3 glass-mx-3 glass-mt-2 glass-p-2 glass-items-center'>
+      <div className='hover:tw-bg-grayl tw-rounded-md flex gap-3 tw-mx-3 tw-mt-2 tw-p-2 tw-items-center'>
         <Button icon="pi pi-bell" className="p-button-rounded" aria-label="Notification" />
-        <button className='flex flex-column glass-w-36 glass-text-left'>
-          <p className='glass-font-semibold glass-text-sm'>{title}</p>
-          <p className=' glass-text-sm'>{desc}</p>
-          <p className='glass-text-grayt glass-text-xs '>{date}</p>
+        <button className='flex flex-column tw-w-36 tw-text-left'>
+          <p className='tw-font-semibold tw-text-sm'>{title}</p>
+          <p className=' tw-text-sm'>{desc}</p>
+          <p className='tw-text-grayt tw-text-xs '>{date}</p>
         </button>
       </div>
-      <hr className='glass-text-grayl glass-mx-3' />
+      <hr className='tw-text-grayl tw-mx-3' />
     </>
 
   )

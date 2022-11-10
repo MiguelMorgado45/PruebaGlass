@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .p-button{
-    @apply glass-px-4;
-    @apply glass-py-3;
+    @apply tw-px-4;
+    @apply tw-py-3;
     color: #C5C9D2;
     border: 1px solid #C5C9D2;
   }
@@ -132,10 +132,10 @@
     box-shadow: 5px 5px 10px rgba(166, 180, 200, 0.35), -6px -6px 10px rgba(255, 255, 255, 0.8);
     border-radius: 10%;
     transition: all 0.3s;
-    @apply glass-font-bold;
+    @apply tw-font-bold;
   }
   .active > div > img{
-    @apply glass-opacity-100;
+    @apply tw-opacity-100;
   }
   
   .p-tabmenu .p-tabmenu-nav {

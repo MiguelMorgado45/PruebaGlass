@@ -16,19 +16,19 @@ export const Menus = () => {
    const { notificationItems, userItem } = menuItems();
 
    const buttons = () => (
-      <div className='flex align-items-center justify-content-between glass-gap-4'>
+      <div className='flex align-items-center justify-content-between tw-gap-4'>
          {/* Botón de Notificaciones */}
-         <div className='flex align-items-center glass-text-base glass-font-normal glass-text-orangetw' >
+         <div className='flex align-items-center tw-text-base tw-font-normal tw-text-orangetw' >
             @nancy.cruz
          </div>
          <Menu model={notificationItems} popup ref={notificationMenu} id="popup_notificationMenu" />
-         <button className=' glass-w-5' onClick={(event) => (notificationMenu.current?.toggle(event))} aria-controls="popup_notificationMenu" aria-haspopup>
-            <i className="pi pi-bell glass-text-xl glass-relative"><Badge></Badge></i>
+         <button className=' tw-w-5' onClick={(event) => (notificationMenu.current?.toggle(event))} aria-controls="popup_notificationMenu" aria-haspopup>
+            <i className="pi pi-bell tw-text-xl tw-relative"><Badge></Badge></i>
          </button>
          {/* Botón de Usuario */}
          {/* <Menu model={userItem} popup ref={userMenu} id="popup_userMenu" /> */}
          <button className='flex align-items-center' onClick={(event) => (userMenu.current?.toggle(event))} aria-controls="popup_userMenu" aria-haspopup>
-            <Avatar className='glass-m-auto' image={user} shape='circle' size='large' />
+            <Avatar className='tw-m-auto' image={user} shape='circle' size='large' />
          </button>
       </div >
    )

@@ -16,26 +16,26 @@ export const MenuItem = ({
 }: ItemProps) => {
     return (
 
-        <div className='flex glass-mx-4 glass-my-2'>
+        <div className='flex tw-mx-4 tw-my-2'>
             {
                 label != 'Salir'
                     ? (<NavLink
                         className={({ isActive }) => {
-                            return `glass-w-full  glass-rounded-lg ${isActive ? 'active' : 'hover:glass-bg-grayl'} `
+                            return `tw-w-full  tw-rounded-lg ${isActive ? 'active' : 'hover:tw-bg-grayl'} `
                         }}
                         to={`/${path}`}
                     >
 
-                        <div className='flex glass-items-center gap-2 glass-text-sm glass-py-3 glass-pl-3'>
+                        <div className='flex tw-items-center gap-2 tw-text-sm tw-py-3 tw-pl-3'>
                             {img != null
-                                ? (<img src={img} alt={path} className='glass-h-5 glass-w-5 glass-opacity-60' />)
+                                ? (<img src={img} alt={path} className='tw-h-5 tw-w-5 tw-opacity-60' />)
                                 : (<i className={`${icon}`}></i>)}
                             <p>{label}</p>
                         </div>
                     </NavLink>)
-                    : (<div className='flex glass-items-center gap-2 glass-text-sm glass-py-3 glass-pl-3'>
+                    : (<div className='flex tw-items-center gap-2 tw-text-sm tw-py-3 tw-pl-3'>
                         {img != null
-                            ? (<img src={img} alt={path} className='glass-h-5 glass-w-5 glass-opacity-60' />)
+                            ? (<img src={img} alt={path} className='tw-h-5 tw-w-5 tw-opacity-60' />)
                             : (<i className={`${icon}`}></i>)}
                         <p>{label}</p>
                     </div>)

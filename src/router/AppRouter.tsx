@@ -1,13 +1,14 @@
 import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom"
-import PageTemplate from '../templates/pageTemplate/PageTemplate';
+
 import { Cuentas } from '../pages/Cuentas';
 import { Dashboard } from "../pages/Dashboard";
+import { GlassNavigationBar } from "../pages/GlassNavigationBar";
 
 const AppRouter = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<PageTemplate />}>
+                <Route path="/" element={<GlassNavigationBar />}>
                     <Route path="dashboard" element={<Dashboard />}/>
                     <Route path="cuentas" element={<Cuentas />}/>
                 </Route>

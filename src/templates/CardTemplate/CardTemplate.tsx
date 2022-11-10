@@ -13,8 +13,8 @@ export const CardTemplate = ({
 }: PropsCardTemplate) => {
     return (
         <div>
-            <span className='glass-mx-4 glass-text-sm glass-font-medium glass-text-gray-gray'>{name}</span>
-            <Card className={`glass-m-4 ${classname}`} >
+            <span className='tw-mx-4 tw-text-sm tw-font-medium tw-text-gray-gray'>{name}</span>
+            <Card className={`tw-m-4 ${classname}`} >
                 {children}    
             </Card>
         </div>

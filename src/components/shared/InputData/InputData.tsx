@@ -49,8 +49,8 @@ export const InputData = ({
         }
     }
     return (
-        <div className="flex flex-column gap-1 glass-w-full">
-            <label className="glass-font-semibold">{label}</label>
+        <div className="flex flex-column gap-1 tw-w-full">
+            <label className="tw-font-semibold">{label}</label>
             {
                 typeInput()
             }

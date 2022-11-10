@@ -17,12 +17,12 @@ export const LeftMenu = () => {
    }
 
    return (
-      <div className={`${leftBarStatus ? 'glass-w-48' : 'glass-w-20'} glass-h-full glass-relative flex flex-column glass-items-center hub glass-transition-all `}>
-         <button onClick={ToolBarSetLocalStorage} className='glass-bg-white glass-border-transparent glass-cursor-pointer'><img src={icono} className={`glass-p-2 glass-mb-2 glass-h-16   ${leftBarStatus ? 'glass-w-40' : 'glass-w-16'}`} /></button>
+      <div className={`${leftBarStatus ? 'tw-w-48' : 'tw-w-20'} tw-h-full tw-relative flex flex-column tw-items-center hub tw-transition-all `}>
+         <button onClick={ToolBarSetLocalStorage} className='tw-bg-white tw-border-transparent tw-cursor-pointer'><img src={icono} className={`tw-p-2 tw-mb-2 tw-h-16   ${leftBarStatus ? 'tw-w-40' : 'tw-w-16'}`} /></button>
          {
             leftBarStatus 
-            ? (<SlideMenu model={letfMenuItems} className='glass-bg-white glass-w-48 glass-border-0 rounded-none ' viewportHeight={670} easing="ease-in" />)
-            : (<SlideMenu model={letfMenuItemsIcon} className='glass-bg-white glass-w-20 glass-border-0 rounded-none ' viewportHeight={670} easing="ease-in" />)
+            ? (<SlideMenu model={letfMenuItems} className='tw-bg-white tw-w-48 tw-border-0 rounded-none ' viewportHeight={670} easing="ease-in" />)
+            : (<SlideMenu model={letfMenuItemsIcon} className='tw-bg-white tw-w-20 tw-border-0 rounded-none ' viewportHeight={670} easing="ease-in" />)
          }
          
       </div>

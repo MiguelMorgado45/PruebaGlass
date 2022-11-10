@@ -1,5 +1,5 @@
 module.exports = {
-  prefix: 'glass-',
+  prefix: 'tw-',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],

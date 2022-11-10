@@ -3,34 +3,34 @@ import { Link } from "react-router-dom"
 export const getTemplates = () => {
 
     const imageLogoTemplate = (rowData: any) => {
-        return <img src={rowData.logo} alt={rowData.name} className='glass-w-8 ' />
+        return <img src={rowData.logo} alt={rowData.name} className='tw-w-8 ' />
     }
 
     const contratadoTemplate = (rowData: any) => {
-        return <div className={`glass-text-xs glass-font-medium glass-w-8 flex glass-justify-center glass-p-1 glass-rounded-full glass-bg-purple-200 glass-text-purple-900 `}>{rowData.contratados}</div>
+        return <div className={`tw-text-xs tw-font-medium tw-w-8 flex tw-justify-center tw-p-1 tw-rounded-full tw-bg-purple-200 tw-text-purple-900 `}>{rowData.contratados}</div>
     }
     const personasTemplate = (rowData: any) => {
-        return <div className={`glass-ml-7 glass-text-xs glass-font-medium glass-w-8 flex glass-justify-center glass-p-1 glass-rounded-full glass-bg-orange-200 glass-text-orange-900 `}>{rowData.personas}</div>
+        return <div className={`tw-ml-7 tw-text-xs tw-font-medium tw-w-8 flex tw-justify-center tw-p-1 tw-rounded-full tw-bg-orange-200 tw-text-orange-900 `}>{rowData.personas}</div>
     }
     const operadoresTemplate = (rowData: any) => {
-        return <div className={`glass-ml-8 glass-text-xs glass-font-medium glass-w-8 flex glass-justify-center glass-p-1 glass-rounded-full glass-bg-blue-200 glass-text-blue-900 `}>{rowData.operadores}</div>
+        return <div className={`tw-ml-8 tw-text-xs tw-font-medium tw-w-8 flex tw-justify-center tw-p-1 tw-rounded-full tw-bg-blue-200 tw-text-blue-900 `}>{rowData.operadores}</div>
     }
 
     const detalleTemplate = (rowData: any) => {
         return(
         <Link to={`detalle/${rowData.id}`}>
-            <button className={`glass-text-xs glass-w-16 glass-h-8 glass-bg-gray-300 glass-rounded-md glass-text-gray-700`}>Ver</button>
+            <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Ver</button>
         </Link>) 
         
 
     }
 
     const estadoTemplate = (rowData: any) => {
-        return <div className={`flex glass-justify-center glass-items-center glass-text-xs glass-w-16 glass-h-8
-        glass-px-3 glass-py-2 glass-rounded-md glass-font-semibold
-        ${rowData.estado == 'Activo' ? 'glass-bg-green-template-back glass-text-green-template-t'
-                : (rowData.estado == 'Inactivo' ? 'glass-bg-red-template-back glass-text-red-template-t'
-                    : 'glass-bg-yellow-template-back glass-text-yellow-template-t')}`}>
+        return <div className={`flex tw-justify-center tw-items-center tw-text-xs tw-w-16 tw-h-8
+        tw-px-3 tw-py-2 tw-rounded-md tw-font-semibold
+        ${rowData.estado == 'Activo' ? 'tw-bg-green-template-back tw-text-green-template-t'
+                : (rowData.estado == 'Inactivo' ? 'tw-bg-red-template-back tw-text-red-template-t'
+                    : 'tw-bg-yellow-template-back tw-text-yellow-template-t')}`}>
             {rowData.estado}
         </div>
     }

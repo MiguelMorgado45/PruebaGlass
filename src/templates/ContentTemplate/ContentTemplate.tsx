@@ -14,7 +14,7 @@ export const ContentTemplate = ({ children, className, titleProps, catalog=false
     const { title, descr } = titleProps;
 
     return (
-        <div className={`glass-w-full glass-p-4 flex flex-column`}>
+        <div className={`tw-w-full tw-p-4 flex flex-column`}>
             <Title
                 title={title}
                 descr={descr}
