@@ -1,7 +1,6 @@
+import { Outlet } from "react-router-dom"
 import { LeftMenu } from "../../components/shared/leftMenu/LeftMenu"
 import { TopNav } from "../../components/shared/topNav/TopNav"
-import AppRouter from "../../router/AppRouter"
-
 
 const PageTemplate = () => {
 
@@ -10,11 +9,10 @@ const PageTemplate = () => {
             <div className=''>
                 <LeftMenu />
             </div>
-
             <div className=' glass-w-full glass-bg-gray-glass-back'>
                 <TopNav />
                 <div className=' glass-mx-8 glass-my-6'>
-                    <AppRouter />
+                    <Outlet></Outlet> 
                 </div>
             </div>
         </div>

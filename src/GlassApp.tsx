@@ -1,8 +1,6 @@
-
 import { useEffect, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { LeftBarContext } from './context/LeftBarContext';
-import PageTemplate from './templates/pageTemplate/PageTemplate';
+import AppRouter from './router/AppRouter';;
 
 const App = () => {
 
@@ -16,11 +14,9 @@ const App = () => {
   }, []);
 
   return (
-    
       <LeftBarContext.Provider value={{ setLeftBarStatus, leftBarStatus }}>
-        <PageTemplate />
+        <AppRouter />
       </LeftBarContext.Provider>
-
   )
 }
 
