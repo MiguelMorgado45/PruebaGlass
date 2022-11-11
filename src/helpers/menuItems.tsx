@@ -1,6 +1,5 @@
-import { ApplicationItem, NotificationItem, MenuItem } from '../components/shared/items';
+import { ApplicationItem, NotificationItem, MenuItem, MenuItemIcon } from '../components/shared/items';
 import { notifications } from '../data/data';
-import { MenuItemIcon } from '../components/shared/items/MenuItemIcon';
 
 /*Iconos del Menu*/
 import ad from '../assets/icons/anuncios.svg'
@@ -8,12 +7,15 @@ import dashboard from '../assets/icons/dashboard.svg'
 import products from '../assets/icons/productos.svg'
 import exit from '../assets/icons/logout.svg';
 
-
 export const menuItems = () => {
 
     const userItem = [
         {
-            label: 'Salir',
+            label: 'Perfil',
+            icon: 'pi pi-user',
+        },
+        {
+            label: 'Cerrar Sesión',
             icon: 'pi pi-sign-out',
         },
     ];
@@ -27,7 +29,7 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-box'  path='cuentas' />
+                <MenuItemIcon icon='pi pi-box' path='cuentas' />
             )
         },
         {
@@ -37,12 +39,12 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-cog' img={products}  path='settings' />
+                <MenuItemIcon icon='pi pi-cog' img={products} path='settings' />
             )
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-users'  path='products' />
+                <MenuItemIcon icon='pi pi-users' path='products' />
             )
         },
         {
@@ -52,17 +54,17 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-user'  path='news' />
+                <MenuItemIcon icon='pi pi-user' path='news' />
             )
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-tablet'  path='news' />
+                <MenuItemIcon icon='pi pi-tablet' path='news' />
             )
         },
         {
             template: () => (
-                <MenuItemIcon  icon='pi-sign-out' img={exit} path='' />
+                <MenuItemIcon icon='pi-sign-out' img={exit} path='' />
             )
         }
     ];
@@ -76,7 +78,7 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItem label='Cuentas' icon='pi pi-box'  path='cuentas' />
+                <MenuItem label='Cuentas' icon='pi pi-box' path='cuentas' />
             )
         },
         {
@@ -86,12 +88,12 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItem label='Contrataciones' icon='pi pi-cog' img={products}  path='settings' />
+                <MenuItem label='Contrataciones' icon='pi pi-cog' img={products} path='settings' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Operadores' icon='pi pi-users'  path='products' />
+                <MenuItem label='Operadores' icon='pi pi-users' path='products' />
             )
         },
         {
@@ -101,22 +103,22 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItem label='Perfil' icon='pi pi-user'  path='news' />
+                <MenuItem label='Perfil' icon='pi pi-user' path='news' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Reportes' icon='pi pi-tablet'  path='news' />
+                <MenuItem label='Reportes' icon='pi pi-tablet' path='news' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Cerrar Sesión'  icon='pi-sign-out' img={exit} path='sa' />
+                <MenuItem label='Cerrar Sesión' icon='pi-sign-out' img={exit} path='sa' />
             )
         }
     ];
 
-    
+
 
     const notificationItems = notifications.map((not) => {
         return ({
@@ -127,10 +129,29 @@ export const menuItems = () => {
         })
     });
 
+    const cuentasItems = [
+        {
+            icon: 'pi pi-briefcase',
+            label: 'Generales',
+            command: (event: any) => {
+                window.location.hash = "Generales";
+            }
+        },
+        {
+            icon: 'pi pi-user',
+            label: 'Contacto',
+            command: (event: any) => {
+                window.location.hash = "Contacto";
+            }
+        },
+
+    ];
+
     return {
         letfMenuItems,
         notificationItems,
         userItem,
-        letfMenuItemsIcon
+        letfMenuItemsIcon,
+        cuentasItems
     }
 }
