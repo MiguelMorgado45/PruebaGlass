@@ -39,27 +39,27 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-cog' img={products} path='settings' />
+                <MenuItemIcon icon='pi pi-cog' img={products} path='contrataciones' />
             )
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-users' path='products' />
+                <MenuItemIcon icon='pi pi-users' path='operadores' />
             )
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-bell' img={ad} path='news' />
+                <MenuItemIcon icon='pi pi-bell' img={ad} path='' />
             )
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-user' path='news' />
+                <MenuItemIcon icon='pi pi-user' path='' />
             )
         },
         {
             template: () => (
-                <MenuItemIcon icon='pi pi-tablet' path='news' />
+                <MenuItemIcon icon='pi pi-tablet' path='' />
             )
         },
         {
@@ -88,32 +88,32 @@ export const menuItems = () => {
         },
         {
             template: () => (
-                <MenuItem label='Contrataciones' icon='pi pi-cog' img={products} path='settings' />
+                <MenuItem label='Contrataciones' icon='pi pi-cog' img={products} path='contrataciones' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Operadores' icon='pi pi-users' path='products' />
+                <MenuItem label='Operadores' icon='pi pi-users' path='operadores' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Anuncios' icon='pi pi-bell' img={ad} path='news' />
+                <MenuItem label='Anuncios' icon='pi pi-bell' img={ad} path='' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Perfil' icon='pi pi-user' path='news' />
+                <MenuItem label='Perfil' icon='pi pi-user' path='' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Reportes' icon='pi pi-tablet' path='news' />
+                <MenuItem label='Reportes' icon='pi pi-tablet' path='' />
             )
         },
         {
             template: () => (
-                <MenuItem label='Cerrar Sesión' icon='pi-sign-out' img={exit} path='sa' />
+                <MenuItem label='Cerrar Sesión' icon='pi-sign-out' img={exit} path='' />
             )
         }
     ];

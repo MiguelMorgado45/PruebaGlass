@@ -1,5 +1,9 @@
 import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom"
 // import { AgregarCuentasPage, CuentasPage, DetalleCuentaPage } from "../pages/Cuentas";
+import {CuentasPage, AgregarCuentaPage, DetalleCuentaPage} from '../pages/Cuentas'
+import {ClientesPage, AgregarClientePage, DetalleClientePage} from '../pages/Clientes'
+import {ContratacionesPage, AgregarContratacionesPage, DetalleContratacionPage} from '../pages/Contrataciones'
+import {OperadoresPage, AgregarOperadorPage, DetalleOperadorPage} from '../pages/Operadores'
 
 import { Dashboard } from "../pages/Dashboard";
 import { GlassNavigationBar } from "../pages/GlassNavigationBar";
@@ -10,10 +14,21 @@ const AppRouter = () => {
             <Routes>
                 <Route path="/" element={<GlassNavigationBar />}>
                     <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="cuentas" element={<CuentasPage />} />
+                    <Route path="cuentas/agregar" element={<AgregarCuentaPage />} />
+                    <Route path="cuentas/detalle/:id" element={<DetalleCuentaPage />} />
 
-                    {/* <Route path="cuentas" element={<CuentasPage />}/>
-                    <Route path="cuentas/agregar" element={<AgregarCuentasPage />} />
-                    <Route path="cuentas/detalle/:id" element={<DetalleCuentaPage />} /> */}
+                    <Route path="clientes" element={<ClientesPage/>} />
+                    <Route path="clientes/agregar" element={<AgregarClientePage />} />
+                    <Route path="clientes/detalle/:id" element={<DetalleClientePage />} />
+
+                    <Route path="contrataciones" element={<ContratacionesPage />} />
+                    <Route path="contrataciones/agregar" element={<AgregarContratacionesPage />} />
+                    <Route path="contrataciones/agregar/:id" element={<DetalleContratacionPage />} />
+
+                    <Route path="operadores" element={<OperadoresPage />} />
+                    <Route path="operadores/agregar" element={<AgregarOperadorPage />} />
+                    <Route path="operadores/agregar/:id" element={<DetalleOperadorPage />} />
 
                 </Route>
                 <Route path="/*" element={<Navigate to={"/dashboard"} />} />
