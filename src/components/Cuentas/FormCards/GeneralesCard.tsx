@@ -5,6 +5,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { InputText } from "primereact/inputtext";
 
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { InputData } from '../../shared/InputData/InputData';
 
 export const GeneralesCard = () => {
 
@@ -19,43 +20,33 @@ export const GeneralesCard = () => {
   return (
 
     <FormCardTemplate titulo='Generales'>
-      <form onSubmit={formik.handleSubmit} className="flex flex-column gap-4 tw-items-end">
-        <div className="flex flex-row gap-4 tw-w-full">
-          <div className="flex flex-column gap-1 tw-w-full">
-            <label className="tw-font-semibold">
-              Nombre de la cuenta:
-            </label>
-            <InputText
-              placeholder="Nombre de la cuenta"
-              name='cuenta'
-              onchange={handleChange}
-              value={values.cuenta}
-            />
-          </div>
-          <div className="flex flex-column gap-1 tw-w-full">
-            <label className="tw-font-semibold">
-              Fecha Alta:
-            </label>
-            <Calendar
-              placeholder="DD/MM/AAAA"
-              name='fechaAlta'
-              onchange={handleChange}
-              value={values.fechaAlta}
-            />
-          </div>
+      <form onSubmit={formik.handleSubmit} className="flex flex-column gap-4">
+        <div className="flex flex-row gap-4 tw--w-full">
+          <InputData
+            type='inputtext'
+            label='Nombre de la cuenta'
+            placeholder="Nombre de la cuenta"
+            name='cuenta'
+            onchange={handleChange}
+            value={values.cuenta}
+          />
+          <InputData
+            type="calendar"
+            label="Fecha de Alta:"
+            placeholder="DD/MM/AAAA"
+            name='fechaAlta'
+            onchange={handleChange}
+            value={values.fechaAlta}
+          />
         </div>
-
-        <div className="flex flex-column gap-1 tw-w-full">
-            <label className="tw-font-semibold">
-              Descripción: 
-            </label>
-            <InputTextarea
-              placeholder="Ingresar"
-              name='desc'
-              onchange={handleChange}
-              value={values.desc}
-            />
-          </div>
+        <InputData
+          type="textarea"
+          label="Descripción"
+          placeholder="Ingresar"
+          name='desc'
+          onchange={handleChange}
+          value={values.desc}
+        />
 
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
           <button type='reset'
