@@ -1,4 +1,4 @@
-import { ApplicationItem, NotificationItem, MenuItem, MenuItemIcon } from '../components/shared/items';
+import { NotificationItem, MenuItem, MenuItemIcon } from '../components/shared/items';
 import { notifications } from '../data/data';
 
 /*Iconos del Menu*/
