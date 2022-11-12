@@ -1,0 +1,50 @@
+.ad-button {
+  @apply tw-px-4;
+  @apply tw-py-3;
+  @apply tw-rounded-md;
+}
+
+.wrapper {
+  @apply tw-grid;
+  @apply tw-grid-cols-2;
+  @apply tw-gap-6;
+}
+
+.one {
+  grid-column: 1/2;
+  grid-row: 1;
+}
+
+.two {
+  grid-column: 2/2;
+  grid-row: 1;
+  @apply tw-grid;
+  @apply tw-grid-cols-2;
+  @apply tw-gap-6;
+}
+
+.three {
+  grid-column: 1/3;
+  grid-row: 2;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) {
+  .size-ad {
+    @apply tw-justify-start;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1080px) {
+  .size-ad {
+    @apply tw-justify-center;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1490px) {
+  .size-ad {
+    @apply tw-justify-between;
+  }
+}
