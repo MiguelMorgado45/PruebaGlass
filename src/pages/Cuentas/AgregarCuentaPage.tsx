@@ -1,5 +1,4 @@
 import {Menu} from 'primereact/menu'
-
 import { ContactoCard } from '../../components/Cuentas/FormCards/ContactoCard';
 import { GeneralesCard } from '../../components/Cuentas/FormCards/GeneralesCard';
 import { PerfilCard } from '../../components/Cuentas/FormCards/PerfilCard';

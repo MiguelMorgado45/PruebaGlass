@@ -1,16 +1,31 @@
 import { useFormik } from 'formik';
-
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { generalCardFormState } from '../../../atoms/CuentasAtoms';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { InputData } from '../../shared/InputData/InputData';
+import { ContactoType } from '../types';
 
 export const ContactoCard = () => {
+
+  const [contactoForm, setContactoForm] = useRecoilState<any>(generalCardFormState) 
+
+  const valorInicial: ContactoType = {
+    correo : '',
+    phone: '',
+  }
+
   const formik = useFormik({
-    initialValues: { correo: '', phone: '' },
+    initialValues: { ... valorInicial},
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
   });
   const {  handleChange ,values, setFieldValue } = formik
+
+  useEffect(() => {
+    setContactoForm(formik)
+}, [formik.values, formik.errors, formik.touched])
 
   return (
     <FormCardTemplate titulo='Contacto'>
@@ -38,17 +53,13 @@ export const ContactoCard = () => {
 
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
           <button type='reset'
-            className={`tw-w-40 tw-h-fit 
-                        tw-px-4 tw-py-3 tw-rounded-md
-                      tw-text-gray-600 tw-bg-gray-200`}
-            onClick={formik.resetForm}
+            className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
+            onClick={() => formik.resetForm()}
           >
             Cancelar
           </button>
           <button type="submit"
-            className={`tw-w-40 tw-h-fit 
-                        tw-px-4 tw-py-3 tw-rounded-md 
-                      tw-text-white tw-bg-blue-600`}
+            className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-white tw-bg-blue-600`}
           >
             Agregar
           </button>

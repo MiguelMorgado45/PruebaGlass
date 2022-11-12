@@ -1,21 +1,35 @@
-import { useFormik } from 'formik';
-
-import { Calendar } from 'primereact/calendar';
-import { InputTextarea } from "primereact/inputtextarea";
-import { InputText } from "primereact/inputtext";
-
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { InputData } from '../../shared/InputData/InputData';
+import { useFormik } from 'formik';
+import { GeneralType } from '../types';
+import { validationGeneralCard } from '../validaciones/ValidacionGeneralesCard';
+import { useRecoilState } from 'recoil';
+import { generalCardFormState } from '../../../atoms/CuentasAtoms';
+import { useEffect } from 'react';
 
 export const GeneralesCard = () => {
 
+  const [generalForm, setGeneralForm] = useRecoilState<any>(generalCardFormState) 
+
+  const valorInicial: GeneralType = {
+    cuenta: '',
+    fechaAlta: undefined,
+    descripcion: '',
+  }
+
   const formik = useFormik({
-    initialValues: { cuenta: '', fechaAlta: undefined, desc: '' },
-    onSubmit: values => {
+    initialValues: { ...valorInicial },
+    onSubmit: (values: GeneralType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
+      resetForm();
     },
+    //validate: validationGeneralCard,
   });
   const { handleChange, values } = formik
+
+  useEffect(() => {
+    setGeneralForm(formik)
+}, [formik.values, formik.errors, formik.touched])
 
   return (
 
@@ -43,24 +57,20 @@ export const GeneralesCard = () => {
           type="textarea"
           label="Descripción"
           placeholder="Ingresar"
-          name='desc'
+          name='descripcion'
           onchange={handleChange}
-          value={values.desc}
+          value={values.descripcion}
         />
 
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
           <button type='reset'
-            className={`tw-w-40 tw-h-fit 
-                        tw-px-4 tw-py-3 tw-rounded-md
-                      tw-text-gray-600 tw-bg-gray-200`}
-            onClick={formik.resetForm}
+            className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
+            onClick={() => formik.resetForm()}
           >
             Cancelar
           </button>
           <button type="submit"
-            className={`tw-w-40 tw-h-fit 
-                        tw-px-4 tw-py-3 tw-rounded-md 
-                      tw-text-white tw-bg-blue-600`}
+            className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-white tw-bg-blue-600`}
           >
             Agregar
           </button>
