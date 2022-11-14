@@ -2,9 +2,13 @@ import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTe
 import { InputData } from '../../shared/InputData/InputData';
 import { useFormik } from 'formik';
 import { GeneralType } from '../types';
-import { validationGeneralCard } from './validaciones/ValidacionGeneralesCard';
+import { useRecoilState } from 'recoil';
+import { generalCardFormState } from '../../../atoms/CuentasAtoms';
+import { useEffect } from 'react';
 
 export const GeneralesCard = () => {
+
+  const [generalForm, setGeneralForm] = useRecoilState<any>(generalCardFormState) 
 
   const valorInicial: GeneralType = {
     cuenta: '',
@@ -21,6 +25,10 @@ export const GeneralesCard = () => {
     //validate: validationGeneralCard,
   });
   const { handleChange, values } = formik
+
+  useEffect(() => {
+    setGeneralForm(formik)
+}, [formik.values, formik.errors, formik.touched])
 
   return (
 
