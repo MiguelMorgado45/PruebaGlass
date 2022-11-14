@@ -1,7 +1,4 @@
 import { useState } from 'react'
-
-import { Checkbox } from 'primereact/checkbox';
-
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { cuentas } from '../../data/data';

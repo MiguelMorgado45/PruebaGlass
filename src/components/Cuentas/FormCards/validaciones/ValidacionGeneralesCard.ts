@@ -1,7 +1,13 @@
-import { GeneralType } from "../types";
+import { GeneralType } from "../../types";
+
+type errorType = {
+    cuenta? : string,
+    fechaALta?: string | undefined,
+    descripcion?: string
+}
 
 export const validationGeneralCard = (values: GeneralType) => {
-    let errors : any = {};
+    let errors : errorType = {};
     if (!values.cuenta){
         errors.cuenta = "Por favor, ingrese el nombre de su cuenta"
     }

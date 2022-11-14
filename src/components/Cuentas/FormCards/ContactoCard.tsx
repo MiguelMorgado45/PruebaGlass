@@ -1,37 +1,30 @@
 import { useFormik } from 'formik';
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { generalCardFormState } from '../../../atoms/CuentasAtoms';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { InputData } from '../../shared/InputData/InputData';
 import { ContactoType } from '../types';
+import { validationContactoCard } from './validaciones/ValidacionContactoCard';
 
 export const ContactoCard = () => {
 
-  const [contactoForm, setContactoForm] = useRecoilState<any>(generalCardFormState) 
-
   const valorInicial: ContactoType = {
-    correo : '',
+    correo: '',
     phone: '',
   }
 
   const formik = useFormik({
-    initialValues: { ... valorInicial},
+    initialValues: { ...valorInicial },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
+    // validate: validationContactoCard,
   });
-  const {  handleChange ,values, setFieldValue } = formik
-
-  useEffect(() => {
-    setContactoForm(formik)
-}, [formik.values, formik.errors, formik.touched])
+  const { handleChange, values } = formik
 
   return (
     <FormCardTemplate titulo='Contacto'>
       <form onSubmit={formik.handleSubmit} className="flex flex-column gap-4">
         <div className="flex flex-row gap-4 tw-w-full">
-        <InputData
+          <InputData
             type="inputtext"
             label="Correo de la Empresa"
             placeholder="correo@dominio.com"
@@ -44,9 +37,7 @@ export const ContactoCard = () => {
             label="Número de la empresa"
             placeholder="99-9999-9999"
             name='phone'
-            onchange={(event: any) => {
-              setFieldValue('phone', event.value)
-            }}
+            onchange={handleChange}
             value={values.phone}
           />
         </div>
