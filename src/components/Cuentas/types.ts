@@ -6,5 +6,13 @@ export type GeneralType = {
 
 export type ContactoType = {
     correo: string,
+    phone : string
+}
+
+export type CuentaFormType = {
+    cuenta: string,
+    fechaAlta : string  | undefined,
+    descripcion: string,
+    correo: string,
     phone : string,
 }

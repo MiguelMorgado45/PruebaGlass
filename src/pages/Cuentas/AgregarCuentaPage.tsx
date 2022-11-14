@@ -1,5 +1,6 @@
 import {Menu} from 'primereact/menu'
 import { ContactoCard } from '../../components/Cuentas/FormCards/ContactoCard';
+import { CuentasCard } from '../../components/Cuentas/FormCards/CuentasCard';
 import { GeneralesCard } from '../../components/Cuentas/FormCards/GeneralesCard';
 import { PerfilCard } from '../../components/Cuentas/FormCards/PerfilCard';
 import { menuItems } from '../../helpers/menuItems';
@@ -24,8 +25,7 @@ export const AgregarCuentaPage = () => {
         </div>
         <div className="tw-w-4/5 flex flex-column">
           <span className='tw-mx-4 tw-text-sm tw-font-medium tw-text-gray-gray'>DATOS</span>
-          <GeneralesCard />
-          <ContactoCard />
+          <CuentasCard/>
         </div>
       </div >
     </ContentTemplate >
