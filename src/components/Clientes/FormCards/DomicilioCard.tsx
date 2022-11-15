@@ -1,128 +1,89 @@
-import { Formik, useFormik } from 'formik';
-
-import { Card } from "primereact/card";
-import { Dropdown } from "primereact/dropdown";
 import { InputData } from '../../shared/InputData/InputData';
-
 import '../../../styles/dom-card.css'
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-
+import { InputTextField } from '../../shared/inputFields/InputTextField';
+import { DropdownField } from '../../shared/inputFields';
+import { RecoilState } from 'recoil';
+import { clienteCardFormState } from '../../../atoms/FormAtoms';
 
 export const DomicilioCard = () => {
-  const formik = useFormik({
-    initialValues: { calle: '', exterior: '', interior: '', colonia: '', municipio: '', estado: null, pais: null, cp: '' },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  })
 
-  const { handleChange, handleSubmit, handleReset, setFieldValue, values } = formik;
-  const reset = () => {
-    handleReset()
+  const atomState:RecoilState<{}> = clienteCardFormState;
 
-  }
   return (
-    <FormCardTemplate titulo='Domicilio Fiscal'>
-      <form onSubmit={handleSubmit} className='flex flex-column gap-4' id='Domicilio'>
+    <>
+      <div className='flex flex-column gap-4' id='Domicilio'>
+        <div className="flex flex-row gap-4 tw--w-full">
+          <p className="tw-text-orangetw tw-text-2xl tw-font-semibold">Contacto</p>
+        </div>
         <div className='wrapper'>
           <div className='one'>
-            <InputData
-              type="inputtext"
+            <InputTextField
               label="Calle"
               placeholder="Calle"
               name='calle'
-              onchange={handleChange}
-              value={values.calle}
+              formikState={atomState}
             />
           </div>
           <div className='two'>
-            <InputData
-              type="inputtext"
+            <InputTextField
               label="Exterior"
               placeholder="Exterior"
               name='exterior'
-              onchange={handleChange}
-              value={values.exterior}
+              formikState={atomState}
             />
-            <InputData
-              type="inputtext"
+            <InputTextField
               label="Interior"
               placeholder="Interior"
               name='interior'
-              onchange={handleChange}
-              value={values.interior}
+              formikState={atomState}
             />
           </div>
         </div>
 
         <div className="flex flex-row gap-4">
-          <InputData
-            type="inputtext"
+          <InputTextField
             label="Colonia"
             placeholder="Colonia"
             name='colonia'
-            onchange={handleChange}
-            value={values.colonia}
+            formikState={atomState}
           />
-          <InputData
-            type="inputtext"
+          <InputTextField
             label="Alcaldía/Municipio"
             placeholder="Alcaldía/Municipio"
-            name='municipio'
-            onchange={handleChange}
-            value={values.municipio}
+            name='alcaldia'
+            formikState={atomState}
           />
 
         </div>
 
         <div className="flex flex-row gap-4 ">
 
-          <InputData
-            type="dropdown"
+          <DropdownField
             label="Estado"
             placeholder="Selecciona"
             name='estado'
             options={['CDMX', 'GDL', 'QRO']}
-            onchange={handleChange}
-            value={values.estado}
-
+            formikState={atomState}
           />
-          <InputData
-            type="dropdown"
+
+          <DropdownField
             label="País"
             placeholder="País"
             name='pais'
             options={['México', 'EUA', 'Canada']}
-            onchange={handleChange}
-            value={values.pais}
+            formikState={atomState}
           />
 
         </div>
 
-        <InputData
-          type="inputtext"
+        <InputTextField
           label="Código Postal"
           placeholder="Código Postal"
-          name='cp'
-          onchange={handleChange}
-          value={values.cp}
+          name='codigoPostal'
+          formikState={atomState}
         />
 
-        <div className='flex tw-justify-end tw-w-full gap-4'>
-          <button type='reset'
-            className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={reset}>
-            Cancelar
-          </button>
-          <button type="submit"
-            className={`tw-text-sm tw-w-40 tw-font-semibold tw-border-blue-600 tw-border-2 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-blue-600 hover:tw-bg-blue-100`}>
-            Agregar
-          </button>
-        </div>
-
-
-      </form>
-    </FormCardTemplate>
+      </div>
+    </>
   )
 }

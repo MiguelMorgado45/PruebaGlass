@@ -1,18 +1,19 @@
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { InputData } from '../../shared/InputData/InputData';
-import { useFormik } from 'formik';
+import { cuentaCardFormState } from '../../../atoms/FormAtoms';
 import { CuentaFormType, GeneralType } from '../types';
-import { useRecoilState } from 'recoil';
-import { generalCardFormState } from '../../../atoms/CuentasAtoms';
-import { useEffect, useState } from 'react';
 import { Divider } from 'primereact/divider';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { InputTextField, CalendarField, InputTextareaField, InputMaskField } from '../../shared/inputFields';
+import { RecoilState, useRecoilState } from 'recoil';
+import { useEffect, useState } from 'react';
+import { useFormik } from 'formik';
 import { validacionCuentaCard } from './validacionCuentaForm';
 
 
 export const CuentasCard = () => {
 
-  const [cuentaForm, setCuentaForm] = useRecoilState<any>(generalCardFormState)
+  const atomState:RecoilState<{}> = cuentaCardFormState;
+
+  const [cuentaForm, setCuentaForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
   const valorInicial: CuentaFormType = {
@@ -48,21 +49,21 @@ export const CuentasCard = () => {
               label="Nombre de la cuenta"
               name="cuenta"
               placeholder='Nombre de la cuenta'
-              formikState={generalCardFormState}
+              formikState={atomState}
             ></InputTextField>
 
             <CalendarField
               label="Fecha de Alta:"
               placeholder="DD/MM/AAAA"
               name='fechaAlta'
-              formikState={generalCardFormState}
+              formikState={atomState}
             />
           </div>
           <InputTextareaField
             label="Descripción"
             placeholder="Descripción"
             name='descripcion'
-            formikState={generalCardFormState}
+            formikState={atomState}
           />
 
           <Divider />
@@ -76,13 +77,13 @@ export const CuentasCard = () => {
               label="Correo de la Empresa"
               placeholder="correo@dominio.com"
               name='correo'
-              formikState={generalCardFormState}
+              formikState={atomState}
             />
             <InputMaskField
               label="Número de la empresa"
               placeholder="99-9999-9999"
               name='phone'
-              formikState={generalCardFormState}
+              formikState={atomState}
             />
           </div>
 

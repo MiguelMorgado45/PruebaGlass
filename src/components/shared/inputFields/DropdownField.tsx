@@ -2,7 +2,7 @@ import { useRecoilValue } from 'recoil';
 import { FieldType } from './FieldType';
 import { Dropdown } from 'primereact/dropdown';
 
-export const DropdownField = ({ name, label, placeholder, formikState }: FieldType) => {
+export const DropdownField = ({ name, label, placeholder, options, formikState }: FieldType) => {
     const formik: any = useRecoilValue(formikState)
     return (
         <>
@@ -13,6 +13,7 @@ export const DropdownField = ({ name, label, placeholder, formikState }: FieldTy
                     className={`w-full ${formik.errors[name] && formik.touched[name] && "p-invalid"}`}
                     placeholder = {placeholder}
                     name={name}
+                    options={options}
                     value={formik.values[name]}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
