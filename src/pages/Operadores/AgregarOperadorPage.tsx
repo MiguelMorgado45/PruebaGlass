@@ -47,8 +47,6 @@ export const AgregarOperadorPage = () => {
         <div className="tw-w-3/4 flex flex-column">
           <OperadorCard />
           <RolesCard />
-          
-
           <div className='tw-w-full flex tw-justify-center gap-4 tw-mt-4'>
 
             <button type='reset'

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { RecoilRoot } from 'recoil';
 import { LeftBarContext } from './context/LeftBarContext';
 import AppRouter from './router/AppRouter';;
 
@@ -15,7 +16,10 @@ const App = () => {
 
   return (
       <LeftBarContext.Provider value={{ setLeftBarStatus, leftBarStatus }}>
-        <AppRouter />
+        <RecoilRoot>
+          <AppRouter />
+        </RecoilRoot>
+        
       </LeftBarContext.Provider>
   )
 }
