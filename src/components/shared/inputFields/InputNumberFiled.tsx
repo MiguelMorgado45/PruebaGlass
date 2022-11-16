@@ -4,6 +4,7 @@ import { InputNumber } from 'primereact/inputnumber';
 
 export const InputNumberField = ({ name, label, placeholder, formikState }: FieldType) => {
     const formik: any = useRecoilValue(formikState)
+
     return (
         <>
             <div className="flex flex-column gap-1 tw-w-full">
@@ -14,8 +15,10 @@ export const InputNumberField = ({ name, label, placeholder, formikState }: Fiel
                     placeholder = {placeholder}
                     name={name}
                     value={formik.values[name]}
-                    onChange={formik.handleChange}
+                    onChange={(e: any) => formik.setFieldValue([name], e.value)}
                     onBlur={formik.handleBlur}
+                    useGrouping={false} 
+                    showButtons
                 />
                 <div className='h-8 text-sm text-red-800'>
                     {formik.touched[name] && formik.touched[name] && <div className='h-4'>{formik.errors[name]}</div>}

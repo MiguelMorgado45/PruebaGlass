@@ -14,7 +14,7 @@ export const ProductsCard = ({ products }: ProductsCardProps) => {
         <p className='tw-font-semibold tw-text-sm'>Los que le van agregando...</p>
         <div className='flex gap-2'>
           {
-            products.map(product => (<img src={getLogoProductos(product)}
+            products.map((product, index) => (<img key = {index} src={getLogoProductos(product)}
               className='tw-w-12 tw-h-12'
             />))
           }
