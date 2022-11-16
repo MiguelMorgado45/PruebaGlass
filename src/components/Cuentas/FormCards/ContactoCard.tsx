@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { InputData } from '../../shared/InputData/InputData';
 import { ContactoType } from '../types';
-import { validationContactoCard } from './validaciones/ValidacionContactoCard';
+import { validacionCuentaCard } from './validacionCuentaForm';
 
 export const ContactoCard = () => {
 
@@ -16,7 +16,7 @@ export const ContactoCard = () => {
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
-    // validate: validationContactoCard,
+    // validate: validacionCuentaCard,
   });
   const { handleChange, values } = formik
 

@@ -3,12 +3,12 @@ import { InputData } from '../../shared/InputData/InputData';
 import { useFormik } from 'formik';
 import { GeneralType } from '../types';
 import { useRecoilState } from 'recoil';
-import { generalCardFormState } from '../../../atoms/CuentasAtoms';
+import { cuentaCardFormState } from '../../../atoms/FormAtoms';
 import { useEffect } from 'react';
 
 export const GeneralesCard = () => {
 
-  const [generalForm, setGeneralForm] = useRecoilState<any>(generalCardFormState) 
+  const [generalForm, setGeneralForm] = useRecoilState<any>(cuentaCardFormState) 
 
   const valorInicial: GeneralType = {
     cuenta: '',

@@ -1,0 +1,16 @@
+export type ClienteFormType = {
+    razonSocial: string,
+    nombreComercial: string,
+    rfc: string,
+    regimenFiscal: string,
+    giro: string,
+    registroPatronal: string,
+    calle: string,
+    exterior: string,
+    interior: string,
+    colonia: string,
+    alcaldia: string,
+    estado: string,
+    pais: string,
+    codigoPostal: string,
+}
