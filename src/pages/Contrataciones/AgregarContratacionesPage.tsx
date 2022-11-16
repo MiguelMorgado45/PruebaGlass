@@ -1,5 +1,6 @@
 import { Menu } from 'primereact/menu';
 import { CuentaCard, ProductosCard } from '../../components/Contrataciones/FormCards';
+import { ProductsCard } from '../../components/Contrataciones/FormCards/ProductsCard';
 
 import { InputData } from '../../components/shared/InputData/InputData';
 import { CardTemplate } from '../../templates/CardTemplate/CardTemplate';
@@ -40,6 +41,7 @@ export const AgregarContratacionesPage = () => {
               type='inputtext'
             />
           </CardTemplate>
+          <ProductsCard products={['CLOUD', 'PAYROLL', 'BREAK']}/>
 
         </div>
         <div className="tw-w-3/4 flex flex-column">

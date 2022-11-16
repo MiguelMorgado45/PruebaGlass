@@ -1,8 +1,10 @@
+import { getLogoProductos, getNumberProductos } from "../helpers/getLogoProductos"
+
 export const contrataciones = [
     {
         id:1,
         cliente: 'INNOVAREG',
-        logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-mobile_hnqagb.svg',
+        name: 'CLOUD',
         personas: 20,
         alta: '28/10/2022',
         expira: '28/04/2023',
@@ -12,7 +14,7 @@ export const contrataciones = [
     {
         id:2,
         cliente: 'Katoen Natie Servicios Logís...',
-        logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-mobile_hnqagb.svg',
+        name: 'PAYROLL',
         personas: 16,
         alta: '18/05/2018',
         expira: '18/05/2022',
@@ -22,7 +24,7 @@ export const contrataciones = [
     {
         id:3,
         cliente: 'Katoen Natie Altamira, S.A. d...',
-        logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-mobile_hnqagb.svg',
+        name: 'EX PYME',
         personas: 56,
         alta: '18/05/2018',
         expira: '18/05/2022',
@@ -32,7 +34,7 @@ export const contrataciones = [
     {
         id:4,
         cliente: 'Katoen Natie Mexicana, S.A...',
-        logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-mobile_hnqagb.svg',
+        name: 'CLOUD',
         personas: 45,
         alta: '18/05/2019',
         expira: '18/05/2022',
@@ -42,7 +44,17 @@ export const contrataciones = [
     {
         id:5,
         cliente: 'Servicios Generales de Logí...',
-        logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-mobile_hnqagb.svg',
+        name: 'PLUS',
+        personas: 15,
+        alta: '30/04/2020',
+        expira: '30/04/2022',
+        baja: false, 
+        estado: 'Activo'
+    },
+    {
+        id:5,
+        cliente: 'Servicios Generales de Logí...',
+        name: 'BREAK',
         personas: 15,
         alta: '30/04/2020',
         expira: '30/04/2022',
@@ -52,48 +64,81 @@ export const contrataciones = [
 
 ]
 
-export const typeProductos = [
+export const nameLogo = [
     {
         name: 'EX PYME', 
-        descr: 'RH todo en 1',
-        number: 10,
         img: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-access_xwq998.svg'
     },
     {
         name: 'PLUS', 
-        descr: 'Asistencia',
-        number: 11,
         img: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-staff_ysea0k.svg'
     },
     {
         name: 'CLOUD', 
-        descr: 'Asistencia Estándar',
-        number: 71,
         img: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-mobile_hnqagb.svg'
     },
     {
         name: 'PAYROLL', 
-        descr: 'Nómina',
-        number: 1,
         img: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982616/TWComponents/icon-maquila_vixz82.svg'
     },
     {
         name: 'BREAK', 
-        descr: 'Vacaciones',
-        number: 2,
         img: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982614/TWComponents/icon-break_yyf1gd.svg'
     },
     {
         name: 'VISITOR', 
-        descr: 'Control de Visitas',
-        number: 2,
         img: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-visitor_xa8fs5.svg'
     },
     {
         name: 'DINNER', 
-        descr: 'Control de comedor',
-        number: 1,
         img: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982612/TWComponents/icon-dinner_bitg0q.svg'
     }
 
 ]
+
+export const typeProductos = [
+    {
+        name: 'EX PYME', 
+        descr: 'RH todo en 1',
+        number: getNumberProductos('EX PYME'),
+        img: getLogoProductos('EX PYME'),
+    },
+    {
+        name: 'PLUS', 
+        descr: 'Asistencia',
+        number: getNumberProductos('PLUS'),
+        img: getLogoProductos('PLUS'),
+    },
+    {
+        name: 'CLOUD', 
+        descr: 'Asistencia Estándar',
+        number: getNumberProductos('CLOUD'),
+        img: getLogoProductos('CLOUD'),
+    },
+    {
+        name: 'PAYROLL', 
+        descr: 'Nómina',
+        number: getNumberProductos('PAYROLL'),
+        img: getLogoProductos('PAYROLL'),
+    },
+    {
+        name: 'BREAK', 
+        descr: 'Vacaciones',
+        number: getNumberProductos('BREAK'),
+        img: getLogoProductos('BREAK'),
+    },
+    {
+        name: 'VISITOR', 
+        descr: 'Control de Visitas',
+        number: getNumberProductos('VISITOR'),
+        img: getLogoProductos('VISITOR'),
+    },
+    {
+        name: 'DINNER', 
+        descr: 'Control de comedor',
+        number: getNumberProductos('DINNER'),
+        img: getLogoProductos('DINNER'),
+    }
+
+]
+
