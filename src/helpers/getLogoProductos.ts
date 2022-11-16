@@ -1,5 +1,6 @@
 import React from 'react'
-import { contrataciones, nameLogo } from '../data/dataContrataciones'
+import { contrataciones } from '../data/dataContrataciones'
+import { nameLogo } from '../data/dataProductos';
 
 export const getLogoProductos = (name: string) => {
     return nameLogo.find(element => element.name == name)?.img;
