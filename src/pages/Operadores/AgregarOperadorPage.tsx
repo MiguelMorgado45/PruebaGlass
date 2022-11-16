@@ -5,6 +5,8 @@ import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate
 import '../../styles/operadores.css'
 import { CardTemplate } from '../../templates/CardTemplate/CardTemplate';
 import { InputData } from '../../components/shared/InputData/InputData';
+import { Divider } from 'primereact/divider';
+import { FormCardTemplate } from '../../templates/FormCardTemplate/FormCardTemplate';
 
 export const AgregarOperadorPage = () => {
   const title = {
@@ -45,25 +47,27 @@ export const AgregarOperadorPage = () => {
 
         </div>
         <div className="tw-w-3/4 flex flex-column">
-          <OperadorCard />
-          <RolesCard />
-          
+          <span className='tw-mx-4 tw-text-sm tw-font-medium tw-text-gray-gray'>DATOS</span>
+          <FormCardTemplate titulo="Operador Glass">
+            <OperadorCard />
+            <Divider></Divider>
+            <RolesCard />
+          </FormCardTemplate>
 
           <div className='tw-w-full flex tw-justify-center gap-4 tw-mt-4'>
 
             <button type='reset'
-              className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
+              className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
               Cancelar
             </button>
 
             <button type="submit"
-              className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-blue-600 tw-h-fit
-                  tw-px-4 tw-py-3 tw-rounded-md tw-text-white`}>
+              className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-blue-600 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-white`}>
               Añadir
             </button>
 
           </div>
+
         </div>
       </div >
     </ContentTemplate >
