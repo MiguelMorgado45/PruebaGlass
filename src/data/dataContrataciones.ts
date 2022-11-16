@@ -70,44 +70,30 @@ export const typeProductos = [
     {
         name: 'EX PYME', 
         descr: 'RH todo en 1',
-        number: getNumberProductos('EX PYME'),
-        img: getLogoProductos('EX PYME'),
     },
     {
         name: 'PLUS', 
         descr: 'Asistencia',
-        number: getNumberProductos('PLUS'),
-        img: getLogoProductos('PLUS'),
     },
     {
         name: 'CLOUD', 
         descr: 'Asistencia Estándar',
-        number: getNumberProductos('CLOUD'),
-        img: getLogoProductos('CLOUD'),
     },
     {
         name: 'PAYROLL', 
         descr: 'Nómina',
-        number: getNumberProductos('PAYROLL'),
-        img: getLogoProductos('PAYROLL'),
     },
     {
         name: 'BREAK', 
         descr: 'Vacaciones',
-        number: getNumberProductos('BREAK'),
-        img: getLogoProductos('BREAK'),
     },
     {
         name: 'VISITOR', 
         descr: 'Control de Visitas',
-        number: getNumberProductos('VISITOR'),
-        img: getLogoProductos('VISITOR'),
     },
     {
         name: 'DINNER', 
         descr: 'Control de comedor',
-        number: getNumberProductos('DINNER'),
-        img: getLogoProductos('DINNER'),
     }
 
 ]
