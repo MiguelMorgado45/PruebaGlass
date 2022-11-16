@@ -9,3 +9,8 @@ export const cuentaCardFormState = atom({
     key: 'clienteCardFormState',
     default: {},
   });
+
+  export const operadorCardFormState = atom({
+    key: 'operadorCardFormState',
+    default: {},
+  });
