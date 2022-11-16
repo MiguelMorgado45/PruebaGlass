@@ -4,8 +4,7 @@ import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { InputNumber } from 'primereact/inputnumber';
 import { InputMask } from 'primereact/inputmask';
-
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
 interface InputDataProps {
     label: string,
@@ -15,7 +14,7 @@ interface InputDataProps {
     onchange?: { (e: ChangeEvent<any>): void; <T = string | ChangeEvent<any>>(field: T): T extends ChangeEvent<any> ? void : (e: string | ChangeEvent<any>) => void; }
     value?: any,
     options?: any[],
-    
+
 }
 export const InputData = ({
     label = 'Etiqueta',
@@ -24,8 +23,9 @@ export const InputData = ({
     name,
     onchange,
     value,
-    options, 
+    options,
 }: InputDataProps) => {
+
     const typeInput = () => {
         switch (type) {
             case 'inputtext':
