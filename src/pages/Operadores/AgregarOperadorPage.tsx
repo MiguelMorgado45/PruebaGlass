@@ -43,7 +43,6 @@ export const AgregarOperadorPage = () => {
   const title = {
     title: 'Operadores',
     breadcrums: true,
-    add: true,
   }
   const items = [
     {

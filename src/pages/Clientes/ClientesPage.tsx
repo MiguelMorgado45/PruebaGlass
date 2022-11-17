@@ -6,8 +6,7 @@ import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate
 export const ClientesPage = () => {
   const title ={
     title: 'Clientes',
-    descr: 'Las entidades que representan una razón social y están ligadas a una cuenta.',
-    catalog: true
+    descr: 'Las entidades que representan una razón social y están ligadas a una cuenta.'
   }
   return (
     <ContentTemplate titleProps={title}>

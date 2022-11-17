@@ -41,7 +41,6 @@ export const AgregarContratacionesPage = () => {
   const title = {
     title: 'Contrataciones',
     breadcrums: true,
-    add: true,
   }
   const items = [
     // {

@@ -12,7 +12,6 @@ export const DetalleCuentaPage = () => {
   const title = {
     title: `Cuentas / ${cuenta?.name}`,
     descr: cuenta?.alta,
-    add: true,
     breadcrums: true,
   }
   return (

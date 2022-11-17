@@ -10,7 +10,6 @@ export const AgregarCuentaPage = () => {
   const title = {
     title: 'Cuentas',
     breadcrums: true,
-    add: true,
   }
 
   const { cuentasItems } = menuItems();
