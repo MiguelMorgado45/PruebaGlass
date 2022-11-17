@@ -1,6 +1,5 @@
-import { RecoilState, useRecoilValue } from 'recoil';
+import { RecoilState } from 'recoil';
 import { clienteCardFormState } from '../../../atoms/FormAtoms';
-import { InputData } from '../../shared/InputData/InputData';
 import { DropdownField, InputTextField } from '../../shared/inputFields';
 
 export const GeneralesCard = () => {

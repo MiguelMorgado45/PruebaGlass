@@ -1,10 +1,13 @@
 import { useFormik } from 'formik';
-import { cuentas } from '../../../data/data';
-
+import { RecoilState } from 'recoil';
+import { cuentaCardFormState } from '../../../atoms/FormAtoms';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
-import { InputData } from '../../shared/InputData/InputData';
+import { DropdownField } from '../../shared/inputFields/DropdownField';
+import { InputTextField } from '../../shared/inputFields/InputTextField';
 
 export const CuentaCard = () => {
+
+  const atomState:RecoilState<{}> = cuentaCardFormState;
 
   const formik = useFormik({
     initialValues: { cuenta: '', cliente: '', comentarios: ''},
@@ -14,10 +17,7 @@ export const CuentaCard = () => {
   })
 
   const { handleChange, handleSubmit, handleReset, values } = formik;
-  const reset = () => {
-    handleReset()
 
-  }
 
   return (
     <CardTemplate name="DATOS" >
@@ -26,39 +26,33 @@ export const CuentaCard = () => {
 
         <form onSubmit={handleSubmit} className="flex flex-column gap-4 tw-items-end" id='Cuenta'>
           <div className="flex flex-row gap-4 tw-w-full">
-            <InputData
-              type='dropdown'
+            <DropdownField
               label='Cuenta:'
               placeholder="Nombre de la cuenta"
               name='cuenta'
               options={['OPC1', 'OPC2','OPC3','OPC4']}
-              value={values.cuenta}
-              onchange={handleChange}
+              formikState={atomState}
             />
-            <InputData
-              type='dropdown'
+            <DropdownField
               label='Cliente:'
               placeholder="Nombre del cliente"
               name='cliente'
               options={['OPC1', 'OPC2','OPC3','OPC4']}
-              value={values.cliente}
-              onchange={handleChange}
+              formikState={atomState}
             />
           </div>
           
-          <InputData
-              type="textarea"
+          <InputTextField
               label="Comentarios:"
               placeholder="Escribe"
               name='comentarios'
-              onchange={handleChange}
-              value={values.comentarios}
+              formikState={atomState}
             />
 
           <div className='flex tw-justify-end tw-w-full gap-4'>
             <button type='reset'
               className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={reset}>
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={(e):any => handleReset(e)}>
               Cancelar
             </button>
             <button type="submit"

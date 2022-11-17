@@ -3,9 +3,16 @@ import { Formik, useFormik } from 'formik';
 
 import { cuentas } from '../../../data/data';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
-import { InputData } from '../../shared/InputData/InputData';
+import { InputTextField } from '../../shared/inputFields/InputTextField';
+import { CalendarField } from '../../shared/inputFields/CalendarField';
+import { InputNumberField } from '../../shared/inputFields/InputNumberFiled';
+import { DropdownField } from '../../shared/inputFields/DropdownField';
+import { RecoilState } from 'recoil';
+import { cuentaCardFormState } from '../../../atoms/FormAtoms';
 
 export const CuentaCard = () => {
+
+  const atomState:RecoilState<{}> = cuentaCardFormState;
 
   const nameCuentas = cuentas.map((cuenta) => (cuenta.name))
   const formik = useFormik({
@@ -16,10 +23,7 @@ export const CuentaCard = () => {
   })
 
   const { handleChange, handleSubmit, handleReset, setFieldValue, values } = formik;
-  const reset = () => {
-    handleReset()
 
-  }
 
   return (
     <CardTemplate name="DATOS" >
@@ -28,50 +32,41 @@ export const CuentaCard = () => {
 
         <form onSubmit={handleSubmit} className="flex flex-column gap-4 tw-items-end" id='Cuenta'>
           <div className="flex flex-row gap-4 tw-w-full">
-            <InputData
-              type='dropdown'
+            <DropdownField
               label='Cuenta:'
               placeholder="Selecciona"
               name='cuenta'
               options={nameCuentas}
-              value={values.cuenta}
-              onchange={handleChange}
+              formikState={atomState}
+
             />
-            <InputData
-              type="number"
+            <InputNumberField
               label="Contratados:"
               placeholder="00"
               name='contratado'
-              onchange={(event: any) => {
-                setFieldValue('contratado', event.value)
-              }}
-              value={values.contratado}
+              formikState={atomState}
             />
           </div>
 
           <div className="flex flex-row gap-4 tw-w-full">
-            <InputData
-              type="calendar"
+            <CalendarField
               label="Fecha de Alta:"
               placeholder="DD/MM/AAAA"
               name='fechaAlta'
-              onchange={handleChange}
-              value={values.fechaAlta}
+              formikState={atomState}
             />
-            <InputData
-              type="calendar"
+            <CalendarField
               label="Vencimiento:"
               placeholder="DD/MM/AAAA"
               name='vencimiento'
-              onchange={handleChange}
-              value={values.vencimiento}
+              formikState={atomState}
             />
           </div>
 
           <div className='flex tw-justify-end tw-w-full gap-4'>
             <button type='reset'
               className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={reset}>
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={(e):any => handleReset(e)}>
               Cancelar
             </button>
             <button type="submit"

@@ -1,15 +1,16 @@
 import { useFormik } from 'formik';
-
 import { Checkbox } from 'primereact/checkbox';
-
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { InputData } from '../../shared/InputData/InputData';
-
 import '../../../styles/dom-card.css'
-
-
+import { InputNumberField, InputTextField } from '../../shared/inputFields';
+import { RecoilState } from 'recoil';
+import { clienteCardFormState } from '../../../atoms/FormAtoms';
+import { CalendarField } from '../../shared/inputFields/CalendarField';
 
 export const ContactoCard = () => {
+  
+  const atomState:RecoilState<{}> = clienteCardFormState;
+  
   const formik = useFormik({
     initialValues: {
       nombre: '',
@@ -24,60 +25,47 @@ export const ContactoCard = () => {
   })
 
   const { handleChange, handleSubmit, handleReset, setFieldValue, values } = formik;
-  const reset = () => {
-    handleReset()
 
-  }
   return (
     <FormCardTemplate titulo='Contacto'>
       <form onSubmit={handleSubmit} className='flex flex-column gap-4' id='Contacto'>
         <div className="flex flex-row gap-4 tw-w-full">
-          <InputData
-            type="inputtext"
+          <InputTextField
             label="Nombre Completo"
             placeholder="Nombre Completo"
             name='nombre'
-            onchange={handleChange}
-            value={values.nombre}
+            formikState={atomState}
           />
-          <InputData
-            type="phone"
+          <InputNumberField
             label="Teléfono"
             placeholder="00-0000-0000"
             name='phone'
-            onchange={handleChange}
-            value={values.phone}
+            formikState={atomState}
           />
 
         </div>
 
         <div className="flex flex-row gap-4 tw-w-full">
-          <InputData
-            type="email"
+          <InputTextField
             label="Correo Empresarial"
             placeholder="Correo Empresarial"
             name='correo'
-            onchange={handleChange}
-            value={values.correo}
+            formikState={atomState}
           />
-          <InputData
-            type="inputtext"
+          <InputTextField
             label="Puesto"
             placeholder="Puesto"
             name='puesto'
-            onchange={handleChange}
-            value={values.puesto}
+            formikState={atomState}
           />
 
         </div>
         <div className="flex flex-row gap-4 tw-w-full">
-          <InputData
-            type="calendar"
+          <CalendarField
             label="Cumpleaños"
             placeholder="Cumpleaños"
             name='birthday'
-            onchange={handleChange}
-            value={values.birthday}
+            formikState={atomState}
           />
           <div className='tw-w-full flex flex-row gap-3 tw-items-center tw-mt-6'>
             <Checkbox onChange={handleChange} checked={values.operador} name='operador'></Checkbox>
@@ -89,7 +77,7 @@ export const ContactoCard = () => {
         <div className='flex tw-justify-end tw-w-full gap-4'>
           <button type='reset'
             className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={reset}>
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={(e):any => handleReset(e)}>
             Cancelar
           </button>
           <button type="submit"

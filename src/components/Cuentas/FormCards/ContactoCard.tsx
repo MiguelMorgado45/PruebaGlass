@@ -1,10 +1,13 @@
 import { useFormik } from 'formik';
+import { RecoilState } from 'recoil';
+import { cuentaCardFormState } from '../../../atoms/FormAtoms';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { InputData } from '../../shared/InputData/InputData';
 import { ContactoType } from '../types';
-import { validacionCuentaCard } from './validacionCuentaForm';
+import { InputTextField } from '../../shared/inputFields/InputTextField';
 
 export const ContactoCard = () => {
+
+  const atomState:RecoilState<{}> = cuentaCardFormState;
 
   const valorInicial: ContactoType = {
     correo: '',
@@ -24,21 +27,17 @@ export const ContactoCard = () => {
     <FormCardTemplate titulo='Contacto'>
       <form onSubmit={formik.handleSubmit} className="flex flex-column gap-4">
         <div className="flex flex-row gap-4 tw-w-full">
-          <InputData
-            type="inputtext"
+          <InputTextField
             label="Correo de la Empresa"
             placeholder="correo@dominio.com"
             name='correo'
-            onchange={handleChange}
-            value={values.correo}
+            formikState={atomState}
           />
-          <InputData
-            type="phone"
+          <InputTextField
             label="Número de la empresa"
             placeholder="99-9999-9999"
             name='phone'
-            onchange={handleChange}
-            value={values.phone}
+            formikState={atomState}
           />
         </div>
 

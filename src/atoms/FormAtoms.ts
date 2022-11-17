@@ -14,3 +14,8 @@ export const cuentaCardFormState = atom({
     key: 'operadorCardFormState',
     default: {},
   });
+
+  export const contratacionesCardFormState = atom({
+    key: 'contratacionesCardFormState',
+    default: {},
+  });

@@ -1,12 +1,16 @@
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { InputData } from '../../shared/InputData/InputData';
 import { useFormik } from 'formik';
 import { GeneralType } from '../types';
-import { useRecoilState } from 'recoil';
+import { RecoilState, useRecoilState } from 'recoil';
 import { cuentaCardFormState } from '../../../atoms/FormAtoms';
 import { useEffect } from 'react';
+import { InputTextField } from '../../shared/inputFields/InputTextField';
+import { CalendarField } from '../../shared/inputFields/CalendarField';
+import { InputTextareaField } from '../../shared/inputFields/InputTextareaField';
 
 export const GeneralesCard = () => {
+
+  const atomState:RecoilState<{}> = cuentaCardFormState;
 
   const [generalForm, setGeneralForm] = useRecoilState<any>(cuentaCardFormState) 
 
@@ -35,30 +39,24 @@ export const GeneralesCard = () => {
     <FormCardTemplate titulo='Generales'>
       <form onSubmit={formik.handleSubmit} className="flex flex-column gap-4">
         <div className="flex flex-row gap-4 tw--w-full">
-          <InputData
-            type='inputtext'
+          <InputTextField
             label='Nombre de la cuenta'
             placeholder="Nombre de la cuenta"
             name='cuenta'
-            onchange={handleChange}
-            value={values.cuenta}
+            formikState={atomState}
           />
-          <InputData
-            type="calendar"
+          <CalendarField
             label="Fecha de Alta:"
             placeholder="DD/MM/AAAA"
             name='fechaAlta'
-            onchange={handleChange}
-            value={values.fechaAlta}
+            formikState={atomState}
           />
         </div>
-        <InputData
-          type="textarea"
+        <InputTextareaField
           label="Descripción"
           placeholder="Ingresar"
           name='descripcion'
-          onchange={handleChange}
-          value={values.descripcion}
+          formikState={atomState}
         />
 
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
