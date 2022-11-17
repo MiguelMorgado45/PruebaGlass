@@ -1,10 +1,8 @@
 import { Menu } from 'primereact/menu';
-
 import { OperadorCard, PerfilCard, RolesCard } from '../../components/Operadores/FormCards';
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 import '../../styles/operadores.css'
 import { CardTemplate } from '../../templates/CardTemplate/CardTemplate';
-import { InputData } from '../../components/shared/InputData/InputData';
 import { Divider } from 'primereact/divider';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
@@ -71,12 +69,13 @@ export const AgregarOperadorPage = () => {
         <div className="tw-w-1/4 flex flex-column">
           <PerfilCard />
           <Menu model={items} className=' tw-m-4 tw-w-full tw-p-2' />
+          {/* 
           <CardTemplate name='ETIQUETAS' classname='tw-w-full'>
             <InputData
               label='Escribe y separa con comas'
               type='inputtext'
             />
-          </CardTemplate>
+          </CardTemplate> */}
         </div>
 
         <div className="tw-w-3/4 flex flex-column">

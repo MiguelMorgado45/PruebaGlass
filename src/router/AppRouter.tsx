@@ -24,11 +24,11 @@ const AppRouter = () => {
 
                     <Route path="contrataciones" element={<ContratacionesPage />} />
                     <Route path="contrataciones/agregar" element={<AgregarContratacionesPage />} />
-                    <Route path="contrataciones/agregar/:id" element={<DetalleContratacionPage />} />
+                    <Route path="contrataciones/detalle/:id" element={<DetalleContratacionPage />} />
 
                     <Route path="operadores" element={<OperadoresPage />} />
                     <Route path="operadores/agregar" element={<AgregarOperadorPage />} />
-                    <Route path="operadores/agregar/:id" element={<DetalleOperadorPage />} />
+                    <Route path="operadores/detalle/:id" element={<DetalleOperadorPage />} />
 
                 </Route>
                 <Route path="/*" element={<Navigate to={"/dashboard"} />} />
