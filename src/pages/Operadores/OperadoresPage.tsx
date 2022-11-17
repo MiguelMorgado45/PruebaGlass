@@ -10,8 +10,7 @@ import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate
 export const OperadoresPage = () => {
   const title = {
     title: 'Operadores',
-    descr: 'Agrega, edita o da de baja a las personas que tendrán acceso al sistema Glass con sus diferentes niveles de permisos (roles).',
-    catalog: true
+    descr: 'Agrega, edita o da de baja a las personas que tendrán acceso al sistema Glass con sus diferentes niveles de permisos (roles).'
   }
   return (
     <ContentTemplate titleProps={title}>

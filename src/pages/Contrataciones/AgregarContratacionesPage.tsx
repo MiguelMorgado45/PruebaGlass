@@ -3,12 +3,10 @@ import { Menu } from 'primereact/menu';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { operadoresCardFormState } from '../../atoms/operadoresatom';
-import { CuentaCard, ProductosCard } from '../../components/Contrataciones/FormCards';
-import { ProductsCard } from '../../components/Contrataciones/FormCards/ProductsCard';
+import { ProductosCard } from '../../components/Contrataciones/FormCards';
 import { validacionOperadorCard } from '../../components/Contrataciones/FormCards/validacionOperadorForm';
 import { OperadorFormType } from '../../components/Contrataciones/types';
-import { InputData } from '../../components/shared/InputData/InputData';
-import { CardTemplate } from '../../templates/CardTemplate/CardTemplate';
+
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 
 export const AgregarContratacionesPage = () => {
@@ -45,7 +43,6 @@ export const AgregarContratacionesPage = () => {
   const title = {
     title: 'Contrataciones',
     breadcrums: true,
-    add: true,
   }
   const items = [
     // {

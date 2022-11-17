@@ -10,8 +10,7 @@ import '../../styles/contrataciones.css'
 export const ContratacionesPage = () => {
   const title = {
     title: 'Contrataciones',
-    descr: 'Los productos adquiridos/contratados por los clientes. ',
-    catalog: true
+    descr: 'Los productos adquiridos/contratados por los clientes.'
   }
 
   const responsiveOptions = [

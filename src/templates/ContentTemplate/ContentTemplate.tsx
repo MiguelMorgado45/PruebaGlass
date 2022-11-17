@@ -9,15 +9,14 @@ interface ContentProps {
 }
 
 export const ContentTemplate = ({ children, classNameC, titleProps, }: ContentProps) => {
-    const { title, descr, add, catalog, className, breadcrums} = titleProps;
+    const { title, descr, className, breadcrums} = titleProps;
 
     return (
         <div className={`tw-w-full tw-p-4 flex flex-column`}>
             <Title
                 title={title}
                 descr={descr}
-                add = {add}
-                catalog = {catalog}
+                children={titleProps.children}
                 className ={className}
                 breadcrums ={breadcrums}
             />

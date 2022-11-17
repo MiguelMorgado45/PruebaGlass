@@ -9,10 +9,11 @@ import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate
 import { FormCardTemplate } from '../../templates/FormCardTemplate/FormCardTemplate';
 import { ClienteFormType } from '../../components/Clientes/types';
 import { validacionClienteForm } from '../../components/Clientes/FormCards/validacionClienteForm';
+import { Link } from 'react-router-dom';
 
 export const AgregarClientePage = () => {
 
-  const atomState:RecoilState<{}> = clienteCardFormState;
+  const atomState: RecoilState<{}> = clienteCardFormState;
   const [clienteForm, setClienteForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
@@ -51,7 +52,6 @@ export const AgregarClientePage = () => {
   const title = {
     title: 'Clientes',
     breadcrumbs: true,
-    add: true,
   }
   const items = [
     {
@@ -128,5 +128,5 @@ export const AgregarClientePage = () => {
         </div>
       </div >
     </ContentTemplate >
-  ): null
+  ) : null
 }

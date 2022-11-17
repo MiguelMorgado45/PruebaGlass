@@ -11,7 +11,6 @@ export const DetalleClientePage = () => {
   const title = {
     title: `Clientes / ${cliente?.name}`,
     descr: cliente?.alta,
-    add: true
   }
   return (
     <>
