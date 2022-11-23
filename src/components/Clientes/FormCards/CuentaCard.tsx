@@ -12,7 +12,6 @@ import Plogo from '../../../assets/ProfileLogo.png'
 
 
 export const CuentaCard = ({ setStep }: cardProps) => {
-
   const nameCuentas = cuentas.map((cuenta) => (cuenta.name))
 
   const atomState: RecoilState<{}> = clienteCardFormState;

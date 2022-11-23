@@ -1,17 +1,16 @@
-import { InputData } from '../../shared/InputData/InputData';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { DropdownField } from '../../shared/inputFields/DropdownField';
 import { RecoilState, useRecoilValue } from 'recoil';
-import { operadoresCardFormState } from '../../../atoms/operadoresatom';
 import { InputNumberField } from '../../shared/inputFields/InputNumberFiled';
 import { CalendarField } from '../../shared/inputFields/CalendarField';
+import { contratacionesCardFormState } from '../../../atoms/FormAtoms';
 
 
 export const ProductosCard = () => {
 
-  const atomState:RecoilState<{}> = operadoresCardFormState;
+  const atomState:RecoilState<{}> = contratacionesCardFormState;
 
-  const formik = useRecoilValue(operadoresCardFormState);
+  const formik = useRecoilValue(contratacionesCardFormState);
 
   return (
     <CardTemplate name="DATOS" >

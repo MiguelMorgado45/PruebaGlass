@@ -2,19 +2,17 @@ import { useFormik } from 'formik';
 import { Menu } from 'primereact/menu';
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { operadoresCardFormState } from '../../atoms/operadoresatom';
+import { contratacionesCardFormState } from '../../atoms/FormAtoms';
 import { ProductosCard } from '../../components/Contrataciones/FormCards';
 import { validacionOperadorCard } from '../../components/Contrataciones/FormCards/validacionOperadorForm';
 import { OperadorFormType } from '../../components/Contrataciones/types';
-
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 
 export const AgregarContratacionesPage = () => {
 
   let operadoresTotales: object[] = [{}]
-  const [productos, setProductos] = useState([])
 
-  const [operadorForm, setOperadorForm] = useRecoilState<any>(operadoresCardFormState)
+  const [operadorForm, setOperadorForm] = useRecoilState<any>(contratacionesCardFormState)
   const [loading, setLoading] = useState(false);
 
   const valorInicial: OperadorFormType = {

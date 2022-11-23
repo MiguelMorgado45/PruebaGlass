@@ -1,10 +1,6 @@
 import { useFormik } from 'formik';
-
 import { Checkbox } from 'primereact/checkbox';
-
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { InputData } from '../../shared/InputData/InputData';
-
 import '../../../styles/dom-card.css'
 import { cardProps } from './cardProps';
 import { RecoilState } from 'recoil';

@@ -1,4 +1,3 @@
-import { InputData } from '../../shared/InputData/InputData';
 import '../../../styles/dom-card.css'
 import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { DropdownField } from '../../shared/inputFields';
