@@ -6,3 +6,11 @@ export type OperadoresFormType = {
     descripcion : string,
     selected?: any
 }
+
+export type OperadoresDetalleType = {
+    nombre: string,
+    correo: string,
+    telefono: string,
+    area: string,
+    alta: string
+}

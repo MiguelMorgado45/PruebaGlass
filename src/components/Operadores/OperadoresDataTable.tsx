@@ -1,15 +1,14 @@
 import {useState} from 'react' 
-
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { getTemplates } from '../shared/dataTables/templates/getTemplates';
 import { operadores } from '../../data/dataOperadores';
+import { getTemplatesState } from '../shared/dataTables/templates/getTemplatesState';
 
 export const OperadoresDataTable = () => {
 
     const [selectedCuentas, setSelectedCuentas] = useState(null);
     
-    const {imageLogoTemplate, detalleTemplate, estadoTemplate} = getTemplates();
+    const {imageLogoTemplate, detalleTemplate, estadoTemplate} = getTemplatesState();
 
     return (
         <div className='tw-w-full'>
