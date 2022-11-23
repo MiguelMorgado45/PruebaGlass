@@ -1,30 +1,53 @@
-import {Menu} from 'primereact/menu'
-import { CuentasCard } from '../../components/Cuentas/FormCards/CuentasCard';;
-import { PerfilCard } from '../../components/Cuentas/FormCards/PerfilCard';
-import { menuItems } from '../../helpers/menuItems';
+import { useEffect, useState } from 'react';
+import { RecoilState, useRecoilState } from 'recoil';
+import { cuentaCardFormState } from '../../atoms/FormAtoms';
+
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
+import { useFormik } from 'formik';
+import { CuentaFormType } from '../../components/Cuentas/types';
+import { validacionCuentaCard } from '../../components/Cuentas/FormCards/validacionCuentaForm';
 
 export const AgregarCuentaPage = () => {
+
   const title = {
-    title: 'Cuentas',
+    title: `Clientes`,
     breadcrums: true,
   }
 
-  const { cuentasItems } = menuItems();
+  const atomState: RecoilState<{}> = cuentaCardFormState;
+  const [clienteForm, setClienteForm] = useRecoilState<any>(atomState)
+  const [loading, setLoading] = useState(false);
 
-  return (
+  const valorInicial: CuentaFormType = {
+    cuenta: '',
+    descripcion: '',
+  }
+
+  const formik = useFormik({
+    initialValues: { ...valorInicial },
+    onSubmit: (values: CuentaFormType, { resetForm }) => {
+      alert(JSON.stringify(values, null, 2));
+      resetForm();
+    },
+    validate: validacionCuentaCard,
+  });
+
+  useEffect(() => {
+    setClienteForm(formik)
+    setLoading(true)
+  }, [formik.values, formik.errors, formik.touched])
+
+  
+
+  return loading === true ? (
     <ContentTemplate titleProps={title}>
-      <div className="tw-w-full tw-h-full gap-6 flex flex-row">
-        <div className="tw-w-1/5 flex flex-column">
-          <PerfilCard />
-          <Menu model={cuentasItems} className=' tw-m-4 tw-w-full tw-p-2' />
+      <div className="tw-w-full flex flex-column tw-mx-20">
 
-        </div>
-        <div className="tw-w-4/5 flex flex-column">
-          <span className='tw-mx-4 tw-text-sm tw-font-medium tw-text-gray-gray'>DATOS</span>
-          <CuentasCard/>
-        </div>
-      </div >
+        <form onSubmit={clienteForm.handleSubmit}>
+
+        </form>
+
+      </div>
     </ContentTemplate >
-  )
+  ) : null
 }

@@ -20,8 +20,8 @@ export type propDetalleType = {
 
 export type CuentaFormType = {
     cuenta: string,
-    fechaAlta : string  | undefined,
-    descripcion: string,
-    correo: string,
-    phone : string,
+    fechaAlta? : string  | undefined,
+    descripcion?: string,
+    correo?: string,
+    phone? : string,
 }
