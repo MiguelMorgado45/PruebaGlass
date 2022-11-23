@@ -1,12 +1,13 @@
 import { ClienteFormType } from "../types";
 
 type errorType = {
+    cuenta?: string,
+    descripcion?: string,
     razonSocial?: string,
     nombreComercial?: string,
     rfc?: string,
     regimenFiscal?: string,
     giro?: string,
-    registroPatronal?: string,
     calle?: string,
     exterior?: string,
     interior?: string,
@@ -15,10 +16,21 @@ type errorType = {
     estado?: string,
     pais?: string,
     codigoPostal?: string,
+    nombreContacto?: string,
+    telefono?: string | undefined,
+    correo?: string,
+    puesto?: string,
+    cumpleaños?: string,
 }
 
 export const validacionClienteForm = (values:ClienteFormType ) => {
     let errors : errorType = {};
+    if (!values.cuenta){
+        errors.cuenta = "Por favor, ingrese la cuenta asociada"
+    }
+    if (!values.descripcion){
+        errors.descripcion = "Por favor, ingrese la descripción"
+    }
     if (!values.razonSocial){
         errors.razonSocial = "Por favor, ingrese la razón social"
     }
@@ -37,10 +49,6 @@ export const validacionClienteForm = (values:ClienteFormType ) => {
     
     if (!values.giro){
         errors.giro = "Por favor, ingrese el giro"
-    }
-
-    if(!values.registroPatronal){
-        errors.registroPatronal = "Por favor, ingrese su Registro Patronal";
     }
 
     if (!values.calle){
@@ -73,6 +81,18 @@ export const validacionClienteForm = (values:ClienteFormType ) => {
 
     if(!values.codigoPostal){
         errors.codigoPostal = "Por favor, ingrese su código postal";
+    }
+    if(!values.nombreContacto){
+        errors.nombreContacto = "Por favor, ingrese el nombre del contacto";
+    }
+    if(!values.telefono){
+        errors.telefono = "Por favor, ingrese el teléfono del contacto";
+    }
+    if(!values.correo){
+        errors.correo = "Por favor, ingrese el correo del contacto";
+    }
+    if(!values.puesto){
+        errors.puesto = "Por favor, ingrese el puesto del contacto";
     }
 
     return errors;

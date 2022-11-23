@@ -1,10 +1,11 @@
 export type ClienteFormType = {
+    cuenta: string,
+    descripcion: string,
     razonSocial: string,
     nombreComercial: string,
     rfc: string,
     regimenFiscal: string,
     giro: string,
-    registroPatronal: string,
     calle: string,
     exterior: string,
     interior: string,
@@ -13,4 +14,9 @@ export type ClienteFormType = {
     estado: string,
     pais: string,
     codigoPostal: string,
+    nombreContacto: string,
+    telefono: string | undefined,
+    correo: string,
+    puesto: string,
+    cumpleaños: string,
 }

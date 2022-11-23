@@ -6,101 +6,80 @@ import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTe
 import { InputData } from '../../shared/InputData/InputData';
 
 import '../../../styles/dom-card.css'
+import { cardProps } from './cardProps';
+import { RecoilState } from 'recoil';
+import { clienteCardFormState } from '../../../atoms/FormAtoms';
+import { CalendarField, InputMaskField, InputTextField } from '../../shared/inputFields';
 
 
 
-export const ContactoCard = () => {
-  const formik = useFormik({
-    initialValues: {
-      nombre: '',
-      phone: undefined,
-      correo: '', puesto: '',
-      birthday: undefined,
-      operador: false
-    },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  })
+export const ContactoCard = ({setStep} : cardProps) => {
 
-  const { handleChange, handleSubmit, handleReset, setFieldValue, values } = formik;
-  const reset = () => {
-    handleReset()
-
-  }
+  const atomState: RecoilState<{}> = clienteCardFormState;
+  
   return (
     <FormCardTemplate titulo='Contacto'>
-      <form onSubmit={handleSubmit} className='flex flex-column gap-4' id='Contacto'>
+      <div  className='flex flex-column gap-4' id='Contacto'>
         <div className="flex flex-row gap-4 tw-w-full">
-          <InputData
-            type="inputtext"
+        <InputTextField
             label="Nombre Completo"
             placeholder="Nombre Completo"
-            name='nombre'
-            onchange={handleChange}
-            value={values.nombre}
+            name='nombreContacto'
+            formikState={atomState}
           />
-          <InputData
-            type="phone"
+          <InputMaskField
             label="Teléfono"
             placeholder="00-0000-0000"
-            name='phone'
-            onchange={handleChange}
-            value={values.phone}
+            name='telefono'
+            formikState={atomState}
           />
 
         </div>
 
         <div className="flex flex-row gap-4 tw-w-full">
-          <InputData
-            type="email"
+        <InputTextField
             label="Correo Empresarial"
             placeholder="Correo Empresarial"
             name='correo'
-            onchange={handleChange}
-            value={values.correo}
+            formikState={atomState}
           />
-          <InputData
-            type="inputtext"
+          <InputTextField
             label="Puesto"
             placeholder="Puesto"
             name='puesto'
-            onchange={handleChange}
-            value={values.puesto}
+            formikState={atomState}
           />
 
         </div>
-        <div className="flex flex-row gap-4 tw-w-full">
-          <InputData
-            type="calendar"
+        <div className="flex flex-row gap-4 tw-w-1/2 tw-pr-3">
+          <CalendarField
             label="Cumpleaños"
             placeholder="Cumpleaños"
-            name='birthday'
-            onchange={handleChange}
-            value={values.birthday}
+            name='cumpleaños'
+            formikState={atomState}
           />
-          <div className='tw-w-full flex flex-row gap-3 tw-items-center tw-mt-6'>
+          {/* <div className='tw-w-full flex flex-row gap-3 tw-items-center tw-mt-6'>
             <Checkbox onChange={handleChange} checked={values.operador} name='operador'></Checkbox>
             <label className='tw-font-medium tw-text-sm'>Hacer Operador</label>
-          </div>
+          </div> */}
 
         </div>
 
         <div className='flex tw-justify-end tw-w-full gap-4'>
-          <button type='reset'
+          <button type='button'
             className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={reset}>
-            Cancelar
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={() => setStep(2)}>
+            Anterior
           </button>
           <button type="submit"
-            className={`tw-text-sm tw-w-40 tw-font-semibold tw-border-blue-600 tw-border-2 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-blue-600 hover:tw-bg-blue-100`}>
+            className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-blue-600 tw-h-fit
+            tw-px-4 tw-py-3 tw-rounded-md tw-text-white`}>
             Agregar
           </button>
         </div>
 
 
-      </form>
+      </div>
     </FormCardTemplate>
   )
 }
