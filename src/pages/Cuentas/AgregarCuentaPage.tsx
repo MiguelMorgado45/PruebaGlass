@@ -5,12 +5,13 @@ import { cuentaCardFormState } from '../../atoms/FormAtoms';
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 import { useFormik } from 'formik';
 import { CuentaFormType } from '../../components/Cuentas/types';
-import { validacionCuentaCard } from '../../components/Cuentas/FormCards/validacionCuentaForm';
+import { validacionCuentaCard, validacionCuentaCardAgregar } from '../../components/Cuentas/FormCards/validacionCuentaForm';
+import { GeneralesCard } from '../../components/Cuentas/FormCards/GeneralesCard';
 
 export const AgregarCuentaPage = () => {
 
   const title = {
-    title: `Clientes`,
+    title: `Cuentas`,
     breadcrums: true,
   }
 
@@ -29,7 +30,7 @@ export const AgregarCuentaPage = () => {
       alert(JSON.stringify(values, null, 2));
       resetForm();
     },
-    validate: validacionCuentaCard,
+    validate: validacionCuentaCardAgregar
   });
 
   useEffect(() => {
@@ -41,10 +42,10 @@ export const AgregarCuentaPage = () => {
 
   return loading === true ? (
     <ContentTemplate titleProps={title}>
-      <div className="tw-w-full flex flex-column tw-mx-20">
+      <div className="tw-w-full flex flex-column tw-mx-48">
 
         <form onSubmit={clienteForm.handleSubmit}>
-
+          <GeneralesCard/>
         </form>
 
       </div>

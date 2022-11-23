@@ -28,3 +28,12 @@ export const validacionCuentaCard = (values:CuentaFormType ) => {
 
     return errors;
 }
+
+export const validacionCuentaCardAgregar = (values:CuentaFormType ) => {
+    let errors : errorType = {};
+    if (!values.cuenta){
+        errors.cuenta = "Por favor, ingrese el nombre de su cuenta"
+    }
+
+    return errors;
+}
