@@ -43,10 +43,14 @@ module.exports = {
           'bprofile-hover': '#2c4bd4',
           'bcard': '#4E46B5',
           'bcard-t': '#8B86DF',
+          'cardblue': '#F3F3FF',
+          'cardbluelight': '#F5F2FF',
         },
         red: {
           'template-back': '#FFF5F8',
           'template-t': '#F1416C',
+          'cardred' : '#FFECD9',
+          'cardredlight' : '#FDF5E3',
         },
         green: {
           'template-back': '#E8FFF3',

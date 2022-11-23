@@ -144,7 +144,13 @@ export const menuItems = () => {
                 window.location.hash = "Contacto";
             }
         },
-
+        {
+            icon: 'pi pi-user',
+            label: 'Vendedor',
+            command: (event: any) => {
+                window.location.hash = "Vendedor";
+            }
+        },
     ];
 
     return {

@@ -1,5 +1,6 @@
+import moment from 'moment';
 import { Calendar } from 'primereact/calendar';
-import { InputText } from 'primereact/inputtext'
+import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { FieldType } from './FieldType';
 
@@ -11,10 +12,12 @@ export const CalendarField = ({ name, label, placeholder, formikState }: FieldTy
                 <label className="tw-font-semibold">{label}</label>
 
                 <Calendar
+                    showIcon
+                    dateFormat="dd/mm/yy"
                     className={`w-full ${formik.errors[name] && formik.touched[name] && "p-invalid"}`}
-                    placeholder = {placeholder}
+                    placeholder={placeholder}
                     name={name}
-                    value={formik.values[name]}
+                    value={new Date(moment(formik.values[name], "DDMMYYYY").format('L'))}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                 />

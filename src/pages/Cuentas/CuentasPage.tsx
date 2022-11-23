@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { CuentasDataTable } from '../../components/Cuentas/CuentasDataTable'
 import { TipoCuentaCard } from '../../components/Cuentas/TipoCuentaCard'
