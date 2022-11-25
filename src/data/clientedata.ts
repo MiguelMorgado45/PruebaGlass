@@ -67,3 +67,69 @@ export const typeCuentas = [
         number: 71
     },
 ]
+
+export const clientesGeneral = [
+    {
+        id: '1',
+        razonSocial: 'Brounchis Natural S.A. de C.V',
+        nombreComercial: 'Brounchis Natural',
+        rfc: 'BONT2211011Y2',
+        regimenFiscal: '602 - General de Ley Personas Morales',
+        giro: 'GIRO 1',
+        registroPatronal: 'Y68 13217 10 3',
+    },
+    {
+        id: '2',
+        razonSocial: 'Katoen Natie Servicios Logística S.A. de C.V',
+        nombreComercial: 'Katoen Natie Servicios Logística',
+        rfc: 'KANS2106157XA',
+        regimenFiscal: '602 - General de Ley Personas Morales',
+        giro: 'GIRO 2',
+        registroPatronal: 'Y68 13217 10 3',
+    },
+    {
+        id: '3',
+        razonSocial: 'Katoen Natie Altamira, S.A. de C.V.',
+        nombreComercial: 'Katoen Natie Altamira',
+        rfc: 'KANA200414MB7',
+        regimenFiscal: '602 - General de Ley Personas Morales',
+        giro: 'GIRO 3',
+        registroPatronal: 'Y68 13217 10 3',
+    }
+]
+
+export const clientesDomicilio = [
+    {
+        id: '1',
+        calle: 'Bahía de Ballenas',
+        exterior: '63',
+        interior: '',
+        colonia: 'Verónica Anzúres',
+        alcaldia: 'Miguel Hidalgo',
+        estado: 'CDMX',
+        pais: 'México',
+        codigoPostal: '11300',
+    },
+    {
+        id: '2',
+        calle: 'Calle Castilla Ote.',
+        exterior: '39',
+        interior: '',
+        colonia: 'Los Reyes',
+        alcaldia: 'Azcapotzalco',
+        estado: 'CDMX',
+        pais: 'México',
+        codigoPostal: '02010',
+    },
+    {
+        id: '3',
+        calle: 'Lic. José Urbano Fonseca',
+        exterior: '7370',
+        interior: '5135',
+        colonia: 'Maximino Avila Camacho',
+        alcaldia: 'Gustavo A. Madero',
+        estado: 'CDMX',
+        pais: 'México',
+        codigoPostal: '07370',
+    }
+]

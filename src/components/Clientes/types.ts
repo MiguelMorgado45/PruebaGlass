@@ -20,3 +20,23 @@ export type ClienteFormType = {
     puesto: string,
     cumpleaños: string,
 }
+
+export type GeneralDetalleFormType = {
+    razonSocial: string,
+    nombreComercial: string,
+    rfc: string,
+    regimenFiscal: string,
+    giro: string,
+    registroPatronal: string,
+}
+
+export type DomicilioDetalleFormType = {
+    calle: string,
+    exterior: string,
+    interior: string,
+    colonia: string,
+    alcaldia: string,
+    estado: string,
+    pais: string,
+    codigoPostal: string,
+}
