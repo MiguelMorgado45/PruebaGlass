@@ -1,2 +1,2 @@
-export * from './CuentaCard'
+export * from './ClienteCard'
 export * from './ProductosCard'
