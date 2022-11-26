@@ -14,3 +14,21 @@ export type OperadorFormType = {
     cumple: string,
     mismo?: boolean
 }
+
+export type ContratacionGeneralDetalleType = {
+    producto: string,
+    contratados: number,
+    alta: string,
+    expira: string,
+    costo: number, 
+    estado: string,
+}
+
+export type ContratacionContactoDetalleType = {
+    name: string,
+    telefono: string,
+    correo: string,
+    puesto: string,
+    cumple: string
+}
+
