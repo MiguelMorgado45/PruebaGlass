@@ -1,7 +1,7 @@
 
 import { operadores } from '../data/dataOperadores';
 
-export const getClientebyId = (id:string | undefined ) => {
+export const getOperadorbyId = (id:string | undefined ) => {
     
     return operadores.find(operador => operador.id === id);
 }
