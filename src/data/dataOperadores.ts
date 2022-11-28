@@ -11,7 +11,8 @@ export const operadores = [
         roles: 'ADMINISTRADOR DE CUENTAS',
         alta: '18/05/2018',
         estado: 'Activo',
-        area: 'Soporte'
+        area: 'Soporte',
+        descr: 'Esto es una descripción',
     },
     {
         id: '2',
@@ -22,7 +23,8 @@ export const operadores = [
         roles: 'ADMINISTRADOR DE OPERADORES',
         alta: '18/05/2018',
         estado: 'Activo',
-        area: 'Soporte'
+        area: 'Soporte',
+        descr: 'Esto es una descripción',
     },
     {
         id: '3',
@@ -33,7 +35,8 @@ export const operadores = [
         roles: 'ADMINISTRADOR DE CONTRASEÑAS',
         alta: '18/05/2018',
         estado: 'Activo',
-        area: 'Soporte'
+        area: 'Soporte',
+        descr: 'Esto es una descripción',
     },
     {
         id: '4',
@@ -44,7 +47,8 @@ export const operadores = [
         roles: 'ADMINISTRADOR DE REPORTES',
         alta: '18/05/2018',
         estado: 'Activo',
-        area: 'Soporte'
+        area: 'Soporte',
+        descr: 'Esto es una descripción',
     },
     {
         id: '5',
@@ -55,7 +59,8 @@ export const operadores = [
         roles: 'ADMINISTRADOR DE CUENTAS',
         alta: '18/05/2018',
         estado: 'Inactivo',
-        area: 'Recursos Humanos'
+        area: 'Recursos Humanos',
+        descr: 'Esto es una descripción',
     },
     {
         id: '6',
@@ -66,7 +71,8 @@ export const operadores = [
         roles: 'ADMINISTRADOR DE TODO',
         alta: '18/05/2018',
         estado: 'Inactivo',
-        area: 'Desarrollo'
+        area: 'Desarrollo',
+        descr: 'Esto es una descripción',
     },
 ]
 

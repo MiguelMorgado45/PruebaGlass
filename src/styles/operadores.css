@@ -2,3 +2,14 @@
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1), 0px 4px 6px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
 }
+.p-steps .p-steps-item .p-menuitem-link{
+    background: transparent;
+}
+
+.p-steps .p-steps-item:before{
+    border-top: 2px solid #E8E9F2;
+}
+
+.p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus{
+    box-shadow: 0 0 0 0 ;
+}

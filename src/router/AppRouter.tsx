@@ -7,6 +7,7 @@ import {OperadoresPage, AgregarOperadorPage, DetalleOperadorPage} from '../pages
 
 import { Dashboard } from "../pages/Dashboard";
 import { GlassNavigationBar } from "../pages/GlassNavigationBar";
+import { AgregarRoles } from "../pages/Operadores/AgregarRoles"
 
 const AppRouter = () => {
     return (
@@ -29,6 +30,7 @@ const AppRouter = () => {
                     <Route path="operadores" element={<OperadoresPage />} />
                     <Route path="operadores/agregar" element={<AgregarOperadorPage />} />
                     <Route path="operadores/detalle/:id" element={<DetalleOperadorPage />} />
+                    <Route path="operadores/agregarRol/:id" element={<AgregarRoles />} />
 
                 </Route>
                 <Route path="/*" element={<Navigate to={"/dashboard"} />} />

@@ -3,33 +3,27 @@ import { useFormik } from 'formik';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { rolesOperadores } from '../../../data/dataOperadores';
-import { useRecoilValue } from 'recoil';
-import { operadorCardFormState } from '../../../atoms/FormAtoms';
+import { RecoilState, useRecoilValue } from 'recoil';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { operadorDetalleFormState } from '../../../atoms/OperadorAtom';
 
 
 export const RolesCard = () => {
 
-  const [selectedCuentas, setSelectedCuentas] = useState<any>(null);
-  const formik = useRecoilValue(operadorCardFormState);
+  const [selectedCuentas, setSelectedCuentas] = useState(false)
 
-  // const formik = useFormik({
-  //   initialValues: { selected: selectedCuentas },
-  //   onSubmit: values => {
-  //     alert(JSON.stringify(values, null, 2));
-  //   },
-  // })
+  const atomState: RecoilState<{}> = operadorDetalleFormState;
+  const formikOperadorDetalle = useRecoilValue<any>(operadorDetalleFormState);
 
-  const {  setFieldValue, values }:any = formik;
+  const { setFieldValue, values }: any = formikOperadorDetalle;
 
   useEffect(() => {
     setFieldValue("selected", selectedCuentas)
-    console.log({ values })
   }, [selectedCuentas])
 
   return (
     <>
-      <div className="flex flex-column gap-4 tw-items-end tw-mt-8" id='Roles'>
-        <p className="tw-text-orangetw tw-text-2xl tw-font-semibold w-full">Asignar Roles</p>
+      <FormCardTemplate titulo='Asignar Roles'>
         <div className="tw-w-full">
           <DataTable value={rolesOperadores} responsiveLayout="scroll" selection={selectedCuentas} onSelectionChange={e => setSelectedCuentas(e.value)} dataKey="id" name='selected'>
             <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
@@ -37,7 +31,19 @@ export const RolesCard = () => {
             <Column field="descr" header="Descripción" ></Column>
           </DataTable>
         </div>
-      </div>
+        <div className='tw-w-full flex tw-justify-end gap-4 tw-mt-4 tw-pt-4'>
+
+          <button type='reset' onClick={() => { formikOperadorDetalle.resetForm() }}
+            className={`tw-text-sm tw-w-1/5 tw-font-semibold tw-bg-gray-200 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
+            Cancelar
+          </button>
+
+          <button type="submit"
+            className={`tw-text-sm tw-w-1/5 tw-font-semibold tw-bg-blue-600 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-white`}>
+            Agregar
+          </button>
+        </div>
+      </FormCardTemplate>
     </>
   )
 }
