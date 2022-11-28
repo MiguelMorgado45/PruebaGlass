@@ -1,29 +1,37 @@
-import { useFormik } from 'formik';
+import { Steps } from 'primereact/steps';
 import { Divider } from 'primereact/divider';
-import { Menu } from 'primereact/menu';
 import { useEffect, useState } from 'react';
 import { RecoilState, useRecoilState } from 'recoil';
-import { DomicilioCard, GeneralesCard, PerfilCard } from '../../components/Clientes/FormCards';
+import { ContactoCard, CuentaCard, DomicilioCard, GeneralesCard, PerfilCard } from '../../components/Clientes/FormCards';
 import { clienteCardFormState } from '../../atoms/FormAtoms';
-import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 import { FormCardTemplate } from '../../templates/FormCardTemplate/FormCardTemplate';
 import { ClienteFormType } from '../../components/Clientes/types';
 import { validacionClienteForm } from '../../components/Clientes/FormCards/validacionClienteForm';
-import { Link } from 'react-router-dom';
+
+import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
+import { useFormik } from 'formik';
+import { GeneralesCardAgregar } from '../../components/Clientes/FormCards/GeneralesCardAgregar';
 
 export const AgregarClientePage = () => {
+
+  const title = {
+    title: `Clientes / Agregar`,
+    breadcrums: true,
+  }
 
   const atomState: RecoilState<{}> = clienteCardFormState;
   const [clienteForm, setClienteForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState(0);
 
   const valorInicial: ClienteFormType = {
+    cuenta: '',
+    descripcion: '',
     razonSocial: '',
     nombreComercial: '',
     rfc: '',
     regimenFiscal: '',
     giro: '',
-    registroPatronal: '',
     calle: '',
     exterior: '',
     interior: '',
@@ -32,6 +40,11 @@ export const AgregarClientePage = () => {
     estado: '',
     pais: '',
     codigoPostal: '',
+    nombreContacto: '',
+    telefono: undefined,
+    correo: '',
+    puesto: '',
+    cumpleaños: '',
   }
 
   const formik = useFormik({
@@ -48,85 +61,38 @@ export const AgregarClientePage = () => {
     setLoading(true)
   }, [formik.values, formik.errors, formik.touched])
 
-
-  const title = {
-    title: 'Clientes',
-    breadcrumbs: true,
-  }
   const items = [
     {
-      icon: 'pi pi-box',
       label: 'Cuenta',
-      command: (event: any) => {
-        window.location.hash = "Cuenta";
-      }
     },
     {
-      icon: 'pi pi-briefcase',
       label: 'Generales',
-      command: (event: any) => {
-        window.location.hash = "Generales";
-      }
-    },
-    {
-      icon: 'pi pi-home',
-      label: 'Domicilio',
-      command: (event: any) => {
-        window.location.hash = "Domicilio";
-      }
-    },
-    {
-      icon: 'pi pi-user',
-      label: 'Contacto',
-      command: (event: any) => {
-        window.location.hash = "Contacto";
-      }
-    },
-    {
-      icon: 'pi pi-thumbs-down',
-      label: 'Desactivar',
-      command: (event: any) => {
-        window.location.hash = "Desactivar";
-      }
-    },
 
+    },
+    {
+      label: 'Domicilio',
+
+    },
+    {
+      label: 'Contacto',
+
+    },
   ];
 
   return loading === true ? (
     <ContentTemplate titleProps={title}>
-      <div className="tw-w-full tw-h-full gap-6 flex flex-row">
-        <div className="tw-w-1/5 flex flex-column">
-          <PerfilCard />
-          <Menu model={items} className=' tw-m-4 tw-w-full tw-p-2' />
+      <div className="tw-w-full flex flex-column tw-mx-20">
 
-        </div>
-        <div className="tw-w-4/5 flex flex-column">
-          <span className='tw-mx-4 tw-text-sm tw-font-medium tw-text-gray-gray'>DATOS</span>
-          <form onSubmit={clienteForm.handleSubmit}>
-            <FormCardTemplate titulo='Generales'>
-              <GeneralesCard />
-              <Divider></Divider>
-              <DomicilioCard />
-            </FormCardTemplate>
-            <div className='tw-w-full flex tw-justify-center gap-4'>
+        <Steps model={items} activeIndex={step} onSelect={(e) => setStep(e.index)} readOnly={false} />
 
-              <button type='reset'
-                className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
-                Cancelar
-              </button>
+        <form onSubmit={clienteForm.handleSubmit}>
+              <div className={`${step != 0 && 'tw-hidden'}`}> <CuentaCard setStep={setStep}/> </div>
+              <div className={`${step != 1 && 'tw-hidden'}`}><GeneralesCardAgregar setStep={setStep}/></div>
+              <div className={`${step != 2 && 'tw-hidden'}`}><DomicilioCard setStep={setStep}/></div>
+              <div className={`${step != 3 && 'tw-hidden'}`}><ContactoCard setStep={setStep}/></div>
+        </form>
 
-              <button type="submit"
-                className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-blue-600 tw-h-fit
-                  tw-px-4 tw-py-3 tw-rounded-md tw-text-white`}>
-                Añadir
-              </button>
-
-            </div>
-          </form>
-
-        </div>
-      </div >
+      </div>
     </ContentTemplate >
   ) : null
 }

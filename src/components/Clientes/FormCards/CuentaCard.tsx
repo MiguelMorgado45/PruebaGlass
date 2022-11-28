@@ -1,85 +1,74 @@
-import { Formik, useFormik } from 'formik';
+import { RecoilState } from 'recoil';
+import { clienteCardFormState } from '../../../atoms/FormAtoms';
 
 
 import { cuentas } from '../../../data/data';
-import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
-import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { CalendarField } from '../../shared/inputFields/CalendarField';
-import { InputNumberField } from '../../shared/inputFields/InputNumberFiled';
-import { DropdownField } from '../../shared/inputFields/DropdownField';
-import { RecoilState } from 'recoil';
-import { cuentaCardFormState } from '../../../atoms/FormAtoms';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { DropdownField, InputTextareaField } from '../../shared/inputFields';
+import { cardProps } from './cardProps';
 
-export const CuentaCard = () => {
+import Plogo from '../../../assets/ProfileLogo.png'
 
-  const atomState:RecoilState<{}> = cuentaCardFormState;
 
+
+export const CuentaCard = ({ setStep }: cardProps) => {
   const nameCuentas = cuentas.map((cuenta) => (cuenta.name))
-  const formik = useFormik({
-    initialValues: { cuenta: '', contratado: 0, fechaAlta: '', vencimiento: '' },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  })
 
-  const { handleChange, handleSubmit, handleReset, setFieldValue, values } = formik;
-
+  const atomState: RecoilState<{}> = clienteCardFormState;
 
   return (
-    <CardTemplate name="DATOS" >
-      <div className="flex flex-column gap-4" id='Cuenta'>
-        <p className="tw-text-orangetw tw-text-2xl tw-font-semibold">Cuentas</p>
+    <FormCardTemplate titulo='Cuenta'>
+      <div className='flex tw-gap-48 tw-mb-8'>
+        <label className="tw-font-semibold">Logotipo</label>
+        <div className='flex justify-content-center align-items-center flex-column'>
+          <img className='tw-rounded-full tw-mb-4' src={Plogo} alt="Profile Photo" />
+          <p className='tw-text-sm tw-font-medium tw-text-gray-grayt tw-mb-2'>JPG o PNG no mayor a 1 MB</p>
+        </div>
+        <div className='flex tw-items-end'>
+          <button type='reset'
+            className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-100 tw-h-fit
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
+            Subir
+          </button>
+        </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-column gap-4 tw-items-end" id='Cuenta'>
+      </div>
+
+      <div className="flex flex-column gap-4">
+        <div className="flex flex-column gap-4 tw-items-end">
           <div className="flex flex-row gap-4 tw-w-full">
             <DropdownField
-              label='Cuenta:'
+              label="Cuenta"
               placeholder="Selecciona"
               name='cuenta'
-              options={nameCuentas}
-              formikState={atomState}
-
-            />
-            <InputNumberField
-              label="Contratados:"
-              placeholder="00"
-              name='contratado'
+              options={(nameCuentas != undefined) ? nameCuentas : []}
               formikState={atomState}
             />
-          </div>
-
-          <div className="flex flex-row gap-4 tw-w-full">
-            <CalendarField
-              label="Fecha de Alta:"
-              placeholder="DD/MM/AAAA"
-              name='fechaAlta'
-              formikState={atomState}
-            />
-            <CalendarField
-              label="Vencimiento:"
-              placeholder="DD/MM/AAAA"
-              name='vencimiento'
+            <InputTextareaField
+              label="Descripción"
+              placeholder="Escribe"
+              name='descripcion'
               formikState={atomState}
             />
           </div>
 
           <div className='flex tw-justify-end tw-w-full gap-4'>
-            <button type='reset'
+            {/* <button type='reset'
               className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick={(e):any => handleReset(e)}>
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
               Cancelar
-            </button>
-            <button type="submit"
+            </button> */}
+            <button type='button'
               className={`tw-text-sm tw-w-40 tw-font-semibold tw-border-blue-600 tw-border-2 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-blue-600 hover:tw-bg-blue-100`}>
-              Agregar
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-blue-600 hover:tw-bg-blue-100`} onClick={() => setStep(1)}>
+              Siguiente
             </button>
           </div>
-        </form>
+        </div>
 
 
       </div>
 
-    </CardTemplate>
+    </FormCardTemplate>
   )
 }
