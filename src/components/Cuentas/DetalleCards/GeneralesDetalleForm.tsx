@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { GeneralType, propDetalleType } from '../../Cuentas/types';
+import { GeneralType, propDetalleType } from '../types';
 import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { InputTextField } from '../../shared/inputFields/InputTextField';

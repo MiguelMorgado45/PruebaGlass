@@ -4,14 +4,14 @@ import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTe
 import '../../../styles/dom-card.css'
 import { cardProps } from './cardProps';
 import { RecoilState, useRecoilValue } from 'recoil';
-import { contratacionesCardFormState } from '../../../atoms/FormAtoms';
 import { CalendarField, InputMaskField, InputTextField } from '../../shared/inputFields';
+import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
 
 
 
 export const ContactoCard = ({setStep} : cardProps) => {
 
-  const atomState: RecoilState<{}> = contratacionesCardFormState;
+  const atomState: RecoilState<{}> = contratacionAgregaFormState;
   
   const formik: any = useRecoilValue(atomState);
 

@@ -10,38 +10,7 @@ export const CuentasDataTable = () => {
 
     const [selectedCuentas, setSelectedCuentas] = useState(null);
 
-    const { imageLogoTemplate, contratadoTemplate, detalleTemplate, estadoTemplate } = getTemplates();
-
-    const navigate = useNavigate();
-
-    const navegarAgregarCl = (id:any) => {
-        localStorage.setItem('id', JSON.stringify(id));
-        navigate(`/clientes/agregar`)
-
-    }
-
-    const navegarAgregarOp = (id:any) => {
-        localStorage.setItem('id', JSON.stringify(id));
-        navigate(`/operadores/agregar`)
-
-    }
-
-    const agregarClienteTempalete = (rowData: any) => {
-        return(
-            <button onClick={() => navegarAgregarCl(rowData.id)}
-             className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
-        ) 
-        
-
-    }
-    const agregarOperadorTempalete = (rowData: any) => {
-        return(
-            <button onClick={() => navegarAgregarOp(rowData.id)}
-             className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
-        ) 
-        
-
-    }
+    const { imageLogoTemplate, contratadoTemplate, detalleTemplate, estadoTemplate, agregarClienteTemplate, agregarOperadorTemplate } = getTemplates();
 
 
     return (
@@ -52,8 +21,8 @@ export const CuentasDataTable = () => {
                     <Column body={imageLogoTemplate} header="Logo" ></Column>
                     <Column field="name" header="Cuenta" sortable></Column>
                     <Column field="alta" header="Alta" sortable></Column>
-                    <Column body={agregarClienteTempalete} header='Cliente'></Column>
-                    <Column body={agregarOperadorTempalete} header='Operador'></Column>
+                    <Column body={agregarClienteTemplate} header='Cliente'></Column>
+                    <Column body={agregarOperadorTemplate} header='Operador'></Column>
                     <Column body={detalleTemplate} header="Detalles" ></Column>
                 </DataTable>
             </div>

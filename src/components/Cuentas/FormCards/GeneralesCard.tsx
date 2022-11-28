@@ -1,18 +1,14 @@
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { useFormik } from 'formik';
-import { GeneralType } from '../types';
-import { RecoilState, useRecoilState } from 'recoil';
-import { cuentaCardFormState } from '../../../atoms/FormAtoms';
-import { useEffect } from 'react';
+import { RecoilState } from 'recoil';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { CalendarField } from '../../shared/inputFields/CalendarField';
 import { InputTextareaField } from '../../shared/inputFields/InputTextareaField';
 import Plogo from '../../../assets/ProfileLogo.png'
+import { cuentaAgregaFormState } from '../../../atoms/CuentasAtoms';
 
 
 export const GeneralesCard = () => {
 
-  const atomState: RecoilState<{}> = cuentaCardFormState;
+  const atomState: RecoilState<{}> = cuentaAgregaFormState;
 
   return (
 

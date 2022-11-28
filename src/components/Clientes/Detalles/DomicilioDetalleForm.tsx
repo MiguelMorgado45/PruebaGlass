@@ -5,22 +5,22 @@ import { RecoilState, useRecoilState } from 'recoil';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { useEffect, useState } from 'react';
 import { domicilioDetalleFormAtom } from '../../../atoms/ClienteAtom';
-import { DomicilioDetalleFormType } from '../types';
+import { DomicilioClienteFormType } from '../types';
 import { useFormik } from 'formik';
 import { validacionDomicilioDetalleForm } from './validacionClienteDetalleForm';
-import { getClienteDomicilioDetallebyId } from '../../../helpers/getClientebyId';
+import { getClientebyId } from '../../../helpers/getClientebyId';
 
 type PropType = {
   id:string | undefined
 }
 
-export const DomicilioDetalleCard = ({id}:PropType) => {
+export const DomicilioDetalleForm = ({id}:PropType) => {
 
   const atomState: RecoilState<{}> = domicilioDetalleFormAtom;
   const [domicilioForm, setDomicilioForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
-  const valorInicial: DomicilioDetalleFormType = {
+  const valorInicial: DomicilioClienteFormType = {
     calle: '',
     exterior: '',
     interior: '',
@@ -33,7 +33,7 @@ export const DomicilioDetalleCard = ({id}:PropType) => {
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: DomicilioDetalleFormType, { resetForm }) => {
+    onSubmit: (values: DomicilioClienteFormType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
       resetForm();
     },
@@ -46,16 +46,16 @@ export const DomicilioDetalleCard = ({id}:PropType) => {
   }, [formik.values, formik.errors, formik.touched])
 
   useEffect(() => {
-    const cliente = getClienteDomicilioDetallebyId(id);
+    const cliente = getClientebyId(id);
     formik.setValues({
-      calle: cliente? cliente.calle : '',
-      exterior: cliente? cliente.exterior : '',
-      interior: cliente? cliente.interior : '',
-      colonia: cliente? cliente.colonia : '',
-      alcaldia: cliente? cliente.alcaldia : '',
-      estado: cliente? cliente.estado : '',
-      pais: cliente? cliente.pais : '',
-      codigoPostal: cliente? cliente.codigoPostal : '',
+      calle: cliente? cliente.domicilio.calle : '',
+      exterior: cliente? cliente.domicilio.exterior : '',
+      interior: cliente? cliente.domicilio.interior : '',
+      colonia: cliente? cliente.domicilio.colonia : '',
+      alcaldia: cliente? cliente.domicilio.alcaldia : '',
+      estado: cliente? cliente.domicilio.estado : '',
+      pais: cliente? cliente.domicilio.pais : '',
+      codigoPostal: cliente? cliente.domicilio.codigoPostal : '',
     })
   }, [])
 

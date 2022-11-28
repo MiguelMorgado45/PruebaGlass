@@ -1,20 +1,18 @@
 import { RecoilState } from 'recoil';
-import { clienteCardFormState } from '../../../atoms/FormAtoms';
-
-
 import { cuentas } from '../../../data/data';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { DropdownField, InputTextareaField } from '../../shared/inputFields';
 import { cardProps } from './cardProps';
 
 import Plogo from '../../../assets/ProfileLogo.png'
+import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
 
 
 
 export const CuentaCard = ({ setStep }: cardProps) => {
   const nameCuentas = cuentas.map((cuenta) => (cuenta.name))
 
-  const atomState: RecoilState<{}> = clienteCardFormState;
+  const atomState: RecoilState<{}> = clienteAgregaFormState;
 
   return (
     <FormCardTemplate titulo='Cuenta'>

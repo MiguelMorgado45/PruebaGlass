@@ -3,13 +3,13 @@ import { propDetalleType, VendedorType } from '../types';
 import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { vendedorDetalleFormState } from '../../../atoms/cuentasAtoms';
+import { vendedorDetalleFormState } from '../../../atoms/CuentasAtoms';
 import { DropdownField } from '../../shared/inputFields/DropdownField';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { getVendedorbyId } from '../../../helpers/getCuentabyId';
 import { validacionVendedorDetalle } from './validacionCuentaDetalle';
 
-export const VendedorDetalleCard = ({id}:propDetalleType) => {
+export const VendedorDetalleForm = ({id}:propDetalleType) => {
 
   const atomState: RecoilState<{}> = vendedorDetalleFormState;
 

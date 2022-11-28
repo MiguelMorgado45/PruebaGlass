@@ -1,9 +1,6 @@
 import { RecoilState } from 'recoil';
-import { clienteCardFormState, contratacionesCardFormState } from '../../../atoms/FormAtoms';
-import { clientes } from '../../../data/clientedata';
-
-
-import { cuentas } from '../../../data/data';
+import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
+import { clientes } from '../../../data/dataClientes';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { DropdownField, InputTextareaField } from '../../shared/inputFields';
 import { cardProps } from './cardProps';
@@ -11,9 +8,9 @@ import { cardProps } from './cardProps';
 
 
 export const ClienteCard = ({ setStep }: cardProps) => {
-  const  nameClientes = clientes.map((cliente) => (cliente.name))
+  const  nameClientes = clientes.map((cliente:any) => (cliente.name))
 
-  const atomState: RecoilState<{}> = contratacionesCardFormState;
+  const atomState: RecoilState<{}> = contratacionAgregaFormState;
 
   return (
     <FormCardTemplate titulo='Cuenta'>

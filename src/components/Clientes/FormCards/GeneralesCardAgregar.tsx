@@ -1,14 +1,12 @@
 
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-
 import { RecoilState } from 'recoil';
-import { clienteCardFormState } from '../../../atoms/FormAtoms';
-
 import { DropdownField, InputTextField } from '../../shared/inputFields';
 import { cardProps } from './cardProps';
+import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
 
 export const GeneralesCardAgregar = ({setStep}: cardProps) => {
-  const atomState: RecoilState<{}> = clienteCardFormState;
+  const atomState: RecoilState<{}> = clienteAgregaFormState;
   return (
     <FormCardTemplate titulo='Generales'>
       <div className='flex tw-justify-end tw-w-full gap-4 flex-column'>

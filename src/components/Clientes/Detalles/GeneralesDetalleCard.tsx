@@ -1,35 +1,37 @@
 import { useFormik } from 'formik';
+import { useRecoilValue } from 'recoil';
 import { useEffect, useState } from 'react';
 import { RecoilState, useRecoilState } from 'recoil';
 import { generalesDetalleFormAtom } from '../../../atoms/ClienteAtom';
 import { DropdownField, InputTextField } from '../../shared/inputFields';
-import { GeneralDetalleFormType } from '../types';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { validacionGeneralDetalleForm } from './validacionClienteDetalleForm';
-import { getClienteGeneralDetallebyId } from '../../../helpers/getClientebyId';
+import { getClientebyId } from '../../../helpers/getClientebyId';
+import {FiscalClienteFormType} from '../types'
 
 type PropType = {
   id:string | undefined
 }
 
-export const GeneralesDetalleCard = ({id}:PropType) => {
+export const GeneralesDetalleForm = ({id}:PropType) => {
 
   const atomState: RecoilState<{}> = generalesDetalleFormAtom;
+  const formikA: any = useRecoilValue(atomState)
+
   const [generalForm, setGeneralForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
-  const valorInicial: GeneralDetalleFormType = {
+  const valorInicial: FiscalClienteFormType = {
     razonSocial: '',
     nombreComercial: '',
     rfc: '',
     regimenFiscal: '',
     giro: '',
-    registroPatronal: '',
   }
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: GeneralDetalleFormType, { resetForm }) => {
+    onSubmit: (values: FiscalClienteFormType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
       resetForm();
     },
@@ -42,14 +44,13 @@ export const GeneralesDetalleCard = ({id}:PropType) => {
   }, [formik.values, formik.errors, formik.touched])
 
   useEffect(() => {
-    const cliente = getClienteGeneralDetallebyId(id);
+    const cliente = getClientebyId(id);
     formik.setValues({
-      razonSocial: cliente? cliente.razonSocial : '',
-      nombreComercial: cliente? cliente.nombreComercial : '',
-      rfc: cliente? cliente.rfc : '',
-      regimenFiscal: cliente? cliente.regimenFiscal : '',
-      giro: cliente? cliente.giro : '',
-      registroPatronal: cliente? cliente.registroPatronal : '',
+      razonSocial: cliente? cliente.fiscal.razonSocial : '',
+      nombreComercial: cliente? cliente.fiscal.nombreComercial : '',
+      rfc: cliente? cliente.fiscal.rfc : '',
+      regimenFiscal: cliente? cliente.fiscal.regimenFiscal : '',
+      giro: cliente? cliente.fiscal.giro : '',
     })
   }, [])
 
@@ -95,12 +96,6 @@ export const GeneralesDetalleCard = ({id}:PropType) => {
             placeholder="Selecciona"
             name='giro'
             options={['GIRO 1', 'GIRO 2', 'GIRO 3']}
-            formikState={atomState}
-          />
-          <InputTextField
-            label="Registro Patronal"
-            placeholder="Escribe tu Registro Patronal"
-            name='registroPatronal'
             formikState={atomState}
           />
         </div>

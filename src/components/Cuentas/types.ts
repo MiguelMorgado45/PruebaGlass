@@ -15,7 +15,7 @@ export type VendedorType = {
 }
 
 export type propDetalleType = {
-    id: string
+    id: string | undefined
 }
 
 export type CuentaFormType = {

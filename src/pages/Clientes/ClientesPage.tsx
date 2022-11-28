@@ -1,6 +1,6 @@
 import { ClientesDataTable } from '../../components/Clientes/ClientesDataTable'
 import { TipoClienteCard } from '../../components/Clientes/TipoClienteCard'
-import { typeCuentas } from '../../data/clientedata'
+import { typeCuentas } from '../../data/dataClientes'
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
 
 export const ClientesPage = () => {

@@ -2,23 +2,14 @@ import {useState} from 'react'
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { operadores } from '../../data/dataOperadores';
-import { getTemplatesState } from '../shared/dataTables/templates/getTemplatesState';
+import { getTemplates } from '../shared/dataTables/templates/getTemplates';
 import { Link } from 'react-router-dom';
 
 export const OperadoresDataTable = () => {
 
     const [selectedCuentas, setSelectedCuentas] = useState(null);
     
-    const {imageLogoTemplate, detalleTemplate, estadoTemplate} = getTemplatesState();
-
-    const operadorTemplate = (rowData: any) => {
-        return(
-        <Link to={`agregarRol/${rowData.id}`} state={{id:rowData.id}}>
-            <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
-        </Link>) 
-        
-
-    }
+    const {imageLogoTemplate, detalleTemplate, estadoTemplate, operadorTemplate} = getTemplates();
 
     return (
         <div className='tw-w-full'>

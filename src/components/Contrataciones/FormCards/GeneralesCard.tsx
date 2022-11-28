@@ -1,14 +1,13 @@
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 
 import { RecoilState } from 'recoil';
-import { clienteCardFormState, contratacionesCardFormState } from '../../../atoms/FormAtoms';
-
 import { CalendarField, DropdownField, InputNumberField, InputTextField } from '../../shared/inputFields';
 import { cardProps } from './cardProps';
 import { MultiSelectField } from '../../shared/inputFields/MultiSelectField';
+import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
 
 export const GeneralesCard = ({ setStep }: cardProps) => {
-  const atomState: RecoilState<{}> = contratacionesCardFormState;
+  const atomState: RecoilState<{}> = contratacionAgregaFormState;
   return (
     <FormCardTemplate titulo='Generales'>
       <div className='flex tw-justify-end tw-w-full gap-4 flex-column'>

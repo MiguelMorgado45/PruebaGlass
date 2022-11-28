@@ -5,12 +5,12 @@ import { useFormik } from 'formik';
 import { OperadoresFormType } from '../../components/Operadores/types';
 import { validacionOperadorCard } from '../../components/Operadores/FormCards/validacionOperadoresForm';
 import { useRecoilState } from 'recoil';
-import { operadorCardFormState } from '../../atoms/FormAtoms';
 import { OperadorCard } from '../../components/Operadores/FormCards';
+import { operadorAgregaFormState } from '../../atoms/OperadorAtom';
 
 export const AgregarOperadorPage = () => {
 
-  const [operadorForm, setOperadorForm] = useRecoilState<any>(operadorCardFormState)
+  const [operadorForm, setOperadorForm] = useRecoilState<any>(operadorAgregaFormState)
   const [loading, setLoading] = useState(false);
 
   const valorInicial: OperadoresFormType = {

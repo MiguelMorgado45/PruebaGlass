@@ -4,14 +4,14 @@ import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTe
 import '../../../styles/dom-card.css'
 import { cardProps } from './cardProps';
 import { RecoilState } from 'recoil';
-import { clienteCardFormState } from '../../../atoms/FormAtoms';
 import { CalendarField, InputMaskField, InputTextField } from '../../shared/inputFields';
+import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
 
 
 
 export const ContactoCard = ({setStep} : cardProps) => {
 
-  const atomState: RecoilState<{}> = clienteCardFormState;
+  const atomState: RecoilState<{}> = clienteAgregaFormState;
   
   return (
     <FormCardTemplate titulo='Contacto'>
@@ -51,7 +51,7 @@ export const ContactoCard = ({setStep} : cardProps) => {
           <CalendarField
             label="Cumpleaños"
             placeholder="Cumpleaños"
-            name='cumpleaños'
+            name='cumpleanos'
             formikState={atomState}
           />
           {/* <div className='tw-w-full flex flex-row gap-3 tw-items-center tw-mt-6'>

@@ -2,7 +2,6 @@ import { useFormik } from 'formik';
 import {Steps} from 'primereact/steps'
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { contratacionesCardFormState } from '../../atoms/FormAtoms';
 import { validacionOperadorCard } from '../../components/Contrataciones/FormCards/validacionOperadorForm';
 import { OperadorFormType } from '../../components/Contrataciones/types';
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
@@ -10,12 +9,15 @@ import '../../styles/contrataciones.css'
 import { ClienteCard } from '../../components/Contrataciones/FormCards';
 import { ContactoCard } from '../../components/Contrataciones/FormCards/ContactoCard';
 import { GeneralesCard } from '../../components/Contrataciones/FormCards/GeneralesCard';
+import { contratacionAgregaFormState } from '../../atoms/ContratacionAtom';
+import {menuItems} from '../../helpers/menuItems'
+
 
 export const AgregarContratacionesPage = () => {
 
   let operadoresTotales: object[] = [{}]
   const [step, setStep] = useState(0);
-  const [operadorForm, setOperadorForm] = useRecoilState<any>(contratacionesCardFormState)
+  const [operadorForm, setOperadorForm] = useRecoilState<any>(contratacionAgregaFormState)
   const [loading, setLoading] = useState(false);
 
   const valorInicial: OperadorFormType = {
@@ -53,25 +55,14 @@ export const AgregarContratacionesPage = () => {
     title: 'Contrataciones',
     breadcrums: true,
   }
-  const items = [
-    {
-      label: 'Cliente',
-    },
-    {
-      label: 'Generales',
-
-    },
-    {
-      label: 'Contacto',
-
-    },
-  ];
+  
+  const {agregarContratacionitems} = menuItems();
 
   return loading===true? (
     <ContentTemplate titleProps={title}>
       <div className="tw-w-full flex flex-column tw-mx-20">
 
-        <Steps model={items} activeIndex={step} onSelect={(e) => setStep(e.index)} readOnly={false} />
+        <Steps model={agregarContratacionitems} activeIndex={step} onSelect={(e) => setStep(e.index)} readOnly={false} />
 
         <form onSubmit={operadorForm.handleSubmit}>
               <div className={`${step != 0 && 'tw-hidden'}`}><ClienteCard setStep={setStep}/></div>

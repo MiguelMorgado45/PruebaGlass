@@ -3,14 +3,14 @@ import { DropdownField } from '../../shared/inputFields/DropdownField';
 import { RecoilState, useRecoilValue } from 'recoil';
 import { InputNumberField } from '../../shared/inputFields/InputNumberFiled';
 import { CalendarField } from '../../shared/inputFields/CalendarField';
-import { contratacionesCardFormState } from '../../../atoms/FormAtoms';
+import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
 
 
 export const ProductosCard = () => {
 
-  const atomState:RecoilState<{}> = contratacionesCardFormState;
+  const atomState:RecoilState<{}> = contratacionAgregaFormState;
 
-  const formik = useRecoilValue(contratacionesCardFormState);
+  const formik = useRecoilValue(atomState);
 
   return (
     <CardTemplate name="DATOS" >

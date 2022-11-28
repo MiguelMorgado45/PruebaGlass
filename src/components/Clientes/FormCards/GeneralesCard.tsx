@@ -1,10 +1,10 @@
 import { RecoilState } from 'recoil';
-import { clienteCardFormState } from '../../../atoms/FormAtoms';
+import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
 import { DropdownField, InputTextField } from '../../shared/inputFields';
 
 export const GeneralesCard = () => {
 
-  const atomState:RecoilState<{}> = clienteCardFormState;
+  const atomState:RecoilState<{}> = clienteAgregaFormState;
 
 
   return (

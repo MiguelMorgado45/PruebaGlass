@@ -5,13 +5,13 @@ import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { CalendarField } from '../../shared/inputFields/CalendarField';
 import { InputMaskField } from '../../shared/inputFields/InputMaskField';
 import { InputTextareaField } from '../../shared/inputFields/InputTextareaField';
-import { operadorCardFormState } from '../../../atoms/FormAtoms';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import Plogo from '../../../assets/ProfileLogo.png'
+import { operadorAgregaFormState } from '../../../atoms/OperadorAtom';
 
 export const OperadorCard = () => {
 
-  const atomState: RecoilState<{}> = operadorCardFormState;
+  const atomState: RecoilState<{}> = operadorAgregaFormState;
   const formik: any = useRecoilValue(atomState)
 
   return (

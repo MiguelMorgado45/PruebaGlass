@@ -15,7 +15,7 @@ type PropType = {
   id: string | undefined
 }
 
-export const ContactoDetalleCard = ({ id }: PropType) => {
+export const ContactoDetalleForm = ({ id }: PropType) => {
 
   const atomState: RecoilState<{}> = contratacionContactoDetalleState;
 

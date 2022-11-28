@@ -1,15 +1,15 @@
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { RecoilState, useRecoilState } from 'recoil';
-import { contactoDetalleFormState } from '../../../atoms/cuentasAtoms';
+import { contactoDetalleFormState } from '../../../atoms/CuentasAtoms';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { ContactoType, propDetalleType } from '../../Cuentas/types';
+import { ContactoType, propDetalleType } from '../types';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { InputMaskField } from '../../shared/inputFields/InputMaskField';
 import { getContactobyId } from '../../../helpers/getCuentabyId';
 import { validacionContactoDetalle } from './validacionCuentaDetalle';
 
-export const ContactoDetalleCard = ({id}:propDetalleType) => {
+export const ContactoDetalleForm = ({id}:propDetalleType) => {
 
   const atomState: RecoilState<{}> = contactoDetalleFormState;
 

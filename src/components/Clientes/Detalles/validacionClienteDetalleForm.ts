@@ -1,4 +1,4 @@
-import { DomicilioDetalleFormType, GeneralDetalleFormType } from "../types";
+import { DomicilioClienteFormType, FiscalClienteFormType } from "../types";
 
 type errorType = {
     razonSocial?: string,
@@ -6,7 +6,7 @@ type errorType = {
     rfc?: string,
     regimenFiscal?: string,
     giro?: string,
-    registroPatronal?: string,
+
 
     calle?: string,
     exterior?: string,
@@ -18,7 +18,7 @@ type errorType = {
     codigoPostal?: string,
 }
 
-export const validacionGeneralDetalleForm = (values:GeneralDetalleFormType ) => {
+export const validacionGeneralDetalleForm = (values:FiscalClienteFormType ) => {
     let errors : errorType = {};
     
     if (!values.razonSocial){
@@ -41,14 +41,10 @@ export const validacionGeneralDetalleForm = (values:GeneralDetalleFormType ) => 
         errors.giro = "Por favor, ingrese el giro"
     }
 
-    if(!values.registroPatronal){
-        errors.registroPatronal = "Por favor, ingrese su Registro Patronal";
-    }
-
     return errors;
 }
 
-export const validacionDomicilioDetalleForm = (values:DomicilioDetalleFormType ) => {
+export const validacionDomicilioDetalleForm = (values:DomicilioClienteFormType ) => {
     let errors : errorType = {};
     
     if (!values.calle){

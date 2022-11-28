@@ -1,20 +1,22 @@
 import { Menu } from 'primereact/menu'
 import { menuItems } from '../../helpers/menuItems';
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
-import { GeneralesDetalleCard } from '../../components/Cuentas/DetalleCards/GeneralesDetalleCard';
-import { ContactoDetalleCard } from '../../components/Cuentas/DetalleCards/ContactoDetalleCard';
-import { VendedorDetalleCard } from '../../components/Cuentas/DetalleCards/VendedorDetalleCard';
-import { TipoCuentaDetalleCard } from '../../components/Cuentas/DetalleCards/TipoCuentaDetalleCard';
 import { useEffect, useState } from 'react';
 import { getMinidashbyId } from '../../helpers/getCuentabyId';
 import { CardTemplate } from '../../templates/CardTemplate/CardTemplate';
 import { PerfilCard } from '../../components/Clientes/FormCards';
 import { typeDetallesCuentas } from '../../data/data';
+import { useParams } from 'react-router-dom';
+import { GeneralesDetalleForm } from '../../components/Cuentas/DetalleCards/GeneralesDetalleForm';
+import { ContactoDetalleForm } from '../../components/Cuentas/DetalleCards/ContactoDetalleForm';
+import { VendedorDetalleForm } from '../../components/Cuentas/DetalleCards/VendedorDetalleForm';
+import { TipoCuentaDetalleCard } from '../../components/Cuentas/DetalleCards/TipoCuentaDetalleCard';
 
 const { cuentasItems } = menuItems();
 
 export const DetalleCuentaPage = () => {
 
+  const {id} = useParams();
   const [tipo, setTipos] = useState<any>({
     clientes: '',
     operadores: '',
@@ -26,8 +28,6 @@ export const DetalleCuentaPage = () => {
     title: 'Cuentas',
     breadcrums: true,
   }
-
-  const id = JSON.parse(localStorage.getItem('id') || '{}');
 
   useEffect(() => {
     const values = getMinidashbyId(id)
@@ -63,11 +63,11 @@ export const DetalleCuentaPage = () => {
         </div>
         <div className="tw-w-4/5 flex flex-column">
           <CardTemplate name="DATOS">
-            <GeneralesDetalleCard id={id} />
+            <GeneralesDetalleForm id={id} />
           </CardTemplate>
 
-          <ContactoDetalleCard id={id} />
-          <VendedorDetalleCard id={id} />
+          <ContactoDetalleForm id={id} />
+          <VendedorDetalleForm id={id} />
         </div>
       </div >
     </ContentTemplate >

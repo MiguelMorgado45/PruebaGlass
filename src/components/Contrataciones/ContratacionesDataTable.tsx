@@ -12,16 +12,8 @@ export const ContratacionesDataTable = () => {
 
     const [selectedCuentas, setSelectedCuentas] = useState(null);
     
-    const {imageLogoTemplate, detalleTemplate, estadoTemplate, personasTemplate} = getTemplates();
+    const {detalleTemplate, estadoTemplate, personasTemplate, productLogoTemplate, bajaTemplate} = getTemplates();
 
-    const bajaTemplate = (rowData: any) => {
-        const [baja, setBaja] = useState(rowData.baja)
-        return <InputSwitch checked={baja} onChange={(e) => setBaja(e.value)}/>
-    }
-
-    const productLogoTemplate = (rowData: any) => {
-        return <img src={getLogoProductos(rowData.name)} alt={rowData.name} className='tw-w-8 ' />
-    }
 
     return (
         <div className='tw-w-full'>

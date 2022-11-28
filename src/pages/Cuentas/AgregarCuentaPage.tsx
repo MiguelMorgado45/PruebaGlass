@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { RecoilState, useRecoilState } from 'recoil';
-import { cuentaCardFormState } from '../../atoms/FormAtoms';
-
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 import { useFormik } from 'formik';
 import { CuentaFormType } from '../../components/Cuentas/types';
 import { validacionCuentaCard, validacionCuentaCardAgregar } from '../../components/Cuentas/FormCards/validacionCuentaForm';
 import { GeneralesCard } from '../../components/Cuentas/FormCards/GeneralesCard';
+import { cuentaAgregaFormState } from '../../atoms/CuentasAtoms';
 
 export const AgregarCuentaPage = () => {
 
@@ -15,7 +14,7 @@ export const AgregarCuentaPage = () => {
     breadcrums: true,
   }
 
-  const atomState: RecoilState<{}> = cuentaCardFormState;
+  const atomState: RecoilState<{}> = cuentaAgregaFormState;
   const [clienteForm, setClienteForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
