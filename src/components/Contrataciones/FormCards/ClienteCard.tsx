@@ -1,0 +1,59 @@
+import { RecoilState } from 'recoil';
+import { clienteCardFormState, contratacionesCardFormState } from '../../../atoms/FormAtoms';
+import { clientes } from '../../../data/clientedata';
+
+
+import { cuentas } from '../../../data/data';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { DropdownField, InputTextareaField } from '../../shared/inputFields';
+import { cardProps } from './cardProps';
+
+
+
+export const ClienteCard = ({ setStep }: cardProps) => {
+  const  nameClientes = clientes.map((cliente) => (cliente.name))
+
+  const atomState: RecoilState<{}> = contratacionesCardFormState;
+
+  return (
+    <FormCardTemplate titulo='Cuenta'>
+
+      <div className="flex flex-column gap-4">
+        <div className="flex flex-column gap-4 tw-items-end">
+          <div className="flex flex-row gap-4 tw-w-full">
+            <DropdownField
+              label="Cliente"
+              placeholder="Selecciona"
+              name='cliente'
+              options={nameClientes}
+              formikState={atomState}
+            />
+            <InputTextareaField
+              label="Descripción"
+              placeholder="Escribe"
+              name='descr'
+              formikState={atomState}
+            />
+          </div>
+
+          <div className='flex tw-justify-end tw-w-full gap-4'>
+            {/* <button type='reset'
+              className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
+              Cancelar
+            </button> */}
+            <button type='button'
+              className={`tw-text-sm tw-w-40 tw-font-semibold tw-border-blue-600 tw-border-2 tw-h-fit
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-blue-600 hover:tw-bg-blue-100`} onClick={() => setStep(1)}>
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+
+    </FormCardTemplate>
+  )
+}
+

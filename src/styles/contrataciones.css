@@ -5,3 +5,15 @@
 .w-carousel{
     width: 90%;
 }
+
+.p-steps .p-steps-item .p-menuitem-link{
+    background: transparent;
+}
+
+.p-steps .p-steps-item:before{
+    border-top: 2px solid #E8E9F2;
+}
+
+.p-steps .p-steps-item .p-menuitem-link:not(.p-disabled):focus{
+    box-shadow: 0 0 0 0 ;
+}
