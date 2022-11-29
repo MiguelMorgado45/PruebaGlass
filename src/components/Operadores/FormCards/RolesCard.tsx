@@ -3,19 +3,16 @@ import { useFormik } from 'formik';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { rolesOperadores } from '../../../data/dataOperadores';
-import { RecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { operadorDetalleFormState } from '../../../atoms/OperadorAtom';
+import { operadorRolesFormState } from '../../../atoms/OperadorAtom';
 
 
-export const RolesCard = () => {
-
-  const [selectedCuentas, setSelectedCuentas] = useState(false)
-
-  const atomState: RecoilState<{}> = operadorDetalleFormState;
-  const formikOperadorDetalle = useRecoilValue<any>(operadorDetalleFormState);
-
-  const { setFieldValue, values }: any = formikOperadorDetalle;
+export const RolesCard = ({initial}:any) => {
+   console.log(initial)
+  const [selectedCuentas, setSelectedCuentas] = useState(initial)
+  const formik = useRecoilValue<any>(operadorRolesFormState);
+  const { setFieldValue }: any = formik;
 
   useEffect(() => {
     setFieldValue("selected", selectedCuentas)
@@ -25,7 +22,8 @@ export const RolesCard = () => {
     <>
       <FormCardTemplate titulo='Asignar Roles'>
         <div className="tw-w-full">
-          <DataTable value={rolesOperadores} responsiveLayout="scroll" selection={selectedCuentas} onSelectionChange={e => setSelectedCuentas(e.value)} dataKey="id" name='selected'>
+          <DataTable value={rolesOperadores} responsiveLayout="scroll" selection={selectedCuentas}
+                     onSelectionChange={e => setSelectedCuentas(e.value)} dataKey="id" name='selected'>
             <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
             <Column field="rol" header="Rol" ></Column>
             <Column field="descr" header="Descripción" ></Column>
@@ -33,7 +31,7 @@ export const RolesCard = () => {
         </div>
         <div className='tw-w-full flex tw-justify-end gap-4 tw-mt-4 tw-pt-4'>
 
-          <button type='reset' onClick={() => { formikOperadorDetalle.resetForm() }}
+          <button type='reset' onClick={() => { formik.resetForm() }}
             className={`tw-text-sm tw-w-1/5 tw-font-semibold tw-bg-gray-200 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
             Cancelar
           </button>

@@ -33,7 +33,6 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
   useEffect(() => {
 
     const contratacion = getContratoContactobyId(id);
-    console.log(contratacion)
 
     formik.setValues ({
       "name" : `${contratacion? contratacion.name : ''}`,

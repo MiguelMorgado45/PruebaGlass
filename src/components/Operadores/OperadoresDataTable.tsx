@@ -9,7 +9,7 @@ export const OperadoresDataTable = () => {
 
     const [selectedCuentas, setSelectedCuentas] = useState(null);
     
-    const {imageLogoTemplate, detalleTemplate, estadoTemplate, operadorTemplate} = getTemplates();
+    const {imageLogoTemplate, detalleTemplate, estadoTemplate, operadorTemplate, rolesTemplate} = getTemplates();
 
     return (
         <div className='tw-w-full'>
@@ -20,7 +20,7 @@ export const OperadoresDataTable = () => {
                     <Column field="name" header="Nombre" className='tw-text-xs' sortable></Column>
                     <Column field="usuario" header="Usuario" className='tw-text-xs' sortable></Column>
                     <Column field="telefono" header="Teléfono" className='tw-text-xs' sortable></Column>
-                    <Column field="roles" header="Roles" className='tw-text-xs' sortable></Column>
+                    <Column body={rolesTemplate} field="roles" header="Roles" className='tw-text-xs' sortable></Column>
                     <Column field="alta" header="Alta" className='tw-text-xs' sortable></Column>
                     <Column body={operadorTemplate} header="Roles" ></Column>
                     <Column body={detalleTemplate} header="Detalles" ></Column>

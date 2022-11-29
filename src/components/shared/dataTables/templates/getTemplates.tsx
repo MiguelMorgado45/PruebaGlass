@@ -20,71 +20,86 @@ export const getTemplates = () => {
 
     const navigate = useNavigate();
 
-    const navegarADetalle = (id:any) => {
+    const navegarADetalle = (id: any) => {
         localStorage.setItem('id', JSON.stringify(id));
         navigate(`detalle/${id}`)
 
     }
 
     const operadorTemplate = (rowData: any) => {
-        return(
-        <Link to={`agregarRol/${rowData.id}`} state={{id:rowData.id}}>
-            <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
-        </Link>) 
+        return (
+            <Link to={`agregarRol/${rowData.id}`} state={{ id: rowData.id }}>
+                <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
+            </Link>)
     }
-    
+
     const detalleTemplate = (rowData: any) => {
-        return(
+        return (
             <Link to={`detalle/${rowData.id}`}>
                 <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Ver</button>
-            </Link>) 
+            </Link>)
     }
 
     const agregarContratacionTemplate = (rowData: any) => {
-        return(
-        <Link to={`/contrataciones/agregar`}>
-            <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
-        </Link>) 
+        return (
+            <Link to={`/contrataciones/agregar`}>
+                <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
+            </Link>)
     }
 
     const bajaTemplate = (rowData: any) => {
         const [baja, setBaja] = useState(rowData.baja)
-        return <InputSwitch checked={baja} onChange={(e) => setBaja(e.value)}/>
+        return <InputSwitch checked={baja} onChange={(e) => setBaja(e.value)} />
     }
 
     const productLogoTemplate = (rowData: any) => {
         return <img src={getLogoProductos(rowData.name)} alt={rowData.name} className='tw-w-8 ' />
     }
 
-    const navegarAgregarCl = (id:any) => {
+    const navegarAgregarCl = (id: any) => {
         localStorage.setItem('id', JSON.stringify(id));
         navigate(`/clientes/agregar`)
 
     }
 
-    const navegarAgregarOp = (id:any) => {
+    const navegarAgregarOp = (id: any) => {
         localStorage.setItem('id', JSON.stringify(id));
         navigate(`/operadores/agregar`)
 
     }
 
     const agregarClienteTemplate = (rowData: any) => {
-        return(
+        return (
             <button onClick={() => navegarAgregarCl(rowData.id)}
-             className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
-        ) 
-        
+                className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
+        )
+
 
     }
     const agregarOperadorTemplate = (rowData: any) => {
-        return(
+        return (
             <button onClick={() => navegarAgregarOp(rowData.id)}
-             className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
-        ) 
+                className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
+        )
     }
 
-    
-    
+    const rolesTemplate = (rowData: any) => {
+        console.log("este row", rowData.roles)
+        return (
+            <div>
+                Administrador de : 
+                <ul role="list" className="marker:text-sky-400 list-disc pl-5 space-y-3 text-slate-400">
+                    {rowData.roles.map((item: any, index: any) => {
+                        return <li key={index} className = "tw-text-xs">{item.rol.toLowerCase().split("administrador de")}</li>
+                    })}
+                </ul>
+            </div>
+
+        )
+    }
+
+
+
 
 
     const estadoTemplate = (rowData: any) => {
@@ -109,6 +124,7 @@ export const getTemplates = () => {
         navegarADetalle,
         operadorTemplate,
         agregarClienteTemplate,
-        agregarOperadorTemplate
+        agregarOperadorTemplate,
+        rolesTemplate
     }
 }

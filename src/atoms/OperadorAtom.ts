@@ -9,3 +9,8 @@ export const operadorDetalleFormState = atom({
     key: 'operadorDetalleFormState',
     default: {},
 });
+
+export const operadorRolesFormState = atom({
+  key: 'operadorRolesFormState',
+  default: {},
+});

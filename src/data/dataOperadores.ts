@@ -8,7 +8,11 @@ export const operadores = [
         name: 'Nancy Cruz Corona',
         usuario: 'nancy.cruz@timeweb',
         telefono: '55 1992 0550',
-        roles: 'ADMINISTRADOR DE CUENTAS',
+        roles: [{
+                    "id": "1",
+                    "rol": "ADMINISTRADOR DE ANUNCIOS",
+                    "descr": "Puede crear, modificar y administrar los anuncios dirigidos a Hub."
+                },],
         alta: '18/05/2018',
         estado: 'Activo',
         area: 'Soporte',
@@ -20,7 +24,24 @@ export const operadores = [
         name: 'Anabel Orozco Gómez',
         usuario: 'anabel.orozco@timeweb',
         telefono: '55 4610 4412',
-        roles: 'ADMINISTRADOR DE OPERADORES',
+        roles:  [
+                    {
+                    "id": "3",
+                    "rol": "ADMINISTRADOR DE CONTRATACIONES",
+                    "descr": "Puede crear, modificar y administrar las contrataciones que se hagan sobre un cliente."
+                    },
+                    {
+                    "id": "4",
+                    "rol": "ADMINISTRADOR DE DAHSBOARD",
+                    "descr": "Puede crear, modificar y administrar las cards que se mostrarán en el dashboard principal."
+                    },
+                    {
+                    "id": "5",
+                    "rol": "ADMINISTRADOR DE ANUNCIOS",
+                    "descr": "Puede crear, modificar y administrar los anuncios dirigidos a Hub."
+                    },
+
+                ],
         alta: '18/05/2018',
         estado: 'Activo',
         area: 'Soporte',
@@ -32,7 +53,48 @@ export const operadores = [
         name: 'Omar Oyorzabal Ramírez',
         usuario: 'omar.oyorzabal@timeweb',
         telefono: '55 9015 0010',
-        roles: 'ADMINISTRADOR DE CONTRASEÑAS',
+        roles:  [
+                    {
+                    "id": "1",
+                    "rol": "ADMINISTRADOR DE ANUNCIOS",
+                    "descr": "Puede crear, modificar y administrar los anuncios dirigidos a Hub."
+                    },
+                    {
+                    "id": "2",
+                    "rol": "ADMINISTRADOR DE REPORTES",
+                    "descr": "Puede crear, modificar y administrar los reportes del sistema."
+                    },
+                    {
+                    "id": "3",
+                    "rol": "ADMINISTRADOR DE CONTRATACIONES",
+                    "descr": "Puede crear, modificar y administrar las contrataciones que se hagan sobre un cliente."
+                    },
+                    {
+                    "id": "4",
+                    "rol": "ADMINISTRADOR DE DAHSBOARD",
+                    "descr": "Puede crear, modificar y administrar las cards que se mostrarán en el dashboard principal."
+                    },
+                    {
+                    "id": "5",
+                    "rol": "ADMINISTRADOR DE ANUNCIOS",
+                    "descr": "Puede crear, modificar y administrar los anuncios dirigidos a Hub."
+                    },
+                    {
+                    "id": "6",
+                    "rol": "ADMINISTRADOR DE ROLES",
+                    "descr": "Puede crear, modificar y administrar todos los aspectos que implican asignar roles a un operador"
+                    },
+                    {
+                    "id": "7",
+                    "rol": "ADMINISTRADOR DE OPERADORES",
+                    "descr": "Puede crear, modificar y administrar todos los aspectos que implican crear un nuevo operador."
+                    },
+                    {
+                    "id": "8",
+                    "rol": "ADMINISTRADOR DE CLIENTES",
+                    "descr": "Puede crear, modificar y administrar todos los aspectos que implican crear un nuevo cliente."
+                    }
+                ],
         alta: '18/05/2018',
         estado: 'Activo',
         area: 'Soporte',
@@ -44,7 +106,18 @@ export const operadores = [
         name: 'Eduardo Ramírez Carmona',
         usuario: 'eduardo.ramirez@timeweb',
         telefono: '55 1992 0550',
-        roles: 'ADMINISTRADOR DE REPORTES',
+        roles:  [
+                    {
+                    "id": "1",
+                    "rol": "ADMINISTRADOR DE ANUNCIOS",
+                    "descr": "Puede crear, modificar y administrar los anuncios dirigidos a Hub."
+                    },
+                    {
+                    "id": "2",
+                    "rol": "ADMINISTRADOR DE REPORTES",
+                    "descr": "Puede crear, modificar y administrar los reportes del sistema."
+                    },
+                ],
         alta: '18/05/2018',
         estado: 'Activo',
         area: 'Soporte',
@@ -56,7 +129,13 @@ export const operadores = [
         name: 'Anelia Ramírez Hernández',
         usuario: 'anelia@timeweb',
         telefono: '55 2588 4536',
-        roles: 'ADMINISTRADOR DE CUENTAS',
+        roles:  [
+                    {
+                    "id": "7",
+                    "rol": "ADMINISTRADOR DE OPERADORES",
+                    "descr": "Puede crear, modificar y administrar todos los aspectos que implican crear un nuevo operador."
+                    },
+                ],
         alta: '18/05/2018',
         estado: 'Inactivo',
         area: 'Recursos Humanos',
@@ -68,7 +147,18 @@ export const operadores = [
         name: 'Fernando Cárdenas Vázquez',
         usuario: 'fernando.cardenas@timeweb',
         telefono: '55 1992 0550',
-        roles: 'ADMINISTRADOR DE TODO',
+        roles:  [
+                    {
+                    "id": "3",
+                    "rol": "ADMINISTRADOR DE CONTRATACIONES",
+                    "descr": "Puede crear, modificar y administrar las contrataciones que se hagan sobre un cliente."
+                    },
+                    {
+                    "id": "8",
+                    "rol": "ADMINISTRADOR DE CLIENTES",
+                    "descr": "Puede crear, modificar y administrar todos los aspectos que implican crear un nuevo cliente."
+                    }
+                ],
         alta: '18/05/2018',
         estado: 'Inactivo',
         area: 'Desarrollo',
