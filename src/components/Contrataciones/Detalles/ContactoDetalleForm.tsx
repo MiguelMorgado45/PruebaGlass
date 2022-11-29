@@ -2,7 +2,7 @@ import { CalendarField } from '../../shared/inputFields';
 import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import { contratacionContactoDetalleState, contratacionGeneralDetalleState } from '../../../atoms/ContratacionAtom';
+import { contratacionContactoDetalleState } from '../../../atoms/ContratacionAtom';
 import { validacionContactoDetalleCard } from './validacionContratacionDetalles';
 
 import { InputTextField } from '../../shared/inputFields/InputTextField';
@@ -24,11 +24,26 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
 
   const valorInicial: ContratacionContactoDetalleType = {
     name: '',
-    telefono: '',
+    telefono: '00-0000-0000',
     correo: '',
     puesto: '',
     cumple: '',
   }
+
+  useEffect(() => {
+
+    const contratacion = getContratoContactobyId(id);
+    console.log(contratacion)
+
+    formik.setValues ({
+      "name" : `${contratacion? contratacion.name : ''}`,
+      "telefono" : `${contratacion? contratacion.telefono : ''}`,
+      "correo" : `${contratacion? contratacion.correo : ''}`,
+      "puesto" : `${contratacion? contratacion.puesto : ''}`,
+      "cumple" : `${contratacion? contratacion.cumple : ''}`,
+    })  
+
+  }, [])
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
@@ -43,20 +58,6 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
     setGeneralForm(formik)
     setLoading(true)
   }, [formik.values, formik.errors, formik.touched])
-
-  useEffect(() => {
-
-    const contratacion = getContratoContactobyId(id);
-
-    formik.setValues({
-      name: contratacion ? contratacion.name : '',
-      telefono: contratacion ? contratacion.telefono : '',
-      correo: contratacion ? contratacion.correo : '',
-      puesto: contratacion ? contratacion.puesto : '',
-      cumple: contratacion ? contratacion.cumple : '',
-    })
-
-  }, [])
 
   return loading === true ? (
     <>
@@ -73,7 +74,7 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
 
             <InputMaskField
               label="Telefono"
-              placeholder="00-0000-00"
+              placeholder="99-9999-99"
               name='telefono'
               formikState={atomState}
             />

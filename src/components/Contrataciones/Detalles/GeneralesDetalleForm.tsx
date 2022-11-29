@@ -9,6 +9,7 @@ import { InputNumberField } from '../../shared/inputFields/InputNumberFiled';
 import { ContratacionGeneralDetalleType } from '../types';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { getContratoGeneralbyId } from '../../../helpers/getContratobyId';
+import { InputCurrencyField } from '../../shared/inputFields/InputCurrencyFiled';
 
 type PropType = {
   id:string | undefined
@@ -65,7 +66,7 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
         <form onSubmit={generalForm.handleSubmit} className="flex flex-column gap-4" id="Generales">
 
           <div className="flex flex-row tw--w-full">
-            <p className="tw-text-orangetw tw-text-2xl tw-font-semibold">Contacto</p>
+            <p className="tw-text-orangetw tw-text-2xl tw-font-semibold">General</p>
           </div>
 
           <div className="flex flex-row gap-4 tw--w-full">
@@ -102,7 +103,7 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
           </div>
 
           <div className="flex flex-row gap-4 tw--w-full">
-            <InputNumberField
+            <InputCurrencyField
               label="Costo"
               placeholder="0"
               name='costo'

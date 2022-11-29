@@ -1,10 +1,11 @@
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 
 import { RecoilState } from 'recoil';
-import { CalendarField, DropdownField, InputNumberField, InputTextField } from '../../shared/inputFields';
+import { CalendarField, DropdownField, InputNumberField } from '../../shared/inputFields';
 import { cardProps } from './cardProps';
 import { MultiSelectField } from '../../shared/inputFields/MultiSelectField';
 import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
+import { InputCurrencyField } from '../../shared/inputFields/InputCurrencyFiled';
 
 export const GeneralesCard = ({ setStep }: cardProps) => {
   const atomState: RecoilState<{}> = contratacionAgregaFormState;
@@ -46,7 +47,7 @@ export const GeneralesCard = ({ setStep }: cardProps) => {
 
         <div className="flex flex-row gap-4 ">
 
-          <InputNumberField
+          <InputCurrencyField
             label="Costo"
             placeholder="$00.00"
             name='costo'
