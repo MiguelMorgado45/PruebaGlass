@@ -97,43 +97,6 @@ export const typeCuentas = [
     },
 ]
 
-
-export const contactoDetalleCuenta = [
-    {
-        id: "1",
-        correo: 'Disi@email.com',
-        phone: '89-8989-8989',
-    },
-    {
-        id: "2",
-        correo: 'Hergom@email.com',
-        phone: '79-7979-7979',
-    },
-    {
-        id: "3",
-        correo: 'Ferretero@email.com',
-        phone: '59-5959-5959',
-    }
-]
-
-export const vendedorDetalleCuenta = [
-    {
-        id: "1",
-        vendedor: 'vendedor A',
-        comentario: 'Comentario del Público Disi',
-    },
-    {
-        id: "2",
-        vendedor: 'vendedor B',
-        comentario: 'Comentario del Público Hergom',
-    },
-    {
-        id: "3",
-        vendedor: 'vendedor C',
-        comentario: 'Comentario del Señor Ferretero',
-    }
-]
-
 export const minidashDetalleCuenta = [
     {
         id: "1",

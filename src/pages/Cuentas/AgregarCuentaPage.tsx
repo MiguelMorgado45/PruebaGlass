@@ -3,9 +3,9 @@ import { RecoilState, useRecoilState } from 'recoil';
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 import { useFormik } from 'formik';
 import { CuentaFormType } from '../../components/Cuentas/types';
-import { validacionCuentaCard, validacionCuentaCardAgregar } from '../../components/Cuentas/FormCards/validacionCuentaForm';
+import { validacionCuentaCardAgregar } from '../../components/Cuentas/FormCards/validacionCuentaForm';
 import { GeneralesCard } from '../../components/Cuentas/FormCards/GeneralesCard';
-import { cuentaAgregaFormState } from '../../atoms/CuentasAtoms';
+import { cuentaAgregaFormState } from '../../atoms/cuentasAtoms';
 
 export const AgregarCuentaPage = () => {
 

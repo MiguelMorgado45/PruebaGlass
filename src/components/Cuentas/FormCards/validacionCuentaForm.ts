@@ -14,7 +14,7 @@ export const validacionCuentaCard = (values:CuentaFormType ) => {
         errors.cuenta = "Por favor, ingrese el nombre de su cuenta"
     }
 
-    if(!values.fechaAlta){
+    if(!values.alta){
         errors.fechaAlta = "Por favor, inserte una fecha de alta";
     }
 

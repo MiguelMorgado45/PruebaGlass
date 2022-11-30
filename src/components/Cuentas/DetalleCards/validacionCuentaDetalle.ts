@@ -1,7 +1,7 @@
-import { ContactoType, CuentaFormType, GeneralType, VendedorType } from "../types";
+import { ContactoCuentaFormType, CuentaFormType, VendedorCuentaFormType } from "../types";
 
 export type ErrorGeneralType = {
-    name?: string,
+    cuenta?: string,
     alta?: string | undefined,
 }
 
@@ -14,10 +14,10 @@ export type ErrorVendedorType = {
     vendedor?: string,
 }
 
-export const validacionGeneralDetalle = (values:GeneralType ) => {
+export const validacionGeneralDetalle = (values:CuentaFormType ) => {
     let errors : ErrorGeneralType = {};
-    if (!values.name){
-        errors.name = "Por favor, ingrese el nombre de su cuenta"
+    if (!values.cuenta){
+        errors.cuenta = "Por favor, ingrese el nombre de su cuenta"
     }
 
     if(!values.alta){
@@ -28,7 +28,7 @@ export const validacionGeneralDetalle = (values:GeneralType ) => {
 }
 
 
-export const validacionContactoDetalle = (values:ContactoType ) => {
+export const validacionContactoDetalle = (values:ContactoCuentaFormType ) => {
     let errors : ErrorContactoType = {};
     if (!values.correo){
         errors.correo = "Por favor, ingrese un correo"
@@ -42,7 +42,7 @@ export const validacionContactoDetalle = (values:ContactoType ) => {
 }
 
 
-export const validacionVendedorDetalle = (values:VendedorType ) => {
+export const validacionVendedorDetalle = (values:VendedorCuentaFormType ) => {
     let errors : ErrorVendedorType = {};
     if (!values.vendedor){
         errors.vendedor = "Por favor, ingrese el nombre del vendedor"

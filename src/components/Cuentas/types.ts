@@ -1,27 +1,23 @@
-export type GeneralType = {
-    name: string,
-    alta : string | undefined,
+export type CuentaFormType = {
+    id?: string | undefined,
+    cuenta: string,
+    alta?: string,
     descripcion: string,
+    correo?: string,
+    phone?: string,
+    vendedor?: string,
+    comentario?: string
 }
 
-export type ContactoType = {
+export type ContactoCuentaFormType = {
     correo: string,
     phone : string
 }
 
-export type VendedorType = {
+export type VendedorCuentaFormType = {
     vendedor: string,
     comentario : string
 }
-
 export type propDetalleType = {
-    id: string | undefined
-}
-
-export type CuentaFormType = {
-    cuenta: string,
-    fechaAlta? : string  | undefined,
-    descripcion?: string,
-    correo?: string,
-    phone? : string,
+    id?: string | undefined
 }
