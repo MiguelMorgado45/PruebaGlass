@@ -5,8 +5,6 @@ import {
     ContactoCard,
     CuentaCard,
     DomicilioCard,
-    GeneralesCard,
-    PerfilCard,
 } from "../../components/Clientes/FormCards";
 import { ClienteFormType } from "../../components/Clientes/types";
 import { validacionClienteForm } from "../../components/Clientes/FormCards/validacionClienteForm";
@@ -28,18 +26,13 @@ export const AgregarClientePage = () => {
     const [step, setStep] = useState(0);
 
     const valorInicial: ClienteFormType = {
-        general: {
             cuenta: "",
             descripcion: "",
-        },
-        fiscal: {
             razonSocial: "",
             nombreComercial: "",
             rfc: "",
             regimenFiscal: "",
             giro: "",
-        },
-        domicilio: {
             calle: "",
             exterior: "",
             interior: "",
@@ -48,14 +41,11 @@ export const AgregarClientePage = () => {
             estado: "",
             pais: "",
             codigoPostal: "",
-        },
-        contacto: {
             nombreContacto: "",
             telefono: undefined,
             correo: "",
             puesto: "",
             cumpleanos: "",
-        },
     };
 
     const formik = useFormik({

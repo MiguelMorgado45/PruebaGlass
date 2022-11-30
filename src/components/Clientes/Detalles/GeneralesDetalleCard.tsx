@@ -7,13 +7,13 @@ import { DropdownField, InputTextField } from '../../shared/inputFields';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { validacionGeneralDetalleForm } from './validacionClienteDetalleForm';
 import { getClientebyId } from '../../../helpers/getClientebyId';
-import {FiscalClienteFormType} from '../types'
+import { FiscalClienteFormType } from '../types'
 
 type PropType = {
-  id:string | undefined
+  id: string | undefined
 }
 
-export const GeneralesDetalleForm = ({id}:PropType) => {
+export const GeneralesDetalleForm = ({ id }: PropType) => {
 
   const atomState: RecoilState<{}> = generalesDetalleFormAtom;
   const formikA: any = useRecoilValue(atomState)
@@ -43,21 +43,26 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
     setLoading(true)
   }, [formik.values, formik.errors, formik.touched])
 
+  const cliente = getClientebyId(id);
+  const clientesData = {
+    razonSocial: cliente ? cliente.razonSocial : '',
+    nombreComercial: cliente ? cliente.nombreComercial : '',
+    rfc: cliente ? cliente.rfc : '',
+    regimenFiscal: cliente ? cliente.regimenFiscal : '',
+    giro: cliente ? cliente.giro : '',
+  }
   useEffect(() => {
-    const cliente = getClientebyId(id);
-    formik.setValues({
-      razonSocial: cliente? cliente.fiscal.razonSocial : '',
-      nombreComercial: cliente? cliente.fiscal.nombreComercial : '',
-      rfc: cliente? cliente.fiscal.rfc : '',
-      regimenFiscal: cliente? cliente.fiscal.regimenFiscal : '',
-      giro: cliente? cliente.fiscal.giro : '',
-    })
+    formik.setValues(clientesData)
   }, [])
 
+  const reset = () => {
+    formik.resetForm({ values: clientesData })
+  }
+
   return loading === true ? (
-    <CardTemplate name = "DATOS">
+    <CardTemplate name="DATOS">
       <form onSubmit={generalForm.handleSubmit} className="flex flex-column gap-4 tw-items-end" id='Generales'>
-      <p className="tw-w-full tw-text-orangetw tw-text-2xl tw-font-semibold">General</p>
+        <p className="tw-w-full tw-text-orangetw tw-text-2xl tw-font-semibold">General</p>
 
         <div className="flex flex-row gap-4 tw-w-full">
           <InputTextField
@@ -101,7 +106,7 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
         </div>
 
         <div className='tw-w-full flex tw-justify-center gap-4'>
-          <button type='reset' onClick={()=> {generalForm.resetForm()}}
+          <button type='reset' onClick={() => { reset() }}
             className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
                         tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
             Cancelar
