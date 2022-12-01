@@ -7,7 +7,6 @@ import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTe
 import { operadorRolesFormState } from '../../../atoms/OperadorAtom';
 import { RolesType } from '../types';
 
-
 export const RolesCard = ({ selected }: RolesType) => {
 
   const [selectedCuentas, setSelectedCuentas] = useState(selected)
