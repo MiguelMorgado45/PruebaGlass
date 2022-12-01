@@ -1,34 +1,36 @@
-export type OperadorFormType = {
+export type ContracionFormType = {
+    id?: string,
     cliente: string,
     descr: string,
-    producto: string | undefined,
-    contratados : number,
+    producto: string,
+    contratados: number,
     alta: string,
-    vencimiento: string,
-    costo : number,
-    estado : string | undefined,
+    expira?: string,
+    costo?: number, 
+    estado: string,
+    nombreContacto:string, 
+    telefono: string,
+    puesto: string,
+    correo: string,
+    cumple: string,
+    mismo: boolean
+}
+
+export type ContratacionGeneralType = {
+    producto: string,
+    contratados: number,
+    alta: string,
+    expira?: string,
+    costo?: number, 
+    estado: string,
+}
+
+export type ContratacionContactoType = {
     nombreContacto:string, 
     telefono: string,
     puesto: string,
     correo: string,
     cumple: string,
     mismo?: boolean
-}
-
-export type ContratacionGeneralDetalleType = {
-    producto: string,
-    contratados: number,
-    alta: string,
-    expira: string,
-    costo: number, 
-    estado: string,
-}
-
-export type ContratacionContactoDetalleType = {
-    name: string,
-    telefono: string,
-    correo: string,
-    puesto: string,
-    cumple: string
 }
 

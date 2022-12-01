@@ -6,10 +6,10 @@ import { contratacionContactoDetalleState } from '../../../atoms/ContratacionAto
 import { validacionContactoDetalleCard } from './validacionContratacionDetalles';
 
 import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { ContratacionContactoDetalleType } from '../types';
+import { ContratacionContactoType } from '../types';
 import { InputMaskField } from '../../shared/inputFields/InputMaskField';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { getContratoContactobyId } from '../../../helpers/getContratobyId';
+import { getContratobyId } from '../../../helpers/getContratobyId';
 
 type PropType = {
   id: string | undefined
@@ -22,33 +22,32 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
   const [generalForm, setGeneralForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
-  const valorInicial: ContratacionContactoDetalleType = {
-    name: '',
+  const valorInicial: ContratacionContactoType = {
+    nombreContacto: '',
     telefono: '00-0000-0000',
     correo: '',
     puesto: '',
     cumple: '',
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const contratacion = getContratoContactobyId(id);
+  //   const contratacion = getContratoContactobyId(id);
 
-    formik.setValues ({
-      "name" : `${contratacion? contratacion.name : ''}`,
-      "telefono" : `${contratacion? contratacion.telefono : ''}`,
-      "correo" : `${contratacion? contratacion.correo : ''}`,
-      "puesto" : `${contratacion? contratacion.puesto : ''}`,
-      "cumple" : `${contratacion? contratacion.cumple : ''}`,
-    })  
+  //   formik.setValues ({
+  //     "name" : `${contratacion? contratacion.name : ''}`,
+  //     "telefono" : `${contratacion? contratacion.telefono : ''}`,
+  //     "correo" : `${contratacion? contratacion.correo : ''}`,
+  //     "puesto" : `${contratacion? contratacion.puesto : ''}`,
+  //     "cumple" : `${contratacion? contratacion.cumple : ''}`,
+  //   })  
 
-  }, [])
+  // }, [])
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: ContratacionContactoDetalleType, { resetForm }) => {
+    onSubmit: (values: ContratacionContactoType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
-      resetForm();
     },
     validate: validacionContactoDetalleCard,
   });
@@ -57,6 +56,23 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
     setGeneralForm(formik)
     setLoading(true)
   }, [formik.values, formik.errors, formik.touched])
+
+  const contratacion = getContratobyId(id);
+  const contratacionData = {
+    nombreContacto: contratacion ? contratacion.nombreContacto : '',
+    telefono: contratacion ? contratacion.telefono : '',
+    correo: contratacion ? contratacion.correo : '',
+    puesto: contratacion ? contratacion.puesto : '',
+    cumple: contratacion ? contratacion.cumple : '',
+  }
+  useEffect(() => {
+    
+    formik.setValues(contratacionData)
+  }, [])
+
+  const reset = () =>{
+    formik.resetForm({values: contratacionData})
+  }
 
   return loading === true ? (
     <>
@@ -67,7 +83,7 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
             <InputTextField
               label="Nombre Completo"
               placeholder="Ingrese el combre completo"
-              name='name'
+              name='nombreContacto'
               formikState={atomState}
             />
 
@@ -108,7 +124,7 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
             <div className='flex tw-items-center tw-mt-6 tw-justify-center tw-w-full gap-3 tw-text-sm tw-font-semibold'>
               <button type='reset'
                 className={`tw-w-36 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-                onClick={() => formik.resetForm()}
+                onClick={() => reset()}
               >
                 Cancelar
               </button>

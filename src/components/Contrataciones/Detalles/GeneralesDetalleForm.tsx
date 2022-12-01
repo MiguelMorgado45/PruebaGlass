@@ -6,9 +6,9 @@ import { contratacionGeneralDetalleState } from '../../../atoms/ContratacionAtom
 import { validacionGeneralDetalleCard } from './validacionContratacionDetalles';
 import { DropdownField } from '../../shared/inputFields/DropdownField';
 import { InputNumberField } from '../../shared/inputFields/InputNumberFiled';
-import { ContratacionGeneralDetalleType } from '../types';
+import { ContratacionGeneralType } from '../types';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
-import { getContratoGeneralbyId } from '../../../helpers/getContratobyId';
+import { getContratobyId } from '../../../helpers/getContratobyId';
 import { InputCurrencyField } from '../../shared/inputFields/InputCurrencyFiled';
 
 type PropType = {
@@ -22,7 +22,7 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
   const [generalForm, setGeneralForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
-  const valorInicial: ContratacionGeneralDetalleType = {
+  const valorInicial: ContratacionGeneralType = {
     producto: '',
     contratados: 0,
     alta: '',
@@ -33,9 +33,8 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: ContratacionGeneralDetalleType, { resetForm }) => {
+    onSubmit: (values: ContratacionGeneralType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
-      resetForm();
     },
     validate: validacionGeneralDetalleCard,
   });
@@ -45,20 +44,22 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
     setLoading(true)
   }, [formik.values, formik.errors, formik.touched])
 
+  const contratacion = getContratobyId(id);
+  const contratacionData = {
+    producto: contratacion? contratacion.producto : '',
+    contratados: contratacion? contratacion.contratados : 0,
+    alta: contratacion? contratacion.alta : '',
+    expira: contratacion? contratacion.expira : '',
+    costo: contratacion? contratacion.costo : 0,
+    estado: contratacion? contratacion.estado : '',
+  }
+
   useEffect(() => {
-
-    const contratacion = getContratoGeneralbyId (id);
-
-    formik.setValues({
-      producto: contratacion? contratacion.producto : '',
-      contratados: contratacion? contratacion.contratados : 0,
-      alta: contratacion? contratacion.alta : '',
-      expira: contratacion? contratacion.expira : '',
-      costo: contratacion? contratacion.costo : 0,
-      estado: contratacion? contratacion.estado : '',
-    })
-
+    formik.setValues(contratacionData)
   }, [])
+  const reset = () =>{
+    formik.resetForm({values: contratacionData})
+  }
 
   return loading === true ? (
     <>
@@ -122,7 +123,7 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
           <div className='flex tw-mt-5 tw-justify-end tw-w-full gap-3 tw-text-sm tw-font-semibold'>
             <button type='reset'
               className={`tw-w-36 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-              onClick={() => formik.resetForm()}
+              onClick={() => reset()}
             >
               Cancelar
             </button>

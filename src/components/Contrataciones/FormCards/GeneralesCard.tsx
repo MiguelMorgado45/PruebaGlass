@@ -39,7 +39,7 @@ export const GeneralesCard = ({ setStep }: cardProps) => {
           <CalendarField
             label="Vencimiento"
             placeholder="dd/mm/aaaa"
-            name='vencimiento'
+            name='expira'
             formikState={atomState}
           />
 
