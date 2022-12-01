@@ -5,6 +5,7 @@ import { InputTextareaField } from '../../shared/inputFields/InputTextareaField'
 import Plogo from '../../../assets/ProfileLogo.png'
 import { cuentaAgregaFormState } from '../../../atoms/CuentasAtoms';
 
+
 export const GeneralesCard = () => {
 
   const atomState: RecoilState<{}> = cuentaAgregaFormState;
