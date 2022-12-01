@@ -1,13 +1,15 @@
 import { useFormik } from 'formik';
-import { useRecoilValue } from 'recoil';
-import { useEffect, useState } from 'react';
 import { RecoilState, useRecoilState } from 'recoil';
+import { useEffect, useState } from 'react';
+
 import { generalesDetalleFormAtom } from '../../../atoms/ClienteAtom';
-import { DropdownField, InputTextField } from '../../shared/inputFields';
-import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { validacionGeneralDetalleForm } from './validacionClienteDetalleForm';
 import { getClientebyId } from '../../../helpers/getClientebyId';
 import { FiscalClienteFormType } from '../types'
+
+import { DropdownField, InputTextField } from '../../shared/inputFields';
+import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
+
 
 type PropType = {
   id: string | undefined
@@ -16,8 +18,6 @@ type PropType = {
 export const GeneralesDetalleForm = ({ id }: PropType) => {
 
   const atomState: RecoilState<{}> = generalesDetalleFormAtom;
-  const formikA: any = useRecoilValue(atomState)
-
   const [generalForm, setGeneralForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
@@ -54,10 +54,6 @@ export const GeneralesDetalleForm = ({ id }: PropType) => {
   useEffect(() => {
     formik.setValues(clientesData)
   }, [])
-
-  const reset = () => {
-    formik.resetForm({ values: clientesData })
-  }
 
   return loading === true ? (
     <CardTemplate name="DATOS">
@@ -106,7 +102,7 @@ export const GeneralesDetalleForm = ({ id }: PropType) => {
         </div>
 
         <div className='tw-w-full flex tw-justify-center gap-4'>
-          <button type='button' onClick={() => { reset() }}
+          <button type='button' onClick={() => { formik.resetForm({ values: clientesData }) }}
             className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
                         tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
             Cancelar

@@ -1,15 +1,14 @@
-import { CalendarField } from '../../shared/inputFields';
 import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
+
 import { contratacionGeneralDetalleState } from '../../../atoms/ContratacionAtom';
 import { validacionGeneralDetalleCard } from './validacionContratacionDetalles';
-import { DropdownField } from '../../shared/inputFields/DropdownField';
-import { InputNumberField } from '../../shared/inputFields/InputNumberFiled';
 import { ContratacionGeneralType } from '../types';
-import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { getContratobyId } from '../../../helpers/getContratobyId';
-import { InputCurrencyField } from '../../shared/inputFields/InputCurrencyFiled';
+
+import { CalendarField, DropdownField, InputNumberField, InputCurrencyField, } from '../../shared/inputFields';
+import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 
 type PropType = {
   id:string | undefined
@@ -57,9 +56,6 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
   useEffect(() => {
     formik.setValues(contratacionData)
   }, [])
-  const reset = () =>{
-    formik.resetForm({values: contratacionData})
-  }
 
   return loading === true ? (
     <>
@@ -123,7 +119,7 @@ export const GeneralesDetalleForm = ({id}:PropType) => {
           <div className='flex tw-mt-5 tw-justify-end tw-w-full gap-3 tw-text-sm tw-font-semibold'>
             <button type='button'
               className={`tw-w-36 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-              onClick={() => reset()}
+              onClick={() => formik.resetForm({values: contratacionData})}
             >
               Cancelar
             </button>

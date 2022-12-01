@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+
 import { cuentas } from '../../data/data';
 import { getTemplates } from '../shared/dataTables/templates/getTemplates';
-import { useNavigate } from 'react-router-dom';
 
 
 export const CuentasDataTable = () => {
 
     const [selectedCuentas, setSelectedCuentas] = useState(null);
 
-    const { imageLogoTemplate, contratadoTemplate, detalleTemplate, estadoTemplate, agregarClienteTemplate, agregarOperadorTemplate } = getTemplates();
+    const { imageLogoTemplate, detalleTemplate, agregarClienteTemplate, agregarOperadorTemplate } = getTemplates();
 
 
     return (

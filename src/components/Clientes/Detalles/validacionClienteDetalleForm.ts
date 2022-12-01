@@ -6,8 +6,6 @@ type errorType = {
     rfc?: string,
     regimenFiscal?: string,
     giro?: string,
-
-
     calle?: string,
     exterior?: string,
     interior?: string,

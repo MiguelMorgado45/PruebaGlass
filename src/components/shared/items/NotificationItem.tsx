@@ -1,6 +1,4 @@
 import { Button } from 'primereact/button'
-import { notifications } from '../../data/data'
-import React from 'react'
 
 interface NotificationProps {
   title?: string,

@@ -1,12 +1,14 @@
-import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
-import '../../styles/operadores.css'
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
+import { useRecoilState } from 'recoil';
+
 import { OperadoresFormType } from '../../components/Operadores/types';
 import { validacionOperadorCard } from '../../components/Operadores/FormCards/validacionOperadoresForm';
-import { useRecoilState } from 'recoil';
-import { OperadorCard } from '../../components/Operadores/FormCards';
 import { operadorAgregaFormState } from '../../atoms/OperadorAtom';
+
+import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
+import { OperadorCard } from '../../components/Operadores/FormCards';
+import '../../styles/operadores.css'
 
 export const AgregarOperadorPage = () => {
 

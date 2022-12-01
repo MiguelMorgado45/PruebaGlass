@@ -147,3 +147,8 @@
     height: fit-content;
   }
 
+  .content-size {
+      width: 100%;
+      min-height: calc(100vh);
+  }
+

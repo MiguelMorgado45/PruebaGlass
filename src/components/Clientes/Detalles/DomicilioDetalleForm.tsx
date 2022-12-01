@@ -1,14 +1,16 @@
-import '../../../styles/dom-card.css'
-import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { DropdownField } from '../../shared/inputFields';
 import { RecoilState, useRecoilState } from 'recoil';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { useEffect, useState } from 'react';
-import { domicilioDetalleFormAtom } from '../../../atoms/ClienteAtom';
 import { DomicilioClienteFormType } from '../types';
 import { useFormik } from 'formik';
+
+import { domicilioDetalleFormAtom } from '../../../atoms/ClienteAtom';
 import { validacionDomicilioDetalleForm } from './validacionClienteDetalleForm';
 import { getClientebyId } from '../../../helpers/getClientebyId';
+
+import { DropdownField, InputTextField } from '../../shared/inputFields';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+
+import '../../../styles/dom-card.css'
 
 type PropType = {
   id:string | undefined
@@ -59,10 +61,6 @@ export const DomicilioDetalleForm = ({id}:PropType) => {
   useEffect(() => {
     formik.setValues(clienteData)
   }, [])
-
-  const reset = () => {
-    formik.resetForm({ values: clienteData })
-  }
 
   return loading === true ? (
     <FormCardTemplate titulo='Domicilio Fiscal'>
@@ -139,7 +137,7 @@ export const DomicilioDetalleForm = ({id}:PropType) => {
           </div>
           <div className='tw-w-full flex tw-justify-center gap-4'>
 
-            <button type='button' onClick={() => { reset() }}
+            <button type='button' onClick={() => { formik.resetForm({ values: clienteData }) }}
               className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
                         tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
               Cancelar

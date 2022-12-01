@@ -1,5 +1,5 @@
 import React from 'react'
-import { contrataciones } from '../data/dataContrataciones'
+import { contratacionestable } from '../data/dataContrataciones'
 import { nameLogo } from '../data/dataProductos';
 
 export const getLogoProductos = (name: string) => {
@@ -7,5 +7,5 @@ export const getLogoProductos = (name: string) => {
 }
 
 export const getNumberProductos = (name: string) =>{
-    return contrataciones.filter(element => element.name == name).length;
+    return contratacionestable.filter(element => element.name == name).length;
 }

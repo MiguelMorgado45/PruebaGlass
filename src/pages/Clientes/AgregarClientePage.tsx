@@ -1,18 +1,16 @@
-import { Steps } from "primereact/steps";
 import { useEffect, useState } from "react";
 import { RecoilState, useRecoilState } from "recoil";
-import {
-    ContactoCard,
-    CuentaCard,
-    DomicilioCard,
-} from "../../components/Clientes/FormCards";
-import { ClienteFormType } from "../../components/Clientes/types";
-import { validacionClienteForm } from "../../components/Clientes/FormCards/validacionClienteForm";
-import { ContentTemplate } from "../../templates/ContentTemplate/ContentTemplate";
 import { useFormik } from "formik";
-import { GeneralesCardAgregar } from "../../components/Clientes/FormCards/GeneralesCardAgregar";
+import { Steps } from "primereact/steps";
+
 import { clienteAgregaFormState } from "../../atoms/ClienteAtom";
 import {menuItems} from '../../helpers/menuItems'
+import { ClienteFormType } from "../../components/Clientes/types";
+import { validacionClienteForm } from "../../components/Clientes/FormCards/validacionClienteForm";
+
+import { ContactoCard, CuentaCard, DomicilioCard } from "../../components/Clientes/FormCards";
+import { ContentTemplate } from "../../templates/ContentTemplate/ContentTemplate";
+import { GeneralesCardAgregar } from "../../components/Clientes/FormCards/GeneralesCardAgregar";
 
 export const AgregarClientePage = () => {
     const title = {
@@ -76,7 +74,6 @@ export const AgregarClientePage = () => {
 
                 <form onSubmit={clienteForm.handleSubmit}>
                     <div className={`${step != 0 && "tw-hidden"}`}>
-                        {" "}
                         <CuentaCard setStep={setStep} />{" "}
                     </div>
                     <div className={`${step != 1 && "tw-hidden"}`}>

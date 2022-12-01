@@ -1,12 +1,9 @@
 import {useState} from 'react' 
 
-import { Checkbox } from 'primereact/checkbox';
-
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
 import { getTemplates } from '../shared/dataTables/templates/getTemplates';
-import { Link } from 'react-router-dom';
 import { tableClientes } from '../../data/dataClientes';
 
 export const ClientesDataTable = () => {

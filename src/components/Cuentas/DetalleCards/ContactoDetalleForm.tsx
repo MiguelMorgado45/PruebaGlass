@@ -1,20 +1,20 @@
 import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import { RecoilState, useRecoilState } from 'recoil';
+
 import { contactoDetalleFormState } from '../../../atoms/CuentasAtoms';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import {  ContactoCuentaFormType, propDetalleType } from '../types';
-import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { InputMaskField } from '../../shared/inputFields/InputMaskField';
-import { getCuentabyId } from '../../../helpers/getCuentabyId';
 import { validacionContactoDetalle } from './validacionCuentaDetalle';
+import { getCuentabyId } from '../../../helpers/getCuentabyId';
+
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { InputTextField, InputMaskField } from '../../shared/inputFields';
+
 
 export const ContactoDetalleForm = ({id}:propDetalleType) => {
 
   const atomState: RecoilState<{}> = contactoDetalleFormState;
-
   const [contactoForm, setContactoForm] = useRecoilState<any>(atomState)
-
   const [loading, setLoading] = useState(false)
 
   const valorInicial: ContactoCuentaFormType = {
@@ -29,13 +29,9 @@ export const ContactoDetalleForm = ({id}:propDetalleType) => {
   }
 
   useEffect(() => {
-    
     formik.setValues (cuentaData)   
   }, [])
 
-  const reset = () =>{
-      formik.resetForm({values:cuentaData})
-  }
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
@@ -71,7 +67,7 @@ export const ContactoDetalleForm = ({id}:propDetalleType) => {
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
           <button type='button'
             className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-            onClick={() => reset()}
+            onClick={() => formik.resetForm({values:cuentaData})}
           >
             Cancelar
           </button>

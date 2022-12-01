@@ -1,4 +1,4 @@
-import { ContratacionContactoDetalleType, ContratacionGeneralDetalleType } from "../types";
+import { ContratacionContactoType, ContratacionGeneralType } from "../types";
 
 type errorType = {
     producto?: string,
@@ -8,14 +8,14 @@ type errorType = {
     costo?: string, 
     estado?: string,
 
-    name?: string,
+    nombreContacto?: string,
     telefono?: string,
     correo?: string,
     puesto?: string,
     cumple?: string
 }
 
-export const validacionGeneralDetalleCard = (values:ContratacionGeneralDetalleType ) => {
+export const validacionGeneralDetalleCard = (values:ContratacionGeneralType ) => {
     let errors : errorType = {};
     if (!values.producto){
         errors.producto = "Por favor, seleccione un producto"
@@ -42,10 +42,10 @@ export const validacionGeneralDetalleCard = (values:ContratacionGeneralDetalleTy
     return errors;
 }
 
-export const validacionContactoDetalleCard = (values:ContratacionContactoDetalleType ) => {
+export const validacionContactoDetalleCard = (values:ContratacionContactoType ) => {
     let errors : errorType = {};
-    if (!values.name){
-        errors.name = "Por favor, seleccione un producto"
+    if (!values.nombreContacto){
+        errors.nombreContacto = "Por favor, seleccione un producto"
     }
     if (!values.telefono){
         errors.telefono = "Por favor, ingrese el telefono"

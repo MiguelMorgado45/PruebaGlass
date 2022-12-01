@@ -2,7 +2,7 @@ import { OperadoresFormType } from "../types";
 
 type errorType = {
     nombre?: string,
-    fechaAlta? : string  | undefined,
+    alta? : string  | undefined,
     correo?: string,
     telefono?: string,
     descripcion? : string,
@@ -15,8 +15,8 @@ export const validacionOperadorCard = (values:OperadoresFormType ) => {
         errors.nombre = "Por favor, ingrese el nombre del operador"
     }
 
-    if(!values.fechaAlta){
-        errors.fechaAlta = "Por favor, inserte una fecha de alta";
+    if(!values.alta){
+        errors.alta = "Por favor, inserte una fecha de alta";
     }
 
     if (!values.correo){

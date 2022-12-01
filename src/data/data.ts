@@ -82,19 +82,7 @@ export const typeCuentas = [
     {
         type: 'TODAS',
         number: 71
-    },
-    {
-        type: 'ACTIVAS',
-        number: 58
-    },
-    {
-        type: 'INACTIVAS',
-        number: 13
-    },
-    {
-        type: 'DEMOS',
-        number: 1
-    },
+    }
 ]
 
 export const minidashDetalleCuenta = [

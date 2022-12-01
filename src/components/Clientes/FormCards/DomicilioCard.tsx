@@ -1,10 +1,12 @@
-import '../../../styles/dom-card.css'
-import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { DropdownField } from '../../shared/inputFields';
 import { RecoilState } from 'recoil';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+
 import { cardProps } from './cardProps';
 import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
+
+import { DropdownField, InputTextField } from '../../shared/inputFields';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+
+import '../../../styles/dom-card.css'
 
 export const DomicilioCard = ({setStep} : cardProps) => {
 

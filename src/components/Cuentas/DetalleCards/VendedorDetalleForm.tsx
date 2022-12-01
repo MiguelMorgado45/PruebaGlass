@@ -1,20 +1,20 @@
 import { useFormik } from 'formik';
-import { propDetalleType, VendedorCuentaFormType, } from '../types';
 import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
-import { InputTextField } from '../../shared/inputFields/InputTextField';
+
+import { propDetalleType, VendedorCuentaFormType, } from '../types';
 import { vendedorDetalleFormState } from '../../../atoms/CuentasAtoms';
-import { DropdownField } from '../../shared/inputFields/DropdownField';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { getCuentabyId, } from '../../../helpers/getCuentabyId';
+import { getCuentabyId } from '../../../helpers/getCuentabyId';
 import { validacionVendedorDetalle } from './validacionCuentaDetalle';
+
+import { InputTextField, DropdownField,  } from '../../shared/inputFields';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+
 
 export const VendedorDetalleForm = ({ id }: propDetalleType) => {
 
   const atomState: RecoilState<{}> = vendedorDetalleFormState;
-
   const [vendedorForm, setVendedorForm] = useRecoilState<any>(atomState)
-
   const [loading, setLoading] = useState(false);
 
   const valorInicial: VendedorCuentaFormType = {
@@ -31,10 +31,6 @@ export const VendedorDetalleForm = ({ id }: propDetalleType) => {
   useEffect(() => {
     formik.setValues(cuentaData)
   }, [])
-
-  const reset = () => {
-    formik.resetForm({ values: cuentaData })
-  }
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
@@ -73,9 +69,9 @@ export const VendedorDetalleForm = ({ id }: propDetalleType) => {
         </div>
 
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
-          <button type='reset'
+          <button type='button'
             className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-            onClick={() => reset()}
+            onClick={() => formik.resetForm({ values: cuentaData })}
           >
             Cancelar
           </button>

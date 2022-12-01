@@ -1,26 +1,25 @@
 import { useFormik } from 'formik';
-import {Steps} from 'primereact/steps'
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { validacionOperadorCard } from '../../components/Contrataciones/FormCards/validacionOperadorForm';
-import { ContracionFormType } from '../../components/Contrataciones/types';
-import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
-import '../../styles/contrataciones.css'
-import { ClienteCard } from '../../components/Contrataciones/FormCards';
-import { ContactoCard } from '../../components/Contrataciones/FormCards/ContactoCard';
-import { GeneralesCard } from '../../components/Contrataciones/FormCards/GeneralesCard';
+import {Steps} from 'primereact/steps'
+
+
+import { validacionOperadorCard } from '../../components/Contrataciones/FormCards/validacionContratacionForm';
+import { ContratacionFormType } from '../../components/Contrataciones/types';
 import { contratacionAgregaFormState } from '../../atoms/ContratacionAtom';
 import {menuItems} from '../../helpers/menuItems'
 
+import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
+import { ClienteCard, ContactoCard, GeneralesCard } from '../../components/Contrataciones/FormCards';
+import '../../styles/contrataciones.css'
 
 export const AgregarContratacionesPage = () => {
 
-  let operadoresTotales: object[] = [{}]
   const [step, setStep] = useState(0);
   const [operadorForm, setOperadorForm] = useRecoilState<any>(contratacionAgregaFormState)
   const [loading, setLoading] = useState(false);
 
-  const valorInicial: ContracionFormType = {
+  const valorInicial: ContratacionFormType = {
     cliente: '',
     descr: '',
     producto: '',
@@ -39,7 +38,7 @@ export const AgregarContratacionesPage = () => {
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: ContracionFormType, { resetForm }) => {
+    onSubmit: (values: ContratacionFormType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
       resetForm();
     },

@@ -1,12 +1,11 @@
-import { useFormik } from 'formik';
-import { Checkbox } from 'primereact/checkbox';
+import { RecoilState } from 'recoil';
+
+import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
+import { cardProps } from './cardProps';
+
+import { CalendarField, InputMaskField, InputTextField } from '../../shared/inputFields';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import '../../../styles/dom-card.css'
-import { cardProps } from './cardProps';
-import { RecoilState } from 'recoil';
-import { CalendarField, InputMaskField, InputTextField } from '../../shared/inputFields';
-import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
-
 
 
 export const ContactoCard = ({setStep} : cardProps) => {
@@ -54,11 +53,6 @@ export const ContactoCard = ({setStep} : cardProps) => {
             name='cumpleanos'
             formikState={atomState}
           />
-          {/* <div className='tw-w-full flex flex-row gap-3 tw-items-center tw-mt-6'>
-            <Checkbox onChange={handleChange} checked={values.operador} name='operador'></Checkbox>
-            <label className='tw-font-medium tw-text-sm'>Hacer Operador</label>
-          </div> */}
-
         </div>
 
         <div className='flex tw-justify-end tw-w-full gap-4'>

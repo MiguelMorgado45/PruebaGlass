@@ -22,8 +22,6 @@ export const TipoCuentaDetalleCard = ({
           <div className='tw-text-gray-grayt tw-text-sm'>{type}</div>
           <div className={`${number === 1 ? "tw-text-4xl" : "tw-text-base tw-font-normal"}`}>{message}</div>
         </div>
-
-
         <div className={`flex tw-justify-center tw-items-center tw-w-16 tw-h-16 ${color} tw-rounded-2xl`}>
           <i className={`pi ${icon}`} style={{ fontSize: '1.5rem' }}></i>
         </div>

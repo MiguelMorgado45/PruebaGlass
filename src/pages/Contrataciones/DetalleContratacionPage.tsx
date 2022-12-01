@@ -1,10 +1,11 @@
-import { Menu } from 'primereact/menu'
-import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
 import { useParams } from 'react-router-dom';
-import { GeneralesDetalleForm } from '../../components/Contrataciones/Detalles/GeneralesDetalleForm';
-import { ContactoDetalleForm } from '../../components/Contrataciones/Detalles/ContactoDetalleForm';
+import { Menu } from 'primereact/menu'
+
 import {menuItems} from '../../helpers/menuItems'
 
+import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
+import { GeneralesDetalleForm } from '../../components/Contrataciones/Detalles/GeneralesDetalleForm';
+import { ContactoDetalleForm } from '../../components/Contrataciones/Detalles/ContactoDetalleForm';
 
 export const DetalleContratacionPage = () => {
 

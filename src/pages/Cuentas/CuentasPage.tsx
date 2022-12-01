@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
+import { typeCuentas } from '../../data/data'
+
 import { CuentasDataTable } from '../../components/Cuentas/CuentasDataTable'
 import { TipoCuentaCard } from '../../components/Cuentas/TipoCuentaCard'
-import { typeCuentas } from '../../data/data'
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
 
 export const CuentasPage = () => {

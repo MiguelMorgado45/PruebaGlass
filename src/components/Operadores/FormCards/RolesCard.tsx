@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
+import { useRecoilValue } from 'recoil';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+
 import { rolesOperadores } from '../../../data/dataOperadores';
-import { useRecoilValue } from 'recoil';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { operadorRolesFormState } from '../../../atoms/OperadorAtom';
 import { RolesType } from '../types';
+
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 
 export const RolesCard = ({ selected }: RolesType) => {
 

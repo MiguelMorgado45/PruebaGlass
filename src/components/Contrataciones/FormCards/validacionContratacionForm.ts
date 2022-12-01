@@ -1,4 +1,4 @@
-import { OperadorFormType } from "../types";
+import { ContratacionFormType } from "../types";
 
 type errorType = {
     cliente?: string,
@@ -6,7 +6,7 @@ type errorType = {
     producto?: string | undefined,
     contratados?: string,
     alta?: string,
-    vencimiento?: string,
+    expira?: string,
     costo?: string,
     estado?: string | undefined,
     nombreContacto?:string,
@@ -16,7 +16,7 @@ type errorType = {
     cumple?: string,
 }
 
-export const validacionOperadorCard = (values:OperadorFormType ) => {
+export const validacionOperadorCard = (values:ContratacionFormType) => {
     let errors : errorType = {};
     if (!values.cliente){
         errors.cliente = "Por favor, seleccione un cliente"
@@ -32,8 +32,8 @@ export const validacionOperadorCard = (values:OperadorFormType ) => {
         errors.alta = "Por favor, ingrese la fecha"
     }
 
-    if(!values.vencimiento){
-        errors.vencimiento = "Por favor, ingrese la fecha de vencimiento";
+    if(!values.expira){
+        errors.expira = "Por favor, ingrese la fecha de vencimiento";
     }
 
     if(!values.estado){

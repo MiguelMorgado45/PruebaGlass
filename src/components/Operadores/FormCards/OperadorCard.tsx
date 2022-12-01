@@ -1,12 +1,12 @@
 import { RecoilState, useRecoilValue } from 'recoil';
 import { Divider } from 'primereact/divider';
-import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { CalendarField } from '../../shared/inputFields/CalendarField';
-import { InputMaskField } from '../../shared/inputFields/InputMaskField';
-import { InputTextareaField } from '../../shared/inputFields/InputTextareaField';
+
+import { operadorAgregaFormState } from '../../../atoms/OperadorAtom';
+
+import { InputTextField, CalendarField, InputMaskField, InputTextareaField } from '../../shared/inputFields';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import Plogo from '../../../assets/ProfileLogo.png'
-import { operadorAgregaFormState } from '../../../atoms/OperadorAtom';
+
 
 export const OperadorCard = () => {
 

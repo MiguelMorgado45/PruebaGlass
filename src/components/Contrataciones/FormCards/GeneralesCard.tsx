@@ -1,11 +1,10 @@
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-
 import { RecoilState } from 'recoil';
-import { CalendarField, DropdownField, InputNumberField } from '../../shared/inputFields';
+
 import { cardProps } from './cardProps';
-import { MultiSelectField } from '../../shared/inputFields/MultiSelectField';
 import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
-import { InputCurrencyField } from '../../shared/inputFields/InputCurrencyFiled';
+
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { CalendarField, DropdownField, InputNumberField, MultiSelectField, InputCurrencyField } from '../../shared/inputFields';
 
 export const GeneralesCard = ({ setStep }: cardProps) => {
   const atomState: RecoilState<{}> = contratacionAgregaFormState;
@@ -26,7 +25,6 @@ export const GeneralesCard = ({ setStep }: cardProps) => {
             name='contratados'
             formikState={atomState}
           />
-
         </div>
 
         <div className="flex flex-row gap-4 tw-w-full">
@@ -42,18 +40,15 @@ export const GeneralesCard = ({ setStep }: cardProps) => {
             name='expira'
             formikState={atomState}
           />
-
         </div>
 
         <div className="flex flex-row gap-4 ">
-
           <InputCurrencyField
             label="Costo"
             placeholder="$00.00"
             name='costo'
             formikState={atomState}
           />
-
           <DropdownField
             label="Estado"
             placeholder="Selecciona"
@@ -61,8 +56,8 @@ export const GeneralesCard = ({ setStep }: cardProps) => {
             options={['Activo', 'Demo']}
             formikState={atomState}
           />
-
         </div>
+        
         <div className="flex flex-row gap-4 tw-w-full tw-justify-end">
           <button type='button'
             className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit

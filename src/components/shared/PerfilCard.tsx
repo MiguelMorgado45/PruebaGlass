@@ -1,6 +1,7 @@
 import { Button } from "primereact/button"
-import { CardTemplate } from "../../../templates/CardTemplate/CardTemplate"
-import Plogo from '../../../assets/ProfileLogo.png'
+
+import { CardTemplate } from "../../templates/CardTemplate/CardTemplate"
+import Plogo from '../../assets/ProfileLogo.png'
 
 export const PerfilCard = () => {
   return (

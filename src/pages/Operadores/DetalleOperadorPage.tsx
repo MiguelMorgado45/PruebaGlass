@@ -1,8 +1,8 @@
-import { PerfilCard } from '../../components/Operadores/FormCards/PerfilCard'
-import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
-import { OperadorDetalleCard } from '../../components/Operadores/detalles/OperadorDetalleCard';
 import { useParams } from 'react-router-dom';
 
+import { PerfilCard } from '../../components/Operadores/FormCards/PerfilCard'
+import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
+import { OperadorDetalleCard } from '../../components/Operadores/Detalles/OperadorDetalleCard';
 
 export const DetalleOperadorPage = () => {
 

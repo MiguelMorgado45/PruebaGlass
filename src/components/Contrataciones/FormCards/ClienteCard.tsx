@@ -1,10 +1,11 @@
 import { RecoilState } from 'recoil';
+
 import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
 import { clientes } from '../../../data/dataClientes';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { DropdownField, InputTextareaField } from '../../shared/inputFields';
 import { cardProps } from './cardProps';
 
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { DropdownField, InputTextareaField } from '../../shared/inputFields';
 
 
 export const ClienteCard = ({ setStep }: cardProps) => {
@@ -34,11 +35,6 @@ export const ClienteCard = ({ setStep }: cardProps) => {
           </div>
 
           <div className='flex tw-justify-end tw-w-full gap-4'>
-            {/* <button type='reset'
-              className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
-              Cancelar
-            </button> */}
             <button type='button'
               className={`tw-text-sm tw-w-40 tw-font-semibold tw-border-blue-600 tw-border-2 tw-h-fit
               tw-px-4 tw-py-3 tw-rounded-md tw-text-blue-600 hover:tw-bg-blue-100`} onClick={() => setStep(1)}>

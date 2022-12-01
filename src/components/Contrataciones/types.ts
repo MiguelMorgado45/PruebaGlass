@@ -1,4 +1,4 @@
-export type ContracionFormType = {
+export type ContratacionFormType = {
     id?: string,
     cliente: string,
     descr: string,

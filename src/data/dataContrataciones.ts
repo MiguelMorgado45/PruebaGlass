@@ -1,6 +1,6 @@
-import { ContracionFormType } from "../components/Contrataciones/types"
+import { ContratacionFormType } from "../components/Contrataciones/types"
 
-export const contrataciones: ContracionFormType[] = [
+export const contrataciones: ContratacionFormType[] = [
     {
         id: '1',
         cliente: 'INNOVAREG',

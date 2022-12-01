@@ -1,5 +1,4 @@
 export * from './CuentaCard'
 export * from './ContactoCard'
-export * from './GeneralesCard'
 export * from './PerfilCard'
 export * from './DomicilioCard'

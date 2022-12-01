@@ -2,11 +2,13 @@ import { useFormik } from 'formik'
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
+
 import { operadorRolesFormState } from '../../atoms/OperadorAtom'
+import { getOperadorbyId } from '../../helpers/getOperadorbyId'
+
+import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
 import { GeneralesCard } from '../../components/Operadores/FormCards/GeneralesCard'
 import { RolesCard } from '../../components/Operadores/FormCards'
-import { getOperadorbyId } from '../../helpers/getOperadorbyId'
-import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
 import { RolesType } from '../../components/Operadores/types'
 
 const rolVacio = {

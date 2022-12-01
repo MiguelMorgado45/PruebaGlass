@@ -1,15 +1,14 @@
-import { CalendarField } from '../../shared/inputFields';
 import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
+
 import { contratacionContactoDetalleState } from '../../../atoms/ContratacionAtom';
 import { validacionContactoDetalleCard } from './validacionContratacionDetalles';
-
-import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { ContratacionContactoType } from '../types';
-import { InputMaskField } from '../../shared/inputFields/InputMaskField';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { getContratobyId } from '../../../helpers/getContratobyId';
+
+import { CalendarField, InputTextField, InputMaskField,  } from '../../shared/inputFields';
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 
 type PropType = {
   id: string | undefined
@@ -29,20 +28,6 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
     puesto: '',
     cumple: '',
   }
-
-  // useEffect(() => {
-
-  //   const contratacion = getContratoContactobyId(id);
-
-  //   formik.setValues ({
-  //     "name" : `${contratacion? contratacion.name : ''}`,
-  //     "telefono" : `${contratacion? contratacion.telefono : ''}`,
-  //     "correo" : `${contratacion? contratacion.correo : ''}`,
-  //     "puesto" : `${contratacion? contratacion.puesto : ''}`,
-  //     "cumple" : `${contratacion? contratacion.cumple : ''}`,
-  //   })  
-
-  // }, [])
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
@@ -66,13 +51,8 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
     cumple: contratacion ? contratacion.cumple : '',
   }
   useEffect(() => {
-    
     formik.setValues(contratacionData)
   }, [])
-
-  const reset = () =>{
-    formik.resetForm({values: contratacionData})
-  }
 
   return loading === true ? (
     <>
@@ -124,7 +104,7 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
             <div className='flex tw-items-center tw-mt-6 tw-justify-center tw-w-full gap-3 tw-text-sm tw-font-semibold'>
               <button type='button'
                 className={`tw-w-36 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-                onClick={() => reset()}
+                onClick={() => formik.resetForm({values: contratacionData})}
               >
                 Cancelar
               </button>

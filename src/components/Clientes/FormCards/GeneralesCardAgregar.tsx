@@ -1,9 +1,10 @@
-
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { RecoilState } from 'recoil';
-import { DropdownField, InputTextField } from '../../shared/inputFields';
+
 import { cardProps } from './cardProps';
 import { clienteAgregaFormState } from '../../../atoms/ClienteAtom';
+
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
+import { DropdownField, InputTextField } from '../../shared/inputFields';
 
 export const GeneralesCardAgregar = ({setStep}: cardProps) => {
   const atomState: RecoilState<{}> = clienteAgregaFormState;

@@ -1,13 +1,12 @@
-import { useFormik } from 'formik';
-import { Checkbox } from 'primereact/checkbox';
-import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import '../../../styles/dom-card.css'
-import { cardProps } from './cardProps';
 import { RecoilState, useRecoilValue } from 'recoil';
-import { CalendarField, InputMaskField, InputTextField } from '../../shared/inputFields';
+import { Checkbox } from 'primereact/checkbox';
+
+import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { contratacionAgregaFormState } from '../../../atoms/ContratacionAtom';
 
-
+import { cardProps } from './cardProps';
+import { CalendarField, InputMaskField, InputTextField } from '../../shared/inputFields';
+import '../../../styles/dom-card.css'
 
 export const ContactoCard = ({setStep} : cardProps) => {
 

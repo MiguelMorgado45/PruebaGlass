@@ -1,13 +1,11 @@
 import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom"
-// import { AgregarCuentasPage, CuentasPage, DetalleCuentaPage } from "../pages/Cuentas";
+
 import {CuentasPage, AgregarCuentaPage, DetalleCuentaPage} from '../pages/Cuentas'
 import {ClientesPage, AgregarClientePage, DetalleClientePage} from '../pages/Clientes'
 import {ContratacionesPage, AgregarContratacionesPage, DetalleContratacionPage} from '../pages/Contrataciones'
-import {OperadoresPage, AgregarOperadorPage, DetalleOperadorPage} from '../pages/Operadores'
-
+import {OperadoresPage, AgregarOperadorPage, DetalleOperadorPage, AgregarRoles} from '../pages/Operadores'
 import { Dashboard } from "../pages/Dashboard";
 import { GlassNavigationBar } from "../pages/GlassNavigationBar";
-import { AgregarRoles } from "../pages/Operadores/AgregarRoles"
 
 const AppRouter = () => {
     return (
@@ -34,7 +32,6 @@ const AppRouter = () => {
 
                 </Route>
                 <Route path="/*" element={<Navigate to={"/dashboard"} />} />
-                {/* <Route path="/" element={<Navigate to={"/"} />} /> */}
             </Routes>
         </BrowserRouter>
 

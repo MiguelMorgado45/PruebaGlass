@@ -1,15 +1,14 @@
-import { RecoilState, useRecoilState } from 'recoil';
-import { InputTextField } from '../../shared/inputFields/InputTextField';
-import { CalendarField } from '../../shared/inputFields/CalendarField';
-import { InputMaskField } from '../../shared/inputFields/InputMaskField';
-import { DropdownField } from '../../shared/inputFields';
-import { operadorDetalleFormState } from '../../../atoms/OperadorAtom';
-import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { useEffect, useState } from 'react';
-import { OperadoresFormType } from '../types';
+import { RecoilState, useRecoilState } from 'recoil';
 import { useFormik } from 'formik';
+
+import { operadorDetalleFormState } from '../../../atoms/OperadorAtom';
+import { OperadoresFormType } from '../types';
 import { validacionOperadorDetallesCard } from './validacionOperadoresDetalleForm';
 import { getOperadorbyId } from '../../../helpers/getOperadorbyId';
+
+import { DropdownField, InputMaskField, CalendarField, InputTextField } from '../../shared/inputFields';
+import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 
 type propType = {
   id: string | undefined

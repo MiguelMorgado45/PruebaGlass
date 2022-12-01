@@ -3,7 +3,6 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { operadores } from '../../data/dataOperadores';
 import { getTemplates } from '../shared/dataTables/templates/getTemplates';
-import { Link } from 'react-router-dom';
 
 export const OperadoresDataTable = () => {
 
