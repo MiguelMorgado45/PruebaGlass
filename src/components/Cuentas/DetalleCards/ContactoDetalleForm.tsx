@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import { RecoilState, useRecoilState } from 'recoil';
 import { contactoDetalleFormState } from '../../../atoms/CuentasAtoms';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { ContactoType, propDetalleType } from '../types';
+import {  ContactoCuentaFormType, propDetalleType } from '../types';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { InputMaskField } from '../../shared/inputFields/InputMaskField';
-import { getContactobyId } from '../../../helpers/getCuentabyId';
+import { getCuentabyId } from '../../../helpers/getCuentabyId';
 import { validacionContactoDetalle } from './validacionCuentaDetalle';
 
 export const ContactoDetalleForm = ({id}:propDetalleType) => {
@@ -17,24 +17,30 @@ export const ContactoDetalleForm = ({id}:propDetalleType) => {
 
   const [loading, setLoading] = useState(false)
 
-  const valorInicial: ContactoType = {
+  const valorInicial: ContactoCuentaFormType = {
     correo: '',
     phone: "00-0000-0000",
   }
 
+  const values = getCuentabyId(id)
+  const cuentaData = {
+    "correo" : `${values? values.correo : ''}`,
+    "phone" : `${values? values.phone : ''}`,
+  }
+
   useEffect(() => {
-    const values = getContactobyId(id)
-    formik.setValues ({
-      "correo" : `${values? values.correo : ''}`,
-      "phone" : `${values? values.phone : ''}`,
-    })   
+    
+    formik.setValues (cuentaData)   
   }, [])
+
+  const reset = () =>{
+      formik.resetForm({values:cuentaData})
+  }
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: ContactoType, { resetForm }) => {
+    onSubmit: (values: ContactoCuentaFormType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
-      resetForm();
     },
     validate: validacionContactoDetalle,
   });
@@ -65,7 +71,7 @@ export const ContactoDetalleForm = ({id}:propDetalleType) => {
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
           <button type='reset'
             className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-            onClick={() => formik.resetForm()}
+            onClick={() => reset()}
           >
             Cancelar
           </button>

@@ -1,15 +1,15 @@
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { RecoilState } from 'recoil';
+import { RecoilState, useRecoilValue } from 'recoil';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { InputTextareaField } from '../../shared/inputFields/InputTextareaField';
 import Plogo from '../../../assets/ProfileLogo.png'
-import { cuentaAgregaFormState } from '../../../atoms/CuentasAtoms';
+import { cuentaAgregaFormState } from '../../../atoms/cuentasAtoms';
 
 
 export const GeneralesCard = () => {
 
   const atomState: RecoilState<{}> = cuentaAgregaFormState;
-
+  const formik: any = useRecoilValue(atomState)
   return (
 
     <FormCardTemplate titulo='Generales'>
@@ -44,7 +44,7 @@ export const GeneralesCard = () => {
       <div className='flex tw-justify-end tw-w-full gap-4'>
         <button type='reset'
           className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
-              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} >
+              tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick = {() =>{formik.resetForm()}}>
           Cancelar
         </button>
         <button

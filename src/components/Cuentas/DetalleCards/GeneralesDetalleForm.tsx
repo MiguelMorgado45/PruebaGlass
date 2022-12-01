@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { GeneralType, propDetalleType } from '../types';
+import { CuentaFormType } from '../types';
 import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
@@ -9,7 +9,7 @@ import { generalDetalleFormState } from '../../../atoms/CuentasAtoms';
 import { getCuentabyId } from '../../../helpers/getCuentabyId';
 import { validacionGeneralDetalle } from './validacionCuentaDetalle';
 
-export const GeneralesDetalleForm = ({ id }: propDetalleType) => {
+export const GeneralesDetalleForm = ({ id } : any) => {
 
   const atomState: RecoilState<{}> = generalDetalleFormState;
 
@@ -17,25 +17,30 @@ export const GeneralesDetalleForm = ({ id }: propDetalleType) => {
 
   const [loading, setLoading] = useState(false);
 
-  let valorInicial: GeneralType = {
-    name: '',
+  let valorInicial: CuentaFormType = {
+    cuenta: '',
     alta: "",
     descripcion: '',
   }
   
+  const values = getCuentabyId(id)
+  const cuentaData = {
+    "cuenta" : `${values? values.cuenta : ''}`,
+    "alta" : `${values? values.alta : undefined}`,
+    "descripcion" : `${values? values.descripcion : ''}`
+  }
 
   useEffect(() => {
-    const values = getCuentabyId(id)
-    formik.setValues ({
-      "name" : `${values? values.name : ''}`,
-      "alta" : `${values? values.alta : undefined}`,
-      "descripcion" : `${values? values.descripcion : ''}`
-    })   
+    formik.setValues (cuentaData)   
   }, [])
+
+  const reset = () =>{
+    formik.resetForm({values: cuentaData})
+}
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: GeneralType) => {
+    onSubmit: (values: CuentaFormType) => {
       alert(JSON.stringify(values, null, 2));
     },
     validate: validacionGeneralDetalle,
@@ -60,7 +65,7 @@ export const GeneralesDetalleForm = ({ id }: propDetalleType) => {
           <InputTextField
             label='Nombre de la cuenta'
             placeholder="Nombre de la cuenta"
-            name='name'
+            name='cuenta'
             formikState={atomState}
           />
           <CalendarField
@@ -80,7 +85,7 @@ export const GeneralesDetalleForm = ({ id }: propDetalleType) => {
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
           <button type='reset'
             className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
-            onClick={() => formik.resetForm()}
+            onClick={() => reset()}
           >
             Cancelar
           </button>
