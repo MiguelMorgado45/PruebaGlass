@@ -35,7 +35,6 @@ export const DomicilioDetalleForm = ({id}:PropType) => {
     initialValues: { ...valorInicial },
     onSubmit: (values: DomicilioClienteFormType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
-      resetForm();
     },
     validate: validacionDomicilioDetalleForm,
   });
@@ -45,19 +44,25 @@ export const DomicilioDetalleForm = ({id}:PropType) => {
     setLoading(true)
   }, [formik.values, formik.errors, formik.touched])
 
+  const cliente = getClientebyId(id);
+  const clienteData = {
+    calle: cliente? cliente.calle : '',
+    exterior: cliente? cliente.exterior : '',
+    interior: cliente? cliente.interior : '',
+    colonia: cliente? cliente.colonia : '',
+    alcaldia: cliente? cliente.alcaldia : '',
+    estado: cliente? cliente.estado : '',
+    pais: cliente? cliente.pais : '',
+    codigoPostal: cliente? cliente.codigoPostal : '',
+  }
+
   useEffect(() => {
-    const cliente = getClientebyId(id);
-    formik.setValues({
-      calle: cliente? cliente.domicilio.calle : '',
-      exterior: cliente? cliente.domicilio.exterior : '',
-      interior: cliente? cliente.domicilio.interior : '',
-      colonia: cliente? cliente.domicilio.colonia : '',
-      alcaldia: cliente? cliente.domicilio.alcaldia : '',
-      estado: cliente? cliente.domicilio.estado : '',
-      pais: cliente? cliente.domicilio.pais : '',
-      codigoPostal: cliente? cliente.domicilio.codigoPostal : '',
-    })
+    formik.setValues(clienteData)
   }, [])
+
+  const reset = () => {
+    formik.resetForm({ values: clienteData })
+  }
 
   return loading === true ? (
     <FormCardTemplate titulo='Domicilio Fiscal'>
@@ -134,7 +139,7 @@ export const DomicilioDetalleForm = ({id}:PropType) => {
           </div>
           <div className='tw-w-full flex tw-justify-center gap-4'>
 
-            <button type='reset' onClick={() => { domicilioForm.resetForm() }}
+            <button type='reset' onClick={() => { reset() }}
               className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
                         tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
               Cancelar

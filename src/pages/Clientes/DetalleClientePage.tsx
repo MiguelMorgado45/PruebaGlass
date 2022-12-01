@@ -12,7 +12,7 @@ export const DetalleClientePage = () => {
   const cliente = getClientebyId(id);
 
   const title = {
-    title: `Clientes / ${cliente?.fiscal.nombreComercial}`,
+    title: `Clientes / ${cliente?.nombreComercial}`,
     breadcrums: true,
   }
 
