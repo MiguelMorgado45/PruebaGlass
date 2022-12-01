@@ -2,11 +2,9 @@ import {useState} from 'react'
 
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { InputSwitch } from 'primereact/inputswitch';
  
 import { getTemplates } from '../shared/dataTables/templates/getTemplates';
-import { contrataciones } from '../../data/dataContrataciones';
-import { getLogoProductos } from '../../helpers/getLogoProductos';
+import { contratacionestable } from '../../data/dataContrataciones';
 
 export const ContratacionesDataTable = () => {
 
@@ -18,7 +16,7 @@ export const ContratacionesDataTable = () => {
     return (
         <div className='tw-w-full'>
             <div className="tw-w-full">
-                <DataTable value={contrataciones} responsiveLayout="scroll" selection={selectedCuentas} onSelectionChange={e => setSelectedCuentas(e.value)} dataKey="id">
+                <DataTable value={contratacionestable} responsiveLayout="scroll" selection={selectedCuentas} onSelectionChange={e => setSelectedCuentas(e.value)} dataKey="id">
                     <Column selectionMode="multiple" headerStyle={{width: '3em'}}></Column>
                     <Column field="cliente" header="Cliente" sortable></Column>
                     <Column body={productLogoTemplate} header="Productos" ></Column>

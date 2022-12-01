@@ -3,7 +3,7 @@ import {Steps} from 'primereact/steps'
 import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { validacionOperadorCard } from '../../components/Contrataciones/FormCards/validacionOperadorForm';
-import { OperadorFormType } from '../../components/Contrataciones/types';
+import { ContracionFormType } from '../../components/Contrataciones/types';
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate';
 import '../../styles/contrataciones.css'
 import { ClienteCard } from '../../components/Contrataciones/FormCards';
@@ -20,13 +20,13 @@ export const AgregarContratacionesPage = () => {
   const [operadorForm, setOperadorForm] = useRecoilState<any>(contratacionAgregaFormState)
   const [loading, setLoading] = useState(false);
 
-  const valorInicial: OperadorFormType = {
+  const valorInicial: ContracionFormType = {
     cliente: '',
     descr: '',
     producto: '',
     contratados : 0,
     alta: '',
-    vencimiento: '',
+    expira: '',
     costo : 0,
     estado : '',
     nombreContacto: '', 
@@ -39,7 +39,7 @@ export const AgregarContratacionesPage = () => {
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: OperadorFormType, { resetForm }) => {
+    onSubmit: (values: ContracionFormType, { resetForm }) => {
       alert(JSON.stringify(values, null, 2));
       resetForm();
     },
