@@ -1,12 +1,8 @@
-import { RecoilState, useRecoilValue } from 'recoil';
-import { operadorCardFormState } from '../../../atoms/FormAtoms';
-import { operadorDetalleFormState } from '../../../atoms/OperadorAtom';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate'
-import { DropdownField, InputTextareaField, InputTextField } from '../../shared/inputFields'
 
 interface RolesGeneralProps {
     nombre: string,
-    descr: string
+    descr: string 
 }
 
 export const GeneralesCard = ({ nombre, descr }: RolesGeneralProps) => {

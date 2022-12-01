@@ -5,19 +5,29 @@ import { useRecoilState } from 'recoil'
 import { operadorRolesFormState } from '../../atoms/OperadorAtom'
 import { GeneralesCard } from '../../components/Operadores/FormCards/GeneralesCard'
 import { RolesCard } from '../../components/Operadores/FormCards'
-import { OperadoresDetalleType } from '../../components/Operadores/types'
 import { getOperadorbyId } from '../../helpers/getOperadorbyId'
 import { ContentTemplate } from '../../templates/ContentTemplate/ContentTemplate'
+import { RolesType } from '../../components/Operadores/types'
+
+const rolVacio = {
+    id: '',
+    rol: '',
+    descr: ''
+}
 
 export const AgregarRoles = () => {
     const location = useLocation();
-    const values = getOperadorbyId(location.state.id)
 
     const [operadorForm, setOperadorForm] = useRecoilState<any>(operadorRolesFormState)
     const [loading, setLoading] = useState(false);
+    const [operador, setOperador] = useState<any>({
+        nombre: '',
+        descripcion: '',
+        selected: rolVacio
+    })
 
-    const valorInicial: OperadoresDetalleType = {
-        selected: null,
+    const valorInicial: RolesType = {
+        selected: [rolVacio],
     }
 
     const formik = useFormik({
@@ -33,9 +43,16 @@ export const AgregarRoles = () => {
     }, [formik.values, formik.errors, formik.touched])
 
     useEffect(() => {
+        const values = getOperadorbyId(location.state.id)
         formik.setValues({
-            selected: values ? values.roles : ''
+            selected: values ? values.roles : [rolVacio]
         })
+        setOperador((anterior:any)=> ({
+            ...anterior,
+            nombre: values ? values.nombre : '',
+            descripcion: values ? values.descr : '',
+            selected: values ? values.roles : [rolVacio]
+        }))
     }, [])
 
     const title = {
@@ -47,12 +64,10 @@ export const AgregarRoles = () => {
         <ContentTemplate titleProps={title}>
             <div className="tw-w-full flex flex-column tw-mx-48">
                 <form onSubmit={operadorForm.handleSubmit}>
-                    <GeneralesCard nombre={values ? values.name : ''} descr={values ? values.descr : ''}/>
-                    <RolesCard initial = {values ? values.roles : ''} /> 
+                    <GeneralesCard nombre={operador.nombre} descr={operador.descripcion} />
+                    <RolesCard selected={operador.selected} />
                 </form>
-
             </div>
-
         </ContentTemplate>
     ) : null
 }

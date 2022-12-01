@@ -1,18 +1,24 @@
 export type OperadoresFormType = {
     nombre: string,
-    fechaAlta?: string  | undefined,
+    alta?: string,
     correo?: string,
     telefono?: string,
+    area? : string,
     descripcion?: string,
-    selected?: any
+    selected? : SelectedRolType
 }
 
-export type OperadoresDetalleType = {
-    nombre?: string,
-    correo?: string,
-    telefono?: string,
-    area?: string,
-    alta?: string,
-    descripcion?: string,
-    selected?: any
+export type RolesType = {
+    selected: SelectedRolType[]
+}
+
+export type SelectedRolType = {
+    id: string,
+    rol: string,
+    descr: string
+}
+
+export type GeneralRolesType = {
+    nombre: string,
+    descr: string | undefined
 }

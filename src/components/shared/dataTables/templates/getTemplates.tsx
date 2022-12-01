@@ -84,7 +84,6 @@ export const getTemplates = () => {
     }
 
     const rolesTemplate = (rowData: any) => {
-        console.log("este row", rowData.roles)
         return (
             <div>
                 Administrador de : 

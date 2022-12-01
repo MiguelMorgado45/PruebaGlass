@@ -1,5 +1,4 @@
 import { RecoilState, useRecoilValue } from 'recoil';
-
 import { Divider } from 'primereact/divider';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { CalendarField } from '../../shared/inputFields/CalendarField';
@@ -44,7 +43,7 @@ export const OperadorCard = () => {
           <CalendarField
             label="Fecha de Alta:"
             placeholder="DD/MM/AAAA"
-            name='fechaAlta'
+            name='alta'
             formikState={atomState}
           />
 
