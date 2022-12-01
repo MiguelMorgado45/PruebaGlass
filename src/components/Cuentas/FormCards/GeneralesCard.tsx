@@ -3,8 +3,7 @@ import { RecoilState, useRecoilValue } from 'recoil';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { InputTextareaField } from '../../shared/inputFields/InputTextareaField';
 import Plogo from '../../../assets/ProfileLogo.png'
-import { cuentaAgregaFormState } from '../../../atoms/cuentasAtoms';
-
+import { cuentaAgregaFormState } from '../../../atoms/CuentasAtoms';
 
 export const GeneralesCard = () => {
 

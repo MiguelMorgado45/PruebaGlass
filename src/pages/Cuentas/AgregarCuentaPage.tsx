@@ -5,7 +5,8 @@ import { useFormik } from 'formik';
 import { CuentaFormType } from '../../components/Cuentas/types';
 import { validacionCuentaCardAgregar } from '../../components/Cuentas/FormCards/validacionCuentaForm';
 import { GeneralesCard } from '../../components/Cuentas/FormCards/GeneralesCard';
-import { cuentaAgregaFormState } from '../../atoms/cuentasAtoms';
+import { cuentaAgregaFormState } from '../../atoms/CuentasAtoms';
+
 
 export const AgregarCuentaPage = () => {
 

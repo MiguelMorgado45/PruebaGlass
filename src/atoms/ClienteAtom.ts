@@ -6,11 +6,11 @@ export const clienteAgregaFormState = atom({
   });
 
 export const generalesDetalleFormAtom = atom({
-    key: 'generalesDetalleFormAtom',
+    key: 'clienteGeneralesDetalleFormAtom',
     default: {},
 });
 
 export const domicilioDetalleFormAtom = atom({
-    key: 'domicilioDetalleFormAtom',
+    key: 'clienteDomicilioDetalleFormAtom',
     default: {},
 });
