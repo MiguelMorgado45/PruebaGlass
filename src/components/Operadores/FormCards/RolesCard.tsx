@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
-import { useFormik } from 'formik';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { rolesOperadores } from '../../../data/dataOperadores';
 import { useRecoilValue } from 'recoil';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { operadorRolesFormState } from '../../../atoms/OperadorAtom';
+import { RolesType } from '../types';
 
+export const RolesCard = ({ selected }: RolesType) => {
 
-export const RolesCard = ({initial}:any) => {
-   console.log(initial)
-  const [selectedCuentas, setSelectedCuentas] = useState(initial)
+  const [selectedCuentas, setSelectedCuentas] = useState(selected)
   const formik = useRecoilValue<any>(operadorRolesFormState);
   const { setFieldValue }: any = formik;
 
@@ -23,7 +22,7 @@ export const RolesCard = ({initial}:any) => {
       <FormCardTemplate titulo='Asignar Roles'>
         <div className="tw-w-full">
           <DataTable value={rolesOperadores} responsiveLayout="scroll" selection={selectedCuentas}
-                     onSelectionChange={e => setSelectedCuentas(e.value)} dataKey="id" name='selected'>
+            onSelectionChange={e => setSelectedCuentas(e.value)} dataKey="id" name='selected'>
             <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
             <Column field="rol" header="Rol" ></Column>
             <Column field="descr" header="Descripción" ></Column>
@@ -31,7 +30,10 @@ export const RolesCard = ({initial}:any) => {
         </div>
         <div className='tw-w-full flex tw-justify-end gap-4 tw-mt-4 tw-pt-4'>
 
-          <button type='reset' onClick={() => { formik.resetForm() }}
+          <button type='button'
+            onClick={() => {
+              setSelectedCuentas (selected)
+            }}
             className={`tw-text-sm tw-w-1/5 tw-font-semibold tw-bg-gray-200 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
             Cancelar
           </button>

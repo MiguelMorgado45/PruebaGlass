@@ -15,7 +15,7 @@ export const AgregarOperadorPage = () => {
 
   const valorInicial: OperadoresFormType = {
     nombre: '',
-    fechaAlta: '',
+    alta: '',
     correo: '',
     telefono: '',
     descripcion: '',

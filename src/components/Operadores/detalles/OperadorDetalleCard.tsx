@@ -1,4 +1,4 @@
-import { RecoilState, useRecoilState, useRecoilValue } from 'recoil';
+import { RecoilState, useRecoilState } from 'recoil';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
 import { CalendarField } from '../../shared/inputFields/CalendarField';
 import { InputMaskField } from '../../shared/inputFields/InputMaskField';
@@ -6,7 +6,7 @@ import { DropdownField } from '../../shared/inputFields';
 import { operadorDetalleFormState } from '../../../atoms/OperadorAtom';
 import { CardTemplate } from '../../../templates/CardTemplate/CardTemplate';
 import { useEffect, useState } from 'react';
-import { OperadoresDetalleType } from '../types';
+import { OperadoresFormType } from '../types';
 import { useFormik } from 'formik';
 import { validacionOperadorDetallesCard } from './validacionOperadoresDetalleForm';
 import { getOperadorbyId } from '../../../helpers/getOperadorbyId';
@@ -18,24 +18,29 @@ type propType = {
 export const OperadorDetalleCard = ({ id }: propType) => {
 
   const atomState: RecoilState<{}> = operadorDetalleFormState;
-  const formikOperadorDetalle = useRecoilValue<any>(atomState);
 
   const [operadorForm, setOperadorForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
-
-  const valorInicial: OperadoresDetalleType = {
+  const [initialValues, setInitialValues] = useState<OperadoresFormType>({
     nombre: '',
     correo: '',
-    telefono: '',
+    telefono: '00-0000-0000',
     area: '',
-    alta: ''
+    alta: '',
+  })
+
+  const valorInicial: OperadoresFormType = {
+    nombre: '',
+    correo: '',
+    telefono: '00-0000-0000',
+    area: '',
+    alta: '',
   }
 
   const formik = useFormik({
     initialValues: { ...valorInicial },
-    onSubmit: (values: any, { resetForm }) => {
-      alert(JSON.stringify(values, null, 2));
-      resetForm();
+    onSubmit: (values: any) => {
+      alert(JSON.stringify(values, null, 2));;
     },
     validate: validacionOperadorDetallesCard
   });
@@ -48,12 +53,21 @@ export const OperadorDetalleCard = ({ id }: propType) => {
   useEffect(() => {
     const values = getOperadorbyId(id)
     formik.setValues({
-      nombre: values ? values.name : '',
+      nombre: values ? values.nombre : '',
       correo: values ? values.usuario : '',
       telefono: values ? values.telefono : '',
       area: values ? values.area : '',
       alta: values ? values.alta : ''
     })
+
+    setInitialValues((anterior) => ({
+      ...anterior,
+      nombre: values ? values.nombre : '',
+      correo: values ? values.usuario : '',
+      telefono: values ? values.telefono : '00-0000-0000',
+      area: values ? values.area : '',
+      alta: values ? values.alta : ''
+    }))
 
   }, [])
 
@@ -111,7 +125,16 @@ export const OperadorDetalleCard = ({ id }: propType) => {
 
                 <div className='tw-w-full flex tw-justify-center gap-4 tw-mt-4 tw-pt-4'>
 
-                  <button type='reset' onClick={() => { formikOperadorDetalle.resetForm() }}
+                  <button type='button'
+                    onClick={() => {
+                      operadorForm.resetForm({values:{
+                        nombre: initialValues.nombre,
+                        correo: initialValues.correo,
+                        telefono: initialValues.telefono,
+                        area: initialValues.area,
+                        alta: initialValues.alta
+                      }})
+                    }}
                     className={`tw-text-sm tw-w-2/5 tw-font-semibold tw-bg-gray-200 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
                     Cancelar
                   </button>

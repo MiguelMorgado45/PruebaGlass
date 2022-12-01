@@ -1,4 +1,4 @@
-import { OperadoresDetalleType } from "../types";
+import { OperadoresFormType } from "../types";
 
 type errorType = {
     nombre?: string;
@@ -8,7 +8,7 @@ type errorType = {
     alta?: string;
 }
 
-export const validacionOperadorDetallesCard = (values:OperadoresDetalleType ) => {
+export const validacionOperadorDetallesCard = (values:OperadoresFormType ) => {
     let errors : errorType = {};
     if (!values.nombre){
         errors.nombre = "Por favor, ingrese el nombre del operador"

@@ -5,7 +5,7 @@ export const operadores = [
     {
         id: '1',
         logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-staff_ysea0k.svg',
-        name: 'Nancy Cruz Corona',
+        nombre: 'Nancy Cruz Corona',
         usuario: 'nancy.cruz@timeweb',
         telefono: '55 1992 0550',
         roles: [{
@@ -21,7 +21,7 @@ export const operadores = [
     {
         id: '2',
         logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-staff_ysea0k.svg',
-        name: 'Anabel Orozco Gómez',
+        nombre: 'Anabel Orozco Gómez',
         usuario: 'anabel.orozco@timeweb',
         telefono: '55 4610 4412',
         roles:  [
@@ -50,7 +50,7 @@ export const operadores = [
     {
         id: '3',
         logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-staff_ysea0k.svg',
-        name: 'Omar Oyorzabal Ramírez',
+        nombre: 'Omar Oyorzabal Ramírez',
         usuario: 'omar.oyorzabal@timeweb',
         telefono: '55 9015 0010',
         roles:  [
@@ -103,7 +103,7 @@ export const operadores = [
     {
         id: '4',
         logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-staff_ysea0k.svg',
-        name: 'Eduardo Ramírez Carmona',
+        nombre: 'Eduardo Ramírez Carmona',
         usuario: 'eduardo.ramirez@timeweb',
         telefono: '55 1992 0550',
         roles:  [
@@ -126,7 +126,7 @@ export const operadores = [
     {
         id: '5',
         logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-staff_ysea0k.svg',
-        name: 'Anelia Ramírez Hernández',
+        nombre: 'Anelia Ramírez Hernández',
         usuario: 'anelia@timeweb',
         telefono: '55 2588 4536',
         roles:  [
@@ -144,7 +144,7 @@ export const operadores = [
     {
         id: '6',
         logo: 'https://res.cloudinary.com/journal-app-nom-nom/image/upload/v1664982610/TWComponents/icon-staff_ysea0k.svg',
-        name: 'Fernando Cárdenas Vázquez',
+        nombre: 'Fernando Cárdenas Vázquez',
         usuario: 'fernando.cardenas@timeweb',
         telefono: '55 1992 0550',
         roles:  [
