@@ -1,21 +1,21 @@
 import { atom } from "recoil";
 
 export const cuentaAgregaFormState = atom({
-    key: 'cuentaAgregaFormState',
+    key: 'cuentasAgregaFormState',
     default: {},
   });
 
 export const generalDetalleFormState = atom({
-    key: 'generalDetalleFormState',
+    key: 'cuentaGeneralDetalleFormState',
     default: {},
   });
 
 export const contactoDetalleFormState = atom({
-    key: 'contactoDetalleFormState',
+    key: 'cuentaContactoDetalleFormState',
     default: {},
   });
 
 export const vendedorDetalleFormState = atom({
-    key: 'vendedorDetalleFormState',
+    key: 'cuentaVendedorDetalleFormState',
     default: {},
   });

@@ -6,6 +6,7 @@ import Plogo from '../../../assets/ProfileLogo.png'
 import { cuentaAgregaFormState } from '../../../atoms/cuentasAtoms';
 
 
+
 export const GeneralesCard = () => {
 
   const atomState: RecoilState<{}> = cuentaAgregaFormState;
