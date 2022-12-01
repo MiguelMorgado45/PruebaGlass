@@ -122,7 +122,7 @@ export const ContactoDetalleForm = ({ id }: PropType) => {
 
 
             <div className='flex tw-items-center tw-mt-6 tw-justify-center tw-w-full gap-3 tw-text-sm tw-font-semibold'>
-              <button type='reset'
+              <button type='button'
                 className={`tw-w-36 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
                 onClick={() => reset()}
               >

@@ -106,7 +106,7 @@ export const GeneralesDetalleForm = ({ id }: PropType) => {
         </div>
 
         <div className='tw-w-full flex tw-justify-center gap-4'>
-          <button type='reset' onClick={() => { reset() }}
+          <button type='button' onClick={() => { reset() }}
             className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
                         tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`}>
             Cancelar

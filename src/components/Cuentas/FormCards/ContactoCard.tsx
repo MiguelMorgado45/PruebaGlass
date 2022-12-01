@@ -1,15 +1,15 @@
 import { useFormik } from 'formik';
 import { RecoilState } from 'recoil';
-import { cuentaCardFormState } from '../../../atoms/FormAtoms';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
-import { ContactoType } from '../types';
+import { ContactoCuentaFormType } from '../types';
 import { InputTextField } from '../../shared/inputFields/InputTextField';
+import { cuentaAgregaFormState } from '../../../atoms/CuentasAtoms';
 
 export const ContactoCard = () => {
 
-  const atomState:RecoilState<{}> = cuentaCardFormState;
+  const atomState:RecoilState<{}> = cuentaAgregaFormState;
 
-  const valorInicial: ContactoType = {
+  const valorInicial: ContactoCuentaFormType = {
     correo: '',
     phone: '',
   }
@@ -42,7 +42,7 @@ export const ContactoCard = () => {
         </div>
 
         <div className='flex tw-justify-end tw-w-full gap-4 tw-text-sm tw-font-semibold'>
-          <button type='reset'
+          <button type='button'
             className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
             onClick={() => formik.resetForm()}
           >

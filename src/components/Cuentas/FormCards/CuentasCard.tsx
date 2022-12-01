@@ -1,5 +1,4 @@
-import { cuentaCardFormState } from '../../../atoms/FormAtoms';
-import { CuentaFormType, GeneralType } from '../types';
+import { CuentaFormType } from '../types';
 import { Divider } from 'primereact/divider';
 import { FormCardTemplate } from '../../../templates/FormCardTemplate/FormCardTemplate';
 import { InputTextField, CalendarField, InputTextareaField, InputMaskField } from '../../shared/inputFields';
@@ -7,18 +6,19 @@ import { RecoilState, useRecoilState } from 'recoil';
 import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import { validacionCuentaCard } from './validacionCuentaForm';
+import { cuentaAgregaFormState } from '../../../atoms/CuentasAtoms';
 
 
 export const CuentasCard = () => {
 
-  const atomState:RecoilState<{}> = cuentaCardFormState;
+  const atomState:RecoilState<{}> = cuentaAgregaFormState;
 
   const [cuentaForm, setCuentaForm] = useRecoilState<any>(atomState)
   const [loading, setLoading] = useState(false);
 
   const valorInicial: CuentaFormType = {
     cuenta: '',
-    fechaAlta: undefined,
+    alta: undefined,
     descripcion: '',
     correo: '',
     phone: ''
@@ -55,7 +55,7 @@ export const CuentasCard = () => {
             <CalendarField
               label="Fecha de Alta:"
               placeholder="DD/MM/AAAA"
-              name='fechaAlta'
+              name='alta'
               formikState={atomState}
             />
           </div>
@@ -90,7 +90,7 @@ export const CuentasCard = () => {
 
         </FormCardTemplate>
         <div className='flex tw-justify-center tw-w-full gap-4 tw-text-sm tw-font-semibold'>
-          <button type='reset'
+          <button type='button'
             className={`tw-w-40 tw-h-fit tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600 tw-bg-gray-200`}
             onClick={() => formik.resetForm()}
           >

@@ -30,7 +30,7 @@ export const GeneralesCard = () => {
       </div>
       <InputTextField
         label="Nombre de la Cuenta"
-        placeholder="nombre de la cuenta"
+        placeholder="Nombre de la cuenta"
         name='cuenta'
         formikState={atomState}
       />
@@ -42,7 +42,7 @@ export const GeneralesCard = () => {
       />
 
       <div className='flex tw-justify-end tw-w-full gap-4'>
-        <button type='reset'
+        <button type='button'
           className={`tw-text-sm tw-w-40 tw-font-semibold tw-bg-gray-200 tw-h-fit
               tw-px-4 tw-py-3 tw-rounded-md tw-text-gray-600`} onClick = {() =>{formik.resetForm()}}>
           Cancelar
