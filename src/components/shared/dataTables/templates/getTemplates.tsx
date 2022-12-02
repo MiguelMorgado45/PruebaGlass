@@ -42,7 +42,7 @@ export const getTemplates = () => {
 
     const agregarContratacionTemplate = (rowData: any) => {
         return (
-            <Link to={`/contrataciones/agregar`}>
+            <Link to={`agregarContratacion`}>
                 <button className={`tw-text-xs tw-w-16 tw-h-8 tw-bg-gray-300 tw-rounded-md tw-text-gray-700`}>Agregar</button>
             </Link>)
     }
@@ -58,13 +58,13 @@ export const getTemplates = () => {
 
     const navegarAgregarCl = (id: any) => {
         localStorage.setItem('id', JSON.stringify(id));
-        navigate(`/clientes/agregar`)
+        navigate(`agregarCliente`)
 
     }
 
     const navegarAgregarOp = (id: any) => {
         localStorage.setItem('id', JSON.stringify(id));
-        navigate(`/operadores/agregar`)
+        navigate(`agregarOperador`)
 
     }
 

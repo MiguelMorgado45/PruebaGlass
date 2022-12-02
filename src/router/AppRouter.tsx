@@ -16,17 +16,17 @@ const AppRouter = () => {
                     <Route path="cuentas" element={<CuentasPage />} />
                     <Route path="cuentas/agregar" element={<AgregarCuentaPage />} />
                     <Route path="cuentas/detalle/:id" element={<DetalleCuentaPage />} />
+                    <Route path="cuentas/agregarCliente" element={<AgregarClientePage />} />
+                    <Route path="cuentas/agregarOperador" element={<AgregarOperadorPage />} />
 
                     <Route path="clientes" element={<ClientesPage/>} />
-                    <Route path="clientes/agregar" element={<AgregarClientePage />} />
                     <Route path="clientes/detalle/:id" element={<DetalleClientePage />} />
+                    <Route path="clientes/agregarContratacion" element={<AgregarContratacionesPage />} />
 
                     <Route path="contrataciones" element={<ContratacionesPage />} />
-                    <Route path="contrataciones/agregar" element={<AgregarContratacionesPage />} />
                     <Route path="contrataciones/detalle/:id" element={<DetalleContratacionPage />} />
 
                     <Route path="operadores" element={<OperadoresPage />} />
-                    <Route path="operadores/agregar" element={<AgregarOperadorPage />} />
                     <Route path="operadores/detalle/:id" element={<DetalleOperadorPage />} />
                     <Route path="operadores/agregarRol/:id" element={<AgregarRoles />} />
 
